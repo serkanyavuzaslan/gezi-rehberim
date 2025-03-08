@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkiye Gezi Rehberi - Mood Testi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fff5eb;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff8c00, #e65100);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .test-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            min-height: 400px;
+            position: relative;
+        }
+        
+        .question-container {
+            display: none;
+        }
+        
+        .question-container.active {
+            display: block;
+        }
+        
+        .question {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #e65100;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .option {
+            padding: 15px;
+            background-color: #fff5eb;
+            border: 2px solid #ffe0b2;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .option:hover {
+            background-color: #ffead1;
+            border-color: #ffb74d;
+        }
+        
+        .option.selected {
+            background-color: #ffe0b2;
+            border-color: #ff9800;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
+        .next-btn, .finish-btn {
+            padding: 12px 24px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .next-btn.active, .finish-btn.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .next-btn.active:hover, .finish-btn.active:hover {
+            background-color: #f57c00;
+        }
+        
+        .progress-container {
+            margin-bottom: 20px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #ffe0b2;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, #ff9800, #e65100);
+            width: 10%;
+            transition: width 0.3s ease;
+        }
+        
+        .question-number {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #e65100;
+            margin-top: 5px;
+        }
+        
+        .result-container {
+            display: none;
+            text-align: center;
+        }
+        
+        .result-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #e65100;
+        }
+        
+        .result-description {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .destination {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff3e0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .destination h3 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+        
+        .destination-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Türkiye Gezi Rehberi</h1>
+            <p class="description">Moodunuza göre Türkiye'de gezilecek en uygun yerleri bulun!</p>
+        </header>
+        
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="question-number" id="question-number">Soru 1/10</div>
+        </div>
+        
+        <div class="test-container">
+            <!-- Soru 1 -->
+            <div class="question-container active" data-question="1">
+                <h2 class="question">1. Tatilden öncelikle ne beklersiniz?</h2>
+                <div class="options">
+                    <div class="option" data-value="A">Dinlenme ve rahatlama</div>
+                    <div class="option" data-value="B">Macera ve keşif</div>
+                    <div class="option" data-value="C">Kültür ve tarih</div>
+                </div>
+                <div class="navigation">
+                    <button class="next-btn" id="next-btn-1">Sıradaki Soruya Geç</button>
+                </div>
+            </div>
+            
+            <!-- Soru 2 -->
+            <div class="question-container" data-question="2">
+                <h2 class="question">2. Nasıl bir iklimde tatil yapmayı tercih edersiniz?</h2>
+                <div class="options">
+                    <div class="option" data-value="A">Sıcak ve güneşli</div>
+                    <div class="option" data-value="B">Ilıman ve ferah</div>
+                    <div class="option" data-value="C">Serin ve yağışlı</div>
+                </div>
+                <div class="navigation">
+                    <button class="next-btn" id="next-btn-2">Sıradaki Soruya Geç</button>
+                </div>
+            </div>
+            
+            <!-- Soru 3 -->
+            <div class="question-container" data-question="3">
+                <h2 class="question">3. Tatilde en çok ne yapmaktan hoşlanırsınız?</h2>
+                <div class="options">
+                    <div class="option" data-value="A">Plajda güneşlenmek ve yüzmek</div>
+                    <div class="option" data-value="B">Doğa yürüyüşleri ve dağ tırmanışı</div>
+                    <div class="option" data-value="C">Müze ve tarihi yerleri gezmek</div>
+                </div>
+                <div class="navigation">
+                    <button class="next-btn" id="next-btn-3">Sıradaki Soruya Geç</button>
+                </div>
+            </div>
+            
+            <!-- Soru 4 -->
+            <div class="question-container" data-question="4">
+                <h2 class="question">4. Tatilde konaklama tercihiniz nedir?</h2>
+                <div class="options">
+                    <div class="option" data-value="A">Lüks otel veya resort</div>
+                    <div class="option" data-value="B">Kamp veya bungalov</div>
+                    <div class="option" data-value="C">Butik otel veya tarihi konak</div>
+                </div>
+                <div class="navigation">
+                    <button class="next-btn" id="next-btn-4">Sıradaki Soruya Geç</button>
+                </div>
+            </div>
+            
+            <!-- Soru 5 -->
+            <div class="question-container" data-question="5">
+                <h2 class="question">5. Tatilde yeme-içme konusunda önceliğiniz nedir?</h2>
+                <div class="options">
+                    <div class="option" data-value="A">Lüks restoranlar ve fine dining</div>
+                    <div class="option" data-value="B">Yerel lezzetler ve sokak yemekleri</div>
+                    <div class="option" data-value="C">Otantik ve geleneksel mutfak</div>
+                </div>
+                <div class="navigation">
+                    <button class="next-btn" id="next-btn-5">Sıradaki Soruya Geç</button>
+                </div>
+            </div>
+            
+            <!-- Soru 6 -->
+            <div class="question-container" data-question="6">
+                <h2 class="question">6. Tatile kiminle çıkmayı tercih edersiniz?</h2>
+                <div class="options">
+                    <div class="option" data-value="A">Ailemle veya partnerimle</div>
+                    <div class="option" data-value="B">Arkadaş grubuyla</div>
+                    <div class="option" data-value="C">Yalnız</div>
+                </div>
+                <div class="navigation">
+                    <button class="next-btn" id="next-btn-6">Sıradaki Soruya Geç</button>
+                </div>
+            </div>
+            
+            <!-- Soru 7 -->
+            <div class="question-container" data-question="7">
+                <h2 class="question">7. Tatil bütçeniz için aşağıdakilerden hangisi daha uygundur?</h2>
+                <div class="options">
+                    <div class="option" data-value="A">Lüks - fiyat önemli değil</div>
+                    <div class="option" data-value="B">Orta - makul harcama</div>
+                    <div class="option" data-value="C">Ekonomik - tasarruflu</div>
+                </div>
+                <div class="navigation">
+                    <button class="next-btn" id="next-btn-7">Sıradaki Soruya Geç</button>
+                </div>
+            </div>
+            
+            <!-- Soru 8 -->
+            <div class="question-container" data-question="8">
+                <h2 class="question">8. Tatil için ideal süreniz nedir?</h2>
+                <div class="options">
+                    <div class="option" data-value="A">Hafta sonu (1-3 gün)</div>
+                    <div class="option" data-value="B">Bir hafta (4-7 gün)</div>
+                    <div class="option" data-value="C">Uzun dönem (8+ gün)</div>
+                </div>
+                <div class="navigation">
+                    <button class="next-btn" id="next-btn-8">Sıradaki Soruya Geç</button>
+                </div>
+            </div>
+            
+            <!-- Soru 9 -->
+            <div class="question-container" data-question="9">
+                <h2 class="question">9. Tatilde en çok hangi aktiviteyi yapmak sizi mutlu eder?</h2>
+                <div class="options">
+                    <div class="option" data-value="A">Su sporları ve deniz aktiviteleri</div>
+                    <div class="option" data-value="B">Doğa fotoğrafçılığı ve manzara seyretme</div>
+                    <div class="option" data-value="C">Yerel halkla tanışma ve kültürel etkinlikler</div>
+                </div>
+                <div class="navigation">
+                    <button class="next-btn" id="next-btn-9">Sıradaki Soruya Geç</button>
+                </div>
+            </div>
+            
+            <!-- Soru 10 -->
+            <div class="question-container" data-question="10">
+                <h2 class="question">10. Şu anki ruh halinizi en iyi hangisi tanımlar?</h2>
+                <div class="options">
+                    <div class="option" data-value="A">Yorgun ve dinlenmeye ihtiyacım var</div>
+                    <div class="option" data-value="B">Heyecanlı ve enerjik</div>
+                    <div class="option" data-value="C">Meraklı ve keşfetmek istiyorum</div>
+                </div>
+                <div class="navigation">
+                    <button class="finish-btn" id="finish-btn">Testi Bitir</button>
+                </div>
+            </div>
+            
+            <!-- Sonuç Ekranı -->
+            <div class="result-container" id="result-container">
+                <h2 class="result-title">Sonuç</h2>
+                <p class="result-description" id="result-description"></p>
+                
+                <div class="destination" id="destination">
+                    <h3 id="destination-title"></h3>
+                    <p id="destination-description"></p>
+                    <img id="destination-image" class="destination-image" src="/api/placeholder/800/400" alt="Tatil destinasyonu">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const questions = document.querySelectorAll('.question-container');
+            const progressBar = document.getElementById('progress');
+            const questionNumber = document.getElementById('question-number');
+            const resultContainer = document.getElementById('result-container');
+            const resultDescription = document.getElementById('result-description');
+            const destinationTitle = document.getElementById('destination-title');
+            const destinationDescription = document.getElementById('destination-description');
+            const destinationImage = document.getElementById('destination-image');
+            
+            let currentQuestion = 1;
+            let answers = {};
+            
+            // Her soru için seçenekleri ve sonraki butonları tanımla
+            questions.forEach(question => {
+                const options = question.querySelectorAll('.option');
+                const questionId = question.getAttribute('data-question');
+                const nextBtn = question.querySelector('.next-btn') || question.querySelector('.finish-btn');
+                
+                // Seçenek tıklama işlevi
+                options.forEach(option => {
+                    option.addEventListener('click', function() {
+                        options.forEach(opt => opt.classList.remove('selected'));
+                        this.classList.add('selected');
+                        nextBtn.classList.add('active');
+                        
+                        // Cevabı sakla
+                        answers[questionId] = this.getAttribute('data-value');
+                    });
+                });
+                
+                // Sonraki butonu işlevi
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', function() {
+                        if (!this.classList.contains('active')) return;
+                        
+                        if (questionId === '10') {
+                            showResult();
+                        } else {
+                            // Şu anki soruyu gizle
+                            question.classList.remove('active');
+                            
+                            // Sonraki soruyu göster
+                            currentQuestion++;
+                            const nextQuestion = document.querySelector(`.question-container[data-question="${currentQuestion}"]`);
+                            nextQuestion.classList.add('active');
+                            nextQuestion.classList.add('fade-in');
+                            
+                            // İlerleme çubuğunu güncelle
+                            updateProgress();
+                        }
+                    });
+                }
+            });
+            
+            // İlerleme çubuğunu güncelle
+            function updateProgress() {
+                const progress = (currentQuestion / 10) * 100;
+                progressBar.style.width = `${progress}%`;
+                questionNumber.textContent = `Soru ${currentQuestion}/10`;
+            }
+            
+            // Sonuçları göster
+            function showResult() {
+                // Tüm soruları gizle
+                questions.forEach(q => q.classList.remove('active'));
+                
+                // Sonuç hesapla
+                const result = calculateResult();
+                
+                // Sonuç ekranını göster
+                resultContainer.classList.add('fade-in');
+                resultContainer.style.display = 'block';
+                
+                // İlerleme çubuğunu tamamla
+                progressBar.style.width = '100%';
+                questionNumber.textContent = 'Test tamamlandı';
+                
+                // Sonuçları ekrana yaz
+                resultDescription.textContent = result.description;
+                destinationTitle.textContent = result.title;
+                destinationDescription.textContent = result.detailedDescription;
+                destinationImage.alt = result.title;
+            }
+            
+            // Sonuçları hesapla
+            function calculateResult() {
+                // Cevapları analiz et
+                let countA = 0, countB = 0, countC = 0;
+                
+                for (const q in answers) {
+                    if (answers[q] === 'A') countA++;
+                    else if (answers[q] === 'B') countB++;
+                    else if (answers[q] === 'C') countC++;
+                }
+                
+                // Baskın cevap tipine göre sonucu döndür
+                if (countA >= countB && countA >= countC) {
+                    return {
+                        type: 'A',
+                        title: 'Antalya & Türk Rivierası',
+                        description: 'Dinlenme ve lüks arayan, rahatlamaya ihtiyaç duyan bir ruh halindesiniz.',
+                        detailedDescription: 'Antalya ve Türk Rivierası, muhteşem plajları, lüks otelleri ve dinlendirici atmosferiyle sizin için ideal bir destinasyon. Berrak denizi, güneşli iklimi ve her türlü konforu bulabileceğiniz tesisleriyle tatilinizin tadını çıkarabilirsiniz. Side, Alanya, Kemer, Belek gibi bölgelerde kendinizi şımartacak pek çok seçenek bulunuyor.'
+                    };
+                } else if (countB >= countA && countB >= countC) {
+                    return {
+                        type: 'B',
+                        title: 'Kapadokya',
+                        description: 'Macera ve keşif arayan, enerjik bir ruh halindesiniz.',
+                        detailedDescription: 'Kapadokya\'nın eşsiz peri bacaları, sıcak hava balonları ve doğal mağaraları sizin maceracı ruhunuzu tatmin edecek. Vadilerde yürüyüş, ATV turları, balon seyahati gibi aktivitelerle dolu bir tatil sizi bekliyor. Göreme, Uçhisar, Avanos ve Ürgüp\'teki mağara oteller ve butik tesisler size unutulmaz bir deneyim sunacak.'
+                    };
+                } else {
+                    return {
+                        type: 'C',
+                        title: 'İstanbul',
+                        description: 'Kültür ve tarih arayan, keşfetmeye meraklı bir ruh halindesiniz.',
+                        detailedDescription: 'İstanbul, iki kıtayı birleştiren konumu, binlerce yıllık tarihi, zengin kültürü ve muhteşem mimarisiyle keşfetmeyi seven sizin için mükemmel bir seçenek. Ayasofya, Topkapı Sarayı, Sultanahmet Camii, Kapalıçarşı gibi tarihi yerleri gezebilir, Boğaz turu yapabilir, otantik Türk lezzetlerini tadabilirsiniz. Şehrin kozmopolit yapısı ve canlı atmosferi ile kendinizi hiç sıkılmayacağınız bir kültür yolculuğunda bulacaksınız.'
+                    };
+                }
+            }
+        });
+    </script>
+</body>
+</html>

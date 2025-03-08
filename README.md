@@ -1,0 +1,1 @@
+# gezi rehberim web sitesi oluşturma.

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gezi Rehberim</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Harita Boyutu -->
+    <style>
+        #map {
+            height: 370px; /* Küçültülmüş harita */
+            width: 100%;
+            max-width: 1000px; /* Genişliği sınırlandır */
+            margin: auto; /* Ortala */
+            border-radius: 10px; /* Köşeleri yuvarlak yap */
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+    </style>    
+
+
+
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="logo">
+            <h2> gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#">Hakkımızda</a></li>
+                <li><a href="#">İletişim</a></li>
+                <!-- <li><a href="#">About</a></li> -->
+                <!-- <li><a href="#">Contact</a></li> -->
+            </ul>
+        </div>
+        <div class="icons">
+            <!-- <i class="fa-solid fa-bag-shopping"></i> -->
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+    <!-- main -->
+    <main class="main">
+        <div class="text">
+            <h1>Rotanı seç.</h1>
+            <p> Türkiye’nin en güzel köşelerini keşfetmeye hazır mısın? <br> Bu sitede, tarihi zenginliklerden doğal harikalara kadar gezilecek en özel yerleri bulabilir, <br> kendin için mükemmel rotayı oluşturabilirsin! 🚀🌍
+                </p>
+            <a href="nereyeGitmeliyim.html" target="_blank"><button>Nereye Gitmeliyim? <i class="fa-solid fa-angle-right"></i></button></a> 
+        </div>
+        <div class="img">
+            <img src="img/undraw_traveling_c18z-photoaidcom--photoaid-remove-background.png" alt="">
+        </div>
+    </main>
+    <!-- section -->
+    <section class="section-1">
+        <div class="services">
+            <div class="services-1">
+                <img src="img/undraw_trip_rh66.png" alt="">
+                <h3>Yola Çık!
+                </h3>
+                <p>Hayalindeki seyahati planla <br> Türkiye’yi adım adım gez.
+
+                </p>
+            </div>
+            <div class="services-1">
+                <img src="img/undraw_map_cuix.png" alt="">
+                <h3>Keşfet!</h3>
+                <p>Türkiye'nin en güzel köşelerini  <br> keşfet unutulmaz rotalar oluştur.</p>
+            </div>
+            <div class="services-1">
+                <img src="img/undraw_high-five_w86k.png" alt="">
+                <h3>Eğlen!</h3>
+                <p>Yeni yerler keşfederken <br> eğlenceyi doyasıya yaşa.</p>
+            </div>
+        </div>
+    </section>
+      <!-- GSAP -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+     <!-- My script -->
+      <script src="script.js"></script>
+
+
+      <h2 style="text-align: center;"><br><br>_________________</h2>
+      <div id="map"></div>
+
+    <!-- KUTUCUK KISMI -->
+
+    <div class="container">
+        <!-- Şehirler Kutusu -->
+        <div class="box">
+            <h2>Şehirler</h2>
+            <img src="img/undraw_town_oesm.png" alt="Şehirler" style="width: 280px;">
+            <p>Türkiye'nin en güzel şehirlerini keşfedin.</p>
+        </div>
+
+        <!-- Blog Kutusu -->
+        <div class="box">
+            <h2>Blog</h2>
+            <img src="img/undraw_add-user_rbko.png" alt="Blog" style="width: 220px;">
+            <p>Gezginlerin hikayeleri ve deneyimlerini okuyun.</p>
+        </div>
+
+        <!-- Önerilenler Kutusu -->
+        <div class="box">
+            <h2>Önerilenler</h2>
+            <img src="img/undraw_lightbulb-moment_c8jn.png" alt="Önerilenler" style="width: 130px;">
+            <p>Gezilecek en popüler yerler burada!</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+  
+      <!-- Leaflet JS -->
+      <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+      <script>
+          // 1️⃣ Haritayı Oluştur
+          var map = L.map('map').setView([39.9334, 32.8597], 6); // Türkiye'nin ortası
+  
+          // 2️⃣ Harita Katmanı (Arka Plan)
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '© OpenStreetMap contributors'
+          }).addTo(map);
+  
+          // 3️⃣ Konumlar
+          var places = [
+              { name: "İstanbul", lat: 41.0082, lng: 28.9784 },
+              { name: "Kapadokya", lat: 38.6454, lng: 34.8271 },
+              { name: "İzmir", lat: 38.4192, lng: 27.1287 },
+              { name: "Antalya", lat: 36.8969, lng: 30.7133 },
+              { name: "Ankara", lat: 39.9208, lng: 32.8541 }
+          ];
+  
+          // 4️⃣ İşaretleri Ekle
+          places.forEach(place => {
+              L.marker([place.lat, place.lng]).addTo(map)
+                  .bindPopup(`<b>${place.name}</b>`);
+          });
+  
+      </script>
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+</html>
