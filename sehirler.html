@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gezi Rehberim - Türkiye'nin Bölgeleri</title>
+    <link rel="stylesheet" href="sehirler.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+        <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #222;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .card {
+            background: #fff;
+            width: 320px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            flex-shrink: 0;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            opacity: 0.9;
+            text-align: justify;
+        }
+
+        .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: none;
+    font-size: 32px;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+    z-index: 1000; /* Okları kartların önüne getir */
+    opacity: 0.8;
+}
+
+.arrow:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    opacity: 1;
+}
+
+.prev {
+    left: 20px; /* Daha belirgin olması için biraz dışarı al */
+}
+
+.next {
+    right: 20px; /* Daha belirgin olması için biraz dışarı al */
+}
+
+
+        
+
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="logo">
+            <h2> gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <!-- <i class="fa-solid fa-bag-shopping"></i> -->
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <!-- <h1 style="color: rgb(253, 98, 42);">TÜRKİYE'NİN BÖLGELERİ</h1> -->
+
+    <div class="slider-container">
+        <button class="arrow prev" onclick="kaydir(-1)">&#10094;</button>
+        <div class="slider" id="bolgeler"></div>
+        <button class="arrow next" onclick="kaydir(1)">&#10095;</button>
+    </div>
+
+    <section style="width:90%; max-width:1200px; margin:40px auto; display:flex; gap:20px;">
+
+   <!-- Yan Yana SSS ve Hava Durumu Bölümü -->
+<section style="width:90%; max-width:1200px; margin:40px auto; display:flex; gap:20px;">
+
+    <!-- Sıkça Sorulan Sorular (SSS) Bölümü -->
+    <div style="width:50%;">
+        <h2 style="margin-bottom:20px; color:#FD622A; border-bottom: #0c0c0c 1px solid;">SIKÇA SORULAN SORULAR </h2>
+        <div style="text-align:left;">
+            <details style="margin-bottom:10px; padding:10px; border-radius:10px; background-color:#fff; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+                <summary style="cursor:pointer; font-weight:600;">Gezilecek yerleri nasıl seçmeliyim?</summary>
+                <p style="padding:10px; color:#555;">İlgi alanlarınıza ve mevsim şartlarına göre bölgeleri ve önerilen rotaları seçebilirsiniz.</p>
+            </details>
+
+            <details style="margin-bottom:10px; padding:10px; border-radius:10px; background-color:#fff; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+                <summary style="cursor:pointer; font-weight:600;">Seyahat ederken nelere dikkat etmeliyim?</summary>
+                <p style="padding:10px; color:#555;">Yolculuk öncesi hava durumunu kontrol edin ve temel ihtiyaçlarınız için ön hazırlık yapın. Acil durumlar için küçük bir kit hazırlayın.</p>
+            </details>
+
+            <details style="margin-bottom:10px; padding:10px; border-radius:10px; background-color:#fff; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+                <summary style="cursor:pointer; font-weight:600;">Türkiye’de ulaşım için hangi yöntemleri kullanabilirim?</summary>
+                <p style="padding:10px; color:#555;">Otobüs, uçak, tren veya araç kiralama gibi birçok seçenek vardır. Tercihinizi bütçenize ve zamanınıza göre yapabilirsiniz.</p>
+            </details>
+
+            <details style="margin-bottom:10px; padding:10px; border-radius:10px; background-color:#fff; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+                <summary style="cursor:pointer; font-weight:600;">Türkiye'de en iyi plajlar nerede bulunur?</summary>
+                <p style="padding:10px; color:#555;">Özellikle Akdeniz ve Ege sahilleri, güzel plajları ve temiz deniziyle bilinir. Antalya, Muğla ve İzmir popüler bölgelerdir.</p>
+            </details>
+
+            <details style="margin-bottom:10px; padding:10px; border-radius:10px; background-color:#fff; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+                <summary style="cursor:pointer; font-weight:600;">Türkiye'nin tarihi yerlerinden hangilerini ziyaret etmeliyim?</summary>
+                <p style="padding:10px; color:#555;">İstanbul'daki Ayasofya ve Topkapı Sarayı, İzmir Efes Antik Kenti, Kapadokya Peribacaları ve Şanlıurfa Göbeklitepe öne çıkan yerlerdir.</p>
+            </details>
+
+            <details style="margin-bottom:10px; padding:10px; border-radius:10px; background-color:#fff; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+                <summary style="cursor:pointer; font-weight:600;">Türkiye'de alışveriş yaparken hangi ürünleri almalıyım?</summary>
+                <p style="padding:10px; color:#555;">Türk halıları, lokum, baharatlar, seramik ürünler, deri ürünler ve yöresel hediyelik eşyalar oldukça popülerdir.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- Hava Durumu Widget Bölümü -->
+    <div style="flex:1;">
+        <h2 style="margin-bottom:20px; color:#FD622A;  border-bottom: #000000 1px solid">HAVA DURUMU</h2>
+        <div style="display:flex; justify-content:center;">
+            <iframe src="https://www.meteoblue.com/tr/hava/widget/three/istanbul_t%c3%bcrkiye_745044"
+                style="border:none; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.2); margin-left: 30px; width:100%; height:320px;"
+                frameborder="0"
+                scrolling="no">
+            </iframe>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+    <script>
+        const bolgeler = [
+            { 
+                ad: "Marmara Bölgesi", 
+                aciklama: "Marmara Bölgesi, Türkiye'nin ekonomik ve kültürel merkezi olan İstanbul'u barındırır. Sanayi ve ticaret açısından en gelişmiş bölgedir. Ayrıca tarihi yapıları ve turistik mekanlarıyla ünlüdür.", 
+                resim: "marmara.jpg", 
+                url: "sehirler.html?bolge=marmara" 
+            },
+            { 
+                ad: "Ege Bölgesi", 
+                aciklama: "Ege Bölgesi, eşsiz sahilleri, masmavi denizi ve zeytin ağaçlarıyla ünlüdür. İzmir, Bodrum ve Çeşme gibi popüler tatil beldelerine ev sahipliği yapar.", 
+                resim: "ege.jpg", 
+                url: "sehirler.html?bolge=ege" 
+            },
+            { 
+                ad: "Akdeniz Bölgesi", 
+                aciklama: "Akdeniz Bölgesi, sıcak iklimi, turistik sahilleri ve muhteşem doğasıyla dikkat çeker. Antalya, Alanya ve Mersin gibi turizm merkezleriyle ünlüdür.", 
+                resim: "akdeniz.jpg", 
+                url: "sehirler.html?bolge=akdeniz" 
+            },
+            { 
+                ad: "İç Anadolu Bölgesi", 
+                aciklama: "İç Anadolu, geniş bozkırları, tarihi şehirleri ve yöresel mutfağıyla öne çıkar. Ankara, Kapadokya ve Konya, bölgenin önemli noktalarıdır.", 
+                resim: "ic_anadolu.jpg", 
+                url: "sehirler.html?bolge=ic_anadolu" 
+            },
+            { 
+                ad: "Karadeniz Bölgesi", 
+                aciklama: "Karadeniz Bölgesi, yemyeşil doğası, serin iklimi ve geleneksel yayla kültürüyle ünlüdür. Trabzon, Rize ve Sinop gibi şehirler doğa severler için harikadır.", 
+                resim: "karadeniz.jpg", 
+                url: "sehirler.html?bolge=karadeniz" 
+            },
+            { 
+                ad: "Doğu Anadolu Bölgesi", 
+                aciklama: "Doğu Anadolu, Türkiye'nin en yüksek dağlarına ve en soğuk şehirlerine sahiptir. Erzurum, Van ve Kars gibi şehirleri kış turizmiyle öne çıkar.", 
+                resim: "dogu_anadolu.jpg", 
+                url: "sehirler.html?bolge=dogu_anadolu" 
+            },
+            { 
+                ad: "Güneydoğu Anadolu Bölgesi", 
+                aciklama: "Güneydoğu Anadolu, zengin tarihi mirası, eşsiz mutfağı ve sıcak iklimiyle ünlüdür. Gaziantep, Şanlıurfa ve Mardin gibi şehirler tarihi dokusuyla büyüler.", 
+                resim: "guneydogu_anadolu.jpg", 
+                url: "sehirler.html?bolge=guneydogu_anadolu" 
+            }
+        ];
+
+        const bolgeContainer = document.getElementById("bolgeler");
+
+        bolgeler.forEach(bolge => {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+                <img src="img/${bolge.resim}" alt="${bolge.ad}">
+                <div class="card-content">
+                    <h2>${bolge.ad}</h2>
+                    <p>${bolge.aciklama}</p>
+                </div>
+            `;
+            card.addEventListener("click", () => {
+                window.location.href = bolge.url;
+            });
+            bolgeContainer.appendChild(card);
+        });
+
+        let currentIndex = 0;
+        const maxIndex = bolgeler.length - 4;
+
+        function kaydir(direction) {
+            currentIndex = Math.min(Math.max(currentIndex + direction, 0), maxIndex);
+            const offset = currentIndex * -(320 + 20);
+            document.querySelector(".slider").style.transform = `translateX(${offset}px)`;
+        }
+
+    </script>
+
+</body>
+</html>
