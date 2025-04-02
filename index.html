@@ -44,8 +44,8 @@
         <div class="links">
             <ul>
                 <li><a href="#">Anasayfa</a></li>
-                <li><a href="#">Hakkımızda</a></li>
-                <li><a href="#">İletişim</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
                 <!-- <li><a href="#">About</a></li> -->
                 <!-- <li><a href="#">Contact</a></li> -->
             </ul>
@@ -102,14 +102,16 @@
       <div id="map"></div>
 
     <!-- KUTUCUK KISMI -->
-
-    <div class="container">
-        <!-- Şehirler Kutusu -->
-        <div class="box">
-            <h2>Şehirler</h2>
-            <img src="img/undraw_town_oesm.png" alt="Şehirler" style="width: 280px;">
-            <p>Türkiye'nin en güzel şehirlerini keşfedin.</p>
-        </div>
+    <a href="sehirler.html">
+        <div class="container">
+            <!-- Şehirler Kutusu -->
+            <div class="box">
+                <h2>Şehirler</h2>
+                <img src="img/undraw_town_oesm.png" alt="Şehirler" style="width: 280px;">
+                <p>Türkiye'nin en güzel şehirlerini keşfedin.</p>
+            </div>
+    </a>
+    
 
         <!-- Blog Kutusu -->
         <div class="box">
@@ -125,6 +127,46 @@
             <p>Gezilecek en popüler yerler burada!</p>
         </div>
     </div>
+
+    
+     <!-- Hakkımızda ve İletişim Bölümü -->
+    <footer class="footer" id="hakkimizda">
+    <div class="footer-container">
+        
+        <!-- Hakkımızda Kısmı -->
+        <div class="about">
+            <h2>Hakkımızda</h2>
+            <p><strong>Gezi Rehberim</strong>, Türkiye’nin eşsiz doğasını, tarihi güzelliklerini ve kültürel zenginliklerini keşfetmek isteyen gezginler için oluşturulmuş bir platformdur.</p>
+            
+            <h3>Vizyonumuz</h3>
+            <p>Türkiye’nin her köşesini keşfetmek isteyenler için en kapsamlı ve güvenilir seyahat rehberi olmak.</p>
+            
+            <h3>Misyonumuz</h3>
+            <p>Gezginlere doğru, güncel ve detaylı bilgi sunarak seyahat planlamalarını kolaylaştırmak.</p>
+
+            <h3>Biz Kimiz?</h3>
+            <p>Seyahati seven, keşfetmeye tutkulu bir ekip olarak, Türkiye'nin güzelliklerini herkesle paylaşmayı hedefliyoruz.</p>
+        </div>
+
+        <!-- İletişim Kısmı -->
+        <div class="contact" id="iletisim">
+            <h2>İLETİŞİM</h2>
+            <p><i class="fa-solid fa-envelope"></i> E-posta: <a href="mailto:info@gezirehberim.com">info@gezirehberim.com</a></p>
+            <p><i class="fa-solid fa-phone"></i> Telefon: <a href="tel:+905555555555">+90 555 555 55 55</a></p>
+            <p><i class="fa-solid fa-map-marker-alt"></i> Adres: Edirne, Türkiye</p>
+
+            <h3>Bizi Takip Edin</h3>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="abaout"></div>
+            <img src="img/abaout.png" alt="" width="350px" >
+        </div>
+    </div>
+</footer>
 
 
 
@@ -156,9 +198,9 @@
   
           // 4️⃣ İşaretleri Ekle
           places.forEach(place => {
-              L.marker([place.lat, place.lng]).addTo(map)
-                  .bindPopup(`<b>${place.name}</b>`);
-          });
+         L.marker([place.lat, place.lng]).addTo(map)
+        .bindPopup(`<b>${place.name}</b>`);
+        });
   
       </script>
 

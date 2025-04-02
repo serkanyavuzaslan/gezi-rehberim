@@ -7,6 +7,9 @@
     text-decoration: none;
     user-select: none;
 }
+html {
+    scroll-behavior: smooth;
+}
 .header{
     display: flex;
     align-items: center;
@@ -104,7 +107,7 @@
     margin-top: 10px;
 }
 .services-1 img{
-    width: 6vw;
+    width: 6.3vw;
 }
 .services-1 h3{
     font-size: 1vw;
@@ -214,3 +217,96 @@
     font-size: 14px;
     color: #555;
 }
+
+/* HAKKIMIZDA - İLETİŞİM KISMI */
+
+.footer {
+    background: #222;
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+    margin-top: 100px; /* Sayfanın altına yerleştir */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+    gap: 200px;
+    text-align: left;
+
+}
+
+.about, .contact {
+    flex: 1;
+    min-width: 300px;
+}
+
+.footer h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: rgb(234, 87, 2); /* Başlıkları turuncu yap */
+    font-weight: bold;
+}
+
+.footer h3 {
+    font-size: 15px;
+    margin-top: 10px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    
+}
+
+.footer p {
+    font-size: 16px;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.footer a {
+    color: rgb(255, 94, 0);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer i {
+    margin-right: 10px;
+    color: rgb(255, 94, 0);
+}
+
+/* Sosyal Medya İkonları */
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    font-size: 24px;
+    color: white;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-icons i:hover{
+    transform: translateY(-3px);
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: orange;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+

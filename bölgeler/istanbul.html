@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gezi Rehberim</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+
+
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="logo">
+            <h2> gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+                <!-- <li><a href="#">About</a></li> -->
+                <!-- <li><a href="#">Contact</a></li> -->
+            </ul>
+        </div>
+        <div class="icons">
+            <!-- <i class="fa-solid fa-bag-shopping"></i> -->
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <!-- İstanbulu tanıtma girişi -->
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+    
+        body, html {
+          height: 100%;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #f8f8f8;
+        }
+    
+        .hero {
+          width: 100%;
+          height: 70vh; /* Ekranın dikeyde yarısından azı */
+          background-size: cover;
+          background-position: center;
+          transition: background-image 1s ease-in-out;
+        }
+    
+        .content {
+          padding: 40px 20px;
+          text-align: center;
+        }
+    
+        .content h1 {
+          font-size: 48px;
+          margin-bottom: 20px;
+          color: #222;
+        }
+    
+        .content p {
+          font-size: 20px;
+          max-width: 800px;
+          margin: 0 auto;
+          line-height: 1.6;
+          color: #444;
+        }
+    
+        @media (max-width: 768px) {
+          .content h1 {
+            font-size: 32px;
+          }
+    
+          .content p {
+            font-size: 16px;
+          }
+        }
+      </style>
+    </head>
+    <body>
+    
+      <!-- Arka plan görseli alanı -->
+      <section class="hero" id="hero"></section>
+    
+      <script>
+        const hero = document.getElementById('hero');
+    
+        const images = [
+          'img/istanbul1.jpg',
+        //   'img/istanbul2.jpg',
+        //   'img/istanbul3.jpg',
+        //   'img/istanbul4.jpg'
+        ];
+    
+        let index = 0;
+    
+        function changeBackground() {
+          hero.style.backgroundImage = `url('${images[index]}')`;
+          index = (index + 1) % images.length;
+        }
+    
+        changeBackground();
+        setInterval(changeBackground, 7000);
+      </script>
+    
+
+   <!-- Tanıtım Başlığı -->
+<div class="content" style="padding: 60px 20px; text-align: center;">
+    <h1 style="font-size: 42px; color: #222; margin-bottom: 40px;">İstanbul’a Adım At!</h1>
+  
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1200px; margin: auto;">
+      
+      <!-- Tanıtım Kutusu 1 -->
+      <div style="flex: 1 1 450px; background-color: #f0f0f0; padding: 40px; min-height: 250px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.05); display: flex; align-items: center;">
+        <p style="font-size: 18px; color: #444; line-height: 1.8;">
+            İstanbul, 16 milyondan fazla nüfusuyla Türkiye’nin en kalabalık şehridir. Her gün milyonlarca insan bu şehirde yaşamın bir parçası olur. Farklı kültürlerin bir araya geldiği bu metropol, adeta yaşayan bir mozaiktir.
+        </p>
+      </div>
+  
+      <!-- Tanıtım Kutusu 2 -->
+      <div style="flex: 1 1 450px; background-color: #f0f0f0; padding: 40px; min-height: 250px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.05); display: flex; align-items: center;">
+        <p style="font-size: 18px; color: #444; line-height: 1.8;">
+          İstanbul, Türkiye’nin en kalabalık şehri ve kültürel kalbidir. Ayasofya’dan Kız Kulesi’ne, Galata’dan Moda’ya kadar bu şehir; tarih, sanat ve yaşamın tam merkezidir.
+        </p>
+      </div>
+  
+    </div>
+  </div>
+
+
+  <!-- GEZİLECEK YERLER BÖLÜMÜ -->
+    <section style="padding: 60px 10px; cursor: pointer; background-color: #f9f9f9;">
+    <div style="max-width: 1350px; margin: auto;">
+  
+      <h2 style="
+        text-align: center;
+        font-size: 38px;
+        margin-bottom: 40px;
+        color: #222;
+        font-weight: bold;
+      ">
+        İstanbul’da Gezilecek Yerler
+      </h2>
+  
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+  
+        <!-- KART 1 -->
+        <a href="tarihiyerler.html" target="_blank">
+            <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+                <img src="img/tarihiyerler.jpg" alt="Tarihi Yerler" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 25px; text-align: center;">
+                  <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Tarihi Yerler</h3>
+                  <p style="font-size: 17px; color: #555;">Ayasofya, Galata Kulesi ve Topkapı Sarayı gibi geçmişin izlerini taşıyan yapılar.</p>
+                </div>
+              </div>
+        </a>
+        
+  
+        <!-- KART 2 -->
+        <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+          <img src="img/muzeler.jpg" alt="Müzeler" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 25px; text-align: center;">
+            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Müzeler</h3>
+            <p style="font-size: 17px; color: #555;">İstanbul Modern, Arkeoloji Müzesi ve Pera Müzesi gibi kültür durakları.</p>
+          </div>
+        </div>
+  
+        <!-- KART 3 -->
+        <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+          <img src="img/dogalyerler.jpg" alt="Doğal Yerler" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 25px; text-align: center;">
+            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Doğal Yerler</h3>
+            <p style="font-size: 17px; color: #555;">Emirgan Korusu, Belgrad Ormanı gibi doğayla iç içe kaçış noktaları.</p>
+          </div>
+        </div>
+  
+        <!-- KART 4 -->
+        <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+          <img src="img/manzara.jpg" alt="Manzara Noktaları" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 25px; text-align: center;">
+            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Manzara Noktaları</h3>
+            <p style="font-size: 17px; color: #555;">Boğaz kıyısı, Kız Kulesi ve Pierre Loti’den İstanbul’a kuşbakışı.</p>
+          </div>
+        </div>
+  
+        <!-- KART 5 -->
+        <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+          <img src="img/alisveris.jpg" alt="Alışveriş" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 25px; text-align: center;">
+            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Alışveriş & Sosyal Alanlar</h3>
+            <p style="font-size: 17px; color: #555;">Kapalıçarşı, İstiklal Caddesi ve Kadıköy sokakları seni bekliyor.</p>
+          </div>
+        </div>
+  
+        <!-- KART 6 -->
+        <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+          <img src="img/sanat.jpg" alt="Sanat" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 25px; text-align: center;">
+            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Sanat & Etkinlik</h3>
+            <p style="font-size: 17px; color: #555;">Zorlu PSM, AKM ve Moda Sahnesi ile kültür her köşede.</p>
+          </div>
+        </div>
+  
+        <!-- KART 7 -->
+        <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+          <img src="img/dini.jpg" alt="Dini Mekanlar" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 25px; text-align: center;">
+            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Dini & Kültürel Mekanlar</h3>
+            <p style="font-size: 17px; color: #555;">Eyüp Sultan, Fener Rum Patrikhanesi ve Demir Kilise burada.</p>
+          </div>
+        </div>
+  
+        <!-- KART 8 -->
+        <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+          <img src="img/yemek.jpg" alt="Yeme İçme" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 25px; text-align: center;">
+            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Yeme-İçme</h3>
+            <p style="font-size: 17px; color: #555;">Karaköy baklavası, Kadıköy kahvaltısı ve Sultanahmet köftesi burada.</p>
+          </div>
+        </div>
+  
+        <!-- KART 9 -->
+        <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+          <img src="img/eglence.jpg" alt="Eğlence" style="width: 100%; height: 200px; object-fit: cover;">
+          <div style="padding: 25px; text-align: center;">
+            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Eğlence & Aile Aktiviteleri</h3>
+            <p style="font-size: 17px; color: #555;">Vialand, akvaryumlar ve tema parklarla dolu keyifli duraklar.</p>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+  
+      
+    
+
+
+
+
+
+
+
+
+</body>
+</html>

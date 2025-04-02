@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gezi Rehberim</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+
+
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="logo">
+            <h2> gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+                <!-- <li><a href="#">About</a></li> -->
+                <!-- <li><a href="#">Contact</a></li> -->
+            </ul>
+        </div>
+        <div class="icons">
+            <!-- <i class="fa-solid fa-bag-shopping"></i> -->
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <!-- Şehirleri ekleyelim -->
+
+    <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: #ffffff;
+          margin: 0;
+          padding: 20px;
+        }
+    
+        h1 {
+          text-align: center;
+          margin-bottom: 40px;
+          color: #0c0c0c;
+          font-size: 32px;
+        }
+    
+        .sehirler-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 30px;
+          cursor: pointer;
+        }
+    
+        .sehir-karti {
+          background-color: #fff;
+          border-radius: 20px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+          width: 280px;
+          overflow: hidden;
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+    
+        .sehir-karti:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+    
+        .sehir-karti img {
+          width: 100%;
+          height: 180px;
+          object-fit: cover;
+        }
+    
+        .sehir-icerik {
+          padding: 20px;
+        }
+    
+        .sehir-icerik h2 {
+          margin: 0 0 10px;
+          font-size: 20px;
+          color: #000000;
+          text-align: center;
+        }
+    
+        .sehir-icerik p {
+          color: #444;
+          font-size: 14px;
+          line-height: 1.5;
+          text-align: center;
+        }
+      </style>
+    </head>
+    <body>
+    
+      <h1>Marmara Bölgesi'ndeki Şehirler</h1>
+    
+      <div class="sehirler-container">
+        <a href="istanbul.html" target="_blank">
+            <div class="sehir-karti">
+            <img src="img/istanbul.jpg" alt="İstanbul">
+            <div class="sehir-icerik">
+              <h2>İstanbul</h2>
+              <p>Boğaz manzarası, tarihi yapıları ve kültürel mirasıyla İstanbul, Marmara'nın kalbidir.</p>
+            </div>
+          </div>
+        </a>
+          
+    
+        <div class="sehir-karti">
+          <img src="img/tekirdag.jpg" alt="Tekirdağ">
+          <div class="sehir-icerik">
+            <h2>Tekirdağ</h2>
+            <p>Üzüm bağları, rakısı ve sahil kasabaları ile tanınır. Marmara Denizi kıyısında huzurlu bir şehirdir.</p>
+          </div>
+        </div>
+    
+        <div class="sehir-karti">
+          <img src="img/edirne.jpg" alt="Edirne">
+          <div class="sehir-icerik">
+            <h2>Edirne</h2>
+            <p>Selimiye Camii ve Kırkpınar güreşleri ile tanınan, Osmanlı mirasına ev sahipliği yapan bir şehir.</p>
+          </div>
+        </div>
+    
+        <div class="sehir-karti">
+          <img src="img/kirklareli.jpg" alt="Kırklareli">
+          <div class="sehir-icerik">
+            <h2>Kırklareli</h2>
+            <p>Doğal güzellikleri, Istranca ormanları ve sakin atmosferiyle öne çıkan Trakya şehri.</p>
+          </div>
+        </div>
+    
+        <div class="sehir-karti">
+          <img src="img/canakkale.jpg" alt="Çanakkale">
+          <div class="sehir-icerik">
+            <h2>Çanakkale</h2>
+            <p>Gelibolu Yarımadası, Truva Antik Kenti ve Çanakkale Savaşı ile tarih dolu bir şehir.</p>
+          </div>
+        </div>
+    
+        <div class="sehir-karti">
+          <img src="img/bursa.jpg" alt="Bursa">
+          <div class="sehir-icerik">
+            <h2>Bursa</h2>
+            <p>Uludağ, tarihi çarşıları ve yeşil doğasıyla Osmanlı'nın ilk başkentidir.</p>
+          </div>
+        </div>
+    
+        <div class="sehir-karti">
+          <img src="img/bilecik.jpg" alt="Bilecik">
+          <div class="sehir-icerik">
+            <h2>Bilecik</h2>
+            <p>Osmanlı’nın kurulduğu topraklar olarak bilinir, doğayla iç içe sakin bir şehirdir.</p>
+          </div>
+        </div>
+    
+        <div class="sehir-karti">
+          <img src="img/sakarya.jpg" alt="Sakarya">
+          <div class="sehir-icerik">
+            <h2>Sakarya</h2>
+            <p>Sapanca Gölü ile tanınır. İstanbul’a yakınlığı ve doğasıyla dikkat çeker.</p>
+          </div>
+        </div>
+    
+        <div class="sehir-karti">
+          <img src="img/kocaeli.jpg" alt="Kocaeli">
+          <div class="sehir-icerik">
+            <h2>Kocaeli</h2>
+            <p>Sanayi şehri olmasının yanında doğa ve kayak turizmi için de tercih edilir.</p>
+          </div>
+        </div>
+    
+        <div class="sehir-karti">
+          <img src="img/yalova.jpg" alt="Yalova">
+          <div class="sehir-icerik">
+            <h2>Yalova</h2>
+            <p>Kaplıcaları ve deniz kıyısı ile bilinen, küçük ama sevimli bir Marmara şehri.</p>
+          </div>
+        </div>
+    
+      </div>
+    
+
+
+
+
+</body>
+
+
+    
