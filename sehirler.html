@@ -221,80 +221,80 @@
 
 
 
-    <script>
-        const bolgeler = [
-            { 
-                ad: "Marmara Bölgesi", 
-                aciklama: "Marmara Bölgesi, Türkiye'nin ekonomik ve kültürel merkezi olan İstanbul'u barındırır. Sanayi ve ticaret açısından en gelişmiş bölgedir. Ayrıca tarihi yapıları ve turistik mekanlarıyla ünlüdür.", 
-                resim: "marmara.jpg", 
-                url: "sehirler.html?bolge=marmara" 
-            },
-            { 
-                ad: "Ege Bölgesi", 
-                aciklama: "Ege Bölgesi, eşsiz sahilleri, masmavi denizi ve zeytin ağaçlarıyla ünlüdür. İzmir, Bodrum ve Çeşme gibi popüler tatil beldelerine ev sahipliği yapar.", 
-                resim: "ege.jpg", 
-                url: "sehirler.html?bolge=ege" 
-            },
-            { 
-                ad: "Akdeniz Bölgesi", 
-                aciklama: "Akdeniz Bölgesi, sıcak iklimi, turistik sahilleri ve muhteşem doğasıyla dikkat çeker. Antalya, Alanya ve Mersin gibi turizm merkezleriyle ünlüdür.", 
-                resim: "akdeniz.jpg", 
-                url: "sehirler.html?bolge=akdeniz" 
-            },
-            { 
-                ad: "İç Anadolu Bölgesi", 
-                aciklama: "İç Anadolu, geniş bozkırları, tarihi şehirleri ve yöresel mutfağıyla öne çıkar. Ankara, Kapadokya ve Konya, bölgenin önemli noktalarıdır.", 
-                resim: "ic_anadolu.jpg", 
-                url: "sehirler.html?bolge=ic_anadolu" 
-            },
-            { 
-                ad: "Karadeniz Bölgesi", 
-                aciklama: "Karadeniz Bölgesi, yemyeşil doğası, serin iklimi ve geleneksel yayla kültürüyle ünlüdür. Trabzon, Rize ve Sinop gibi şehirler doğa severler için harikadır.", 
-                resim: "karadeniz.jpg", 
-                url: "sehirler.html?bolge=karadeniz" 
-            },
-            { 
-                ad: "Doğu Anadolu Bölgesi", 
-                aciklama: "Doğu Anadolu, Türkiye'nin en yüksek dağlarına ve en soğuk şehirlerine sahiptir. Erzurum, Van ve Kars gibi şehirleri kış turizmiyle öne çıkar.", 
-                resim: "dogu_anadolu.jpg", 
-                url: "sehirler.html?bolge=dogu_anadolu" 
-            },
-            { 
-                ad: "Güneydoğu Anadolu Bölgesi", 
-                aciklama: "Güneydoğu Anadolu, zengin tarihi mirası, eşsiz mutfağı ve sıcak iklimiyle ünlüdür. Gaziantep, Şanlıurfa ve Mardin gibi şehirler tarihi dokusuyla büyüler.", 
-                resim: "guneydogu_anadolu.jpg", 
-                url: "sehirler.html?bolge=guneydogu_anadolu" 
-            }
-        ];
-
-        const bolgeContainer = document.getElementById("bolgeler");
-
-        bolgeler.forEach(bolge => {
-            const card = document.createElement("div");
-            card.className = "card";
-            card.innerHTML = `
-                <img src="img/${bolge.resim}" alt="${bolge.ad}">
-                <div class="card-content">
-                    <h2>${bolge.ad}</h2>
-                    <p>${bolge.aciklama}</p>
-                </div>
-            `;
-            card.addEventListener("click", () => {
-                window.location.href = bolge.url;
-            });
-            bolgeContainer.appendChild(card);
-        });
-
-        let currentIndex = 0;
-        const maxIndex = bolgeler.length - 4;
-
-        function kaydir(direction) {
-            currentIndex = Math.min(Math.max(currentIndex + direction, 0), maxIndex);
-            const offset = currentIndex * -(320 + 20);
-            document.querySelector(".slider").style.transform = `translateX(${offset}px)`;
+<script>
+    const bolgeler = [
+        { 
+            ad: "Marmara Bölgesi", 
+            aciklama: "Marmara Bölgesi, Türkiye'nin ekonomik ve kültürel merkezi olan İstanbul'u barındırır. Sanayi ve ticaret açısından en gelişmiş bölgedir. Ayrıca tarihi yapıları ve turistik mekanlarıyla ünlüdür.", 
+            resim: "marmara.jpg", 
+            url: "bölgeler/marmara.html"
+        },
+        { 
+            ad: "Ege Bölgesi", 
+            aciklama: "Ege Bölgesi, eşsiz sahilleri, masmavi denizi ve zeytin ağaçlarıyla ünlüdür. İzmir, Bodrum ve Çeşme gibi popüler tatil beldelerine ev sahipliği yapar.", 
+            resim: "ege.jpg", 
+            url: "bölgeler/ege.html"
+        },
+        { 
+            ad: "Akdeniz Bölgesi", 
+            aciklama: "Akdeniz Bölgesi, sıcak iklimi, turistik sahilleri ve muhteşem doğasıyla dikkat çeker. Antalya, Alanya ve Mersin gibi turizm merkezleriyle ünlüdür.", 
+            resim: "akdeniz.jpg", 
+            url: "bölgeler/akdeniz.html"
+        },
+        { 
+            ad: "İç Anadolu Bölgesi", 
+            aciklama: "İç Anadolu, geniş bozkırları, tarihi şehirleri ve yöresel mutfağıyla öne çıkar. Ankara, Kapadokya ve Konya, bölgenin önemli noktalarıdır.", 
+            resim: "ic_anadolu.jpg", 
+            url: "bölgeler/icanadolu.html"
+        },
+        { 
+            ad: "Karadeniz Bölgesi", 
+            aciklama: "Karadeniz Bölgesi, yemyeşil doğası, serin iklimi ve geleneksel yayla kültürüyle ünlüdür. Trabzon, Rize ve Sinop gibi şehirler doğa severler için harikadır.", 
+            resim: "karadeniz.jpg", 
+            url: "bölgeler/karadeniz.html"
+        },
+        { 
+            ad: "Doğu Anadolu Bölgesi", 
+            aciklama: "Doğu Anadolu, Türkiye'nin en yüksek dağlarına ve en soğuk şehirlerine sahiptir. Erzurum, Van ve Kars gibi şehirleri kış turizmiyle öne çıkar.", 
+            resim: "dogu_anadolu.jpg", 
+            url: "bölgeler/doguanadolu.html"
+        },
+        { 
+            ad: "Güneydoğu Anadolu Bölgesi", 
+            aciklama: "Güneydoğu Anadolu, zengin tarihi mirası, eşsiz mutfağı ve sıcak iklimiyle ünlüdür. Gaziantep, Şanlıurfa ve Mardin gibi şehirler tarihi dokusuyla büyüler.", 
+            resim: "guneydogu_anadolu.jpg", 
+            url: "bölgeler/guney.html"
         }
+    ];
 
-    </script>
+    const bolgeContainer = document.getElementById("bolgeler");
+
+    bolgeler.forEach(bolge => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+            <img src="img/${bolge.resim}" alt="${bolge.ad}">
+            <div class="card-content">
+                <h2>${bolge.ad}</h2>
+                <p>${bolge.aciklama}</p>
+            </div>
+        `;
+        card.addEventListener("click", () => {
+            window.location.href = bolge.url;
+        });
+        bolgeContainer.appendChild(card);
+    });
+
+    let currentIndex = 0;
+    const maxIndex = bolgeler.length - 4;
+
+    function kaydir(direction) {
+        currentIndex = Math.min(Math.max(currentIndex + direction, 0), maxIndex);
+        const offset = currentIndex * -(320 + 20);
+        document.querySelector(".slider").style.transform = `translateX(${offset}px)`;
+    }
+</script>
+
 
 </body>
 </html>

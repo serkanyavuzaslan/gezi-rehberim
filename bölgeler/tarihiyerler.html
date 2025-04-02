@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gezi Rehberim</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+</head>
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="logo">
+            <h2> gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+                <!-- <li><a href="#">About</a></li> -->
+                <!-- <li><a href="#">Contact</a></li> -->
+            </ul>
+        </div>
+        <div class="icons">
+            <!-- <i class="fa-solid fa-bag-shopping"></i> -->
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+
+    <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">İstanbul’daki Tarihi Yerler</h2>
+      
+        <style>
+          .history-card {
+            display: flex;
+            flex-wrap: wrap;
+            background: #ffffff;
+            border-radius: 14px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            overflow: hidden;
+            max-width: 1200px;
+            margin-inline: auto;
+            transition: transform 0.3s ease;
+          }
+          .history-card img {
+            width: 100%;
+            max-width: 500px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            cursor: pointer;
+          }
+          .history-card img:hover {
+            transform: scale(1.03);
+          }
+          .history-card-content {
+            padding: 30px;
+            flex: 1;
+          }
+          .history-card-content h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+            color: #222;
+          }
+          .history-card-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 8px;
+          }
+        </style>
+      
+        <!-- 1. Ayasofya -->
+        <div class="history-card">
+          <img src="img/ayasofya.jpg" alt="Ayasofya">
+          <div class="history-card-content">
+            <h3>Ayasofya</h3>
+            <p>İstanbul'un kalbinde yer alan Ayasofya, hem Bizans hem de Osmanlı dönemlerinde önemli roller üstlenmiş eşsiz bir mimari yapıdır. Bugün cami olarak hizmet vermekte olup tarihi atmosferiyle her yıl milyonlarca ziyaretçiyi ağırlamaktadır.</p>
+            <p><strong>Adres:</strong> Sultan Ahmet, Ayasofya Meydanı No:1, 34122 Fatih/İstanbul</p>
+            <p><strong>Ziyaret Saatleri:</strong> Her gün 09:00 – 19:00</p>
+            <p><strong>Giriş:</strong> Ücretsiz</p>
+            <p><strong>Müze Kart:</strong> Geçerli değil</p>
+          </div>
+        </div>
+      
+        <!-- 2. Topkapı Sarayı -->
+        <div class="history-card">
+          <img src="img/topkapi.jpg" alt="Topkapı Sarayı">
+          <div class="history-card-content">
+            <h3>Topkapı Sarayı</h3>
+            <p>Osmanlı İmparatorluğu'nun kalbi olan Topkapı Sarayı, dört yüzyıl boyunca padişahların yaşadığı ve devleti yönettiği bir merkez olmuştur. Sarayın içindeki kutsal emanetler, hazineler ve mimari detaylar ziyaretçilere büyüleyici bir deneyim sunar.</p>
+            <p><strong>Adres:</strong> Cankurtaran, 34122 Fatih/İstanbul</p>
+            <p><strong>Ziyaret Saatleri:</strong> Salı hariç her gün 10:00 – 17:00</p>
+            <p><strong>Giriş:</strong> Ücretli (Tam: 450 TL)</p>
+            <p><strong>Müze Kart:</strong> Geçerli</p>
+          </div>
+        </div>
+      
+        <!-- 3. Galata Kulesi -->
+        <div class="history-card">
+          <img src="img/galata.jpg" alt="Galata Kulesi">
+          <div class="history-card-content">
+            <h3>Galata Kulesi</h3>
+            <p>İstanbul'un simgelerinden biri olan Galata Kulesi, yüzyıllardır şehrin siluetini süslemektedir. Tepesinden İstanbul Boğazı ve Haliç'in panoramik manzarasını izlemek eşsiz bir deneyim sunar.</p>
+            <p><strong>Adres:</strong> Bereketzade, Galata Kulesi Sk., 34421 Beyoğlu/İstanbul</p>
+            <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 22:00</p>
+            <p><strong>Giriş:</strong> Ücretli (Tam: 650 TL)</p>
+            <p><strong>Müze Kart:</strong> Geçerli</p>
+          </div>
+        </div>
+      
+        <!-- 4. Yerebatan Sarnıcı -->
+        <div class="history-card">
+          <img src="img/yerebatan.jpg" alt="Yerebatan Sarnıcı">
+          <div class="history-card-content">
+            <h3>Yerebatan Sarnıcı</h3>
+            <p>Yerebatan Sarnıcı, yeraltındaki sütunlu yapısı ve mistik atmosferiyle İstanbul'un en gizemli tarihi yapılarından biridir. Özellikle Medusa başlı sütunlar ziyaretçilerin ilgisini çeker.</p>
+            <p><strong>Adres:</strong> Alemdar, Yerebatan Cd. 1/3, 34110 Fatih/İstanbul</p>
+            <p><strong>Ziyaret Saatleri:</strong> Her gün 09:00 – 22:00</p>
+            <p><strong>Giriş:</strong> Ücretli (Tam: 450 TL)</p>
+            <p><strong>Müze Kart:</strong> Geçerli değil</p>
+          </div>
+        </div>
+      
+        <!-- 5. Süleymaniye Camii -->
+        <div class="history-card">
+          <img src="img/suleymaniye.jpg" alt="Süleymaniye Camii">
+          <div class="history-card-content">
+            <h3>Süleymaniye Camii</h3>
+            <p>Mimar Sinan'ın kalfalık eseri olan Süleymaniye Camii, sadece ibadet yeri değil aynı zamanda mimari bir başyapıttır. Kanuni Sultan Süleyman adına inşa edilmiştir ve Haliç manzarasıyla dikkat çeker.</p>
+            <p><strong>Adres:</strong> Süleymaniye, Prof. Sıddık Sami Onar Cd., 34116 Fatih/İstanbul</p>
+            <p><strong>Ziyaret Saatleri:</strong> Her gün 09:00 – 18:00</p>
+            <p><strong>Giriş:</strong> Ücretsiz</p>
+            <p><strong>Müze Kart:</strong> Gerekli değil</p>
+          </div>
+        </div>
+      
+        <!-- 6. Dolmabahçe Sarayı -->
+        <div class="history-card">
+          <img src="img/dolmabahce.jpg" alt="Dolmabahçe Sarayı">
+          <div class="history-card-content">
+            <h3>Dolmabahçe Sarayı</h3>
+            <p>Osmanlı'nın batılılaşma dönemini yansıtan Dolmabahçe Sarayı, ihtişamlı salonları, dev avizeleri ve boğaz manzarasıyla ziyaretçileri büyüler. Atatürk'ün vefat ettiği oda da burada yer alır.</p>
+            <p><strong>Adres:</strong> Vişnezade, Dolmabahçe Cd., 34357 Beşiktaş/İstanbul</p>
+            <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 09:00 – 17:00</p>
+            <p><strong>Giriş:</strong> Ücretli (Tam: 650 TL)</p>
+            <p><strong>Müze Kart:</strong> Geçerli değil</p>
+          </div>
+        </div>
+      
+        <!-- 7. Beylerbeyi Sarayı -->
+        <div class="history-card">
+          <img src="img/beylerbeyi.jpg" alt="Beylerbeyi Sarayı">
+          <div class="history-card-content">
+            <h3>Beylerbeyi Sarayı</h3>
+            <p>Beylerbeyi Sarayı, Osmanlı padişahlarının yazlık sarayı olarak kullanılmıştır. Boğaz'a sıfır konumu, zarif iç dekorasyonu ve tarihi hikayeleriyle dikkat çeker.</p>
+            <p><strong>Adres:</strong> Beylerbeyi, Abdullahağa Cd., 34676 Üsküdar/İstanbul</p>
+            <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 09:00 – 17:00</p>
+            <p><strong>Giriş:</strong> Ücretli (Tam: 300 TL)</p>
+            <p><strong>Müze Kart:</strong> Geçerli değil</p>
+          </div>
+        </div>
+      
+        <!-- 8. Kapalıçarşı -->
+        <div class="history-card">
+          <img src="img/kapalicarsi.jpg" alt="Kapalıçarşı">
+          <div class="history-card-content">
+            <h3>Kapalıçarşı</h3>
+            <p>Kapalıçarşı, dünyanın en eski ve en büyük çarşılarından biridir. Labirent gibi sokakları ve binlerce dükkanıyla alışverişin tarihsel yolculuğunu sunar.</p>
+            <p><strong>Adres:</strong> Beyazıt, Kalpakçılar Cd. No:22, 34126 Fatih/İstanbul</p>
+            <p><strong>Ziyaret Saatleri:</strong> Pazar hariç her gün 10:00 – 18:00</p>
+            <p><strong>Giriş:</strong> Ücretsiz</p>
+            <p><strong>Müze Kart:</strong> Gerekli değil</p>
+          </div>
+        </div>
+      
+        <!-- 9. Sultanahmet Camii -->
+        <div class="history-card">
+          <img src="img/sultanahmet.jpg" alt="Sultanahmet Camii">
+          <div class="history-card-content">
+            <h3>Sultanahmet Camii</h3>
+            <p>Sultanahmet Camii, mavi çinileri ve 6 minaresi ile İstanbul'un en tanınmış camilerindendir. Ayasofya'nın hemen karşısında yer alır ve hem yerli hem yabancı turistlerin uğrak noktasıdır.</p>
+            <p><strong>Adres:</strong> Sultan Ahmet, Atmeydanı Cd. No:7, 34122 Fatih/İstanbul</p>
+            <p><strong>Ziyaret Saatleri:</strong> Her gün 09:00 – 18:00 (namaz saatleri hariç)</p>
+            <p><strong>Giriş:</strong> Ücretsiz</p>
+            <p><strong>Müze Kart:</strong> Gerekli değil</p>
+          </div>
+        </div>
+      
+        <!-- 10. Rumeli Hisarı -->
+        <div class="history-card">
+          <img src="img/rumelihisari.jpg" alt="Rumeli Hisarı">
+          <div class="history-card-content">
+            <h3>Rumeli Hisarı</h3>
+            <p>Fatih Sultan Mehmet'in İstanbul'u fethetmeden önce Boğaz'ı kontrol altına almak için yaptırdığı Rumeli Hisarı, günümüzde hem tarihi hem de manzara açısından etkileyici bir ziyaret noktasıdır.</p>
+            <p><strong>Adres:</strong> Rumelihisarı, Yahya Kemal Cd., 34470 Sarıyer/İstanbul</p>
+            <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 09:00 – 17:00</p>
+            <p><strong>Giriş:</strong> Ücretli (Tam: 150 TL)</p>
+            <p><strong>Müze Kart:</strong> Geçerli</p>
+          </div>
+        </div>
+      
+      </section>
+      
+
+
+
+</body>
+</html>
