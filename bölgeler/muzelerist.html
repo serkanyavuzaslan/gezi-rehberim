@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İstanbul'daki Müzeler</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gezi Rehberim</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+
+</head>
+<body>
+     <!-- header -->
+     <header class="header">
+        <div class="logo">
+            <h2> gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+                <!-- <li><a href="#">About</a></li> -->
+                <!-- <li><a href="#">Contact</a></li> -->
+            </ul>
+        </div>
+        <div class="icons">
+            <!-- <i class="fa-solid fa-bag-shopping"></i> -->
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">İstanbul’daki Müzeler</h2>
+      
+        <style>
+          .history-card {
+            display: flex;
+            flex-wrap: wrap;
+            background: #ffffff;
+            border-radius: 14px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            overflow: hidden;
+            max-width: 1200px;
+            margin-inline: auto;
+            transition: transform 0.3s ease;
+          }
+          .history-card img {
+            width: 100%;
+            max-width: 500px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            cursor: pointer;
+          }
+          .history-card img:hover {
+            transform: scale(1.03);
+          }
+          .history-card-content {
+            padding: 30px;
+            flex: 1;
+          }
+          .history-card-content h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+            color: #222;
+          }
+          .history-card-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 8px;
+          }
+        </style>
+
+
+
+
+    <!-- 1. İstanbul Arkeoloji Müzesi -->
+<div class="history-card">
+    <img src="img/arkeoloji.jpg" alt="İstanbul Arkeoloji Müzesi">
+    <div class="history-card-content">
+      <h3>İstanbul Arkeoloji Müzesi</h3>
+      <p>Dünyanın en büyük arkeoloji müzelerinden biri olan bu kompleks, antik eser koleksiyonlarıyla ziyaretçilerine tarihi bir yolculuk sunar. İçerisinde Eski Şark Eserleri Müzesi ve Çinili Köşk Müzesi de yer alır.</p>
+      <p><strong>Adres:</strong> Cankurtaran, Osman Hamdi Bey Yokuşu, 34122 Fatih/İstanbul</p>
+      <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 09:00 – 19:30</p>
+      <p><strong>Giriş:</strong> Ücretli (Tam: 340 TL)</p>
+      <p><strong>Müze Kart:</strong> Geçerli</p>
+    </div>
+  </div>
+  
+  <!-- 2. Türk ve İslam Eserleri Müzesi -->
+  <div class="history-card">
+    <img src="img/turkislam.jpg" alt="Türk ve İslam Eserleri Müzesi">
+    <div class="history-card-content">
+      <h3>Türk ve İslam Eserleri Müzesi</h3>
+      <p>İslam sanatına ait halılar, el yazmaları ve seramiklerin yer aldığı bu müze, Osmanlı döneminin zengin kültür mirasını sergiler. Aynı zamanda etnografik koleksiyonlar da bulunur.</p>
+      <p><strong>Adres:</strong> Binbirdirek, Atmeydanı Cd. No:46, 34122 Fatih/İstanbul</p>
+      <p><strong>Ziyaret Saatleri:</strong> Her gün 09:00 – 19:00</p>
+      <p><strong>Giriş:</strong> Ücretli (Tam: 390 TL)</p>
+      <p><strong>Müze Kart:</strong> Geçerli</p>
+    </div>
+  </div>
+  
+  <!-- 3. Pera Müzesi -->
+  <div class="history-card">
+    <img src="img/pera.jpg" alt="Pera Müzesi">
+    <div class="history-card-content">
+      <h3>Pera Müzesi</h3>
+      <p>Oryantalist tablolar, Osmanlı dönemi ağırlık ve ölçü koleksiyonları ile çağdaş sanat sergileriyle dikkat çeken Pera Müzesi, sanatseverlerin uğrak noktalarındandır.</p>
+      <p><strong>Adres:</strong> Asmalı Mescit, Meşrutiyet Cd. No:65, 34430 Beyoğlu/İstanbul</p>
+      <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 10:00 – 19:00</p>
+      <p><strong>Giriş:</strong> Ücretli (Tam: 150 TL)</p>
+      <p><strong>Müze Kart:</strong> Geçerli değil</p>
+    </div>
+  </div>
+  
+  <!-- 4. Sakıp Sabancı Müzesi -->
+  <div class="history-card">
+    <img src="img/sakipsabanci.jpg" alt="Sakıp Sabancı Müzesi">
+    <div class="history-card-content">
+      <h3>Sakıp Sabancı Müzesi</h3>
+      <p>Emirgan'da Boğaz manzarasına karşı yer alan bu müze, Osmanlı hat sanatı koleksiyonları ve geçici sergileriyle tanınır. Müze binası tarihi bir köşktür.</p>
+      <p><strong>Adres:</strong> Emirgan, Sakıp Sabancı Cd. No:42, 34467 Sarıyer/İstanbul</p>
+      <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 10:00 – 18:00</p>
+      <p><strong>Giriş:</strong> Ücretli (Tam: 200 TL)</p>
+      <p><strong>Müze Kart:</strong> Geçerli değil</p>
+    </div>
+  </div>
+  
+  <!-- 5. Rahmi M. Koç Müzesi -->
+  <div class="history-card">
+    <img src="img/rahmikoç.jpg" alt="Rahmi M. Koç Müzesi">
+    <div class="history-card-content">
+      <h3>Rahmi M. Koç Müzesi</h3>
+      <p>Sanayi, ulaşım ve iletişim temalarına odaklanan bu müze, nostaljik trenler, arabalar ve deniz araçlarıyla çocuklar ve yetişkinler için eğlenceli bir keşif alanıdır.</p>
+      <p><strong>Adres:</strong> Hasköy Cd. No:5, 34445 Beyoğlu/İstanbul</p>
+      <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 09:30 – 17:00</p>
+      <p><strong>Giriş:</strong> Ücretli (Tam: 480 TL)</p>
+      <p><strong>Müze Kart:</strong> Geçerli değil</p>
+    </div>
+  </div>
+  
+  <!-- 6. İstanbul Modern -->
+  <div class="history-card">
+    <img src="img/istanbulmodern.jpg" alt="İstanbul Modern">
+    <div class="history-card-content">
+      <h3>İstanbul Modern</h3>
+      <p>Türkiye’nin ilk modern sanat müzesi olan İstanbul Modern, çağdaş sanat eserleri ve sergileriyle sanatseverlerin ilgi odağıdır. Yeni binası Karaköy'de yer alır.</p>
+      <p><strong>Adres:</strong> Kemankeş Karamustafa Paşa, Galataport, 34425 Beyoğlu/İstanbul</p>
+      <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 10:00 – 18:00</p>
+      <p><strong>Giriş:</strong> Ücretli (Tam: 300 TL)</p>
+      <p><strong>Müze Kart:</strong> Geçerli değil</p>
+    </div>
+  </div>
+  
+  <!-- 7. İstanbul Oyuncak Müzesi -->
+  <div class="history-card">
+    <img src="img/oyuncakmuzesi.jpg" alt="İstanbul Oyuncak Müzesi">
+    <div class="history-card-content">
+      <h3>İstanbul Oyuncak Müzesi</h3>
+      <p>Şair Sunay Akın tarafından kurulan bu müze, 1700’lü yıllardan günümüze uzanan oyuncak koleksiyonlarıyla nostaljik bir atmosfer sunar.</p>
+      <p><strong>Adres:</strong> Göztepe, Dr. Zeki Zeren Sk. No:17, 34730 Kadıköy/İstanbul</p>
+      <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 09:30 – 18:00</p>
+      <p><strong>Giriş:</strong> Ücretli (Tam: 120 TL)</p>
+      <p><strong>Müze Kart:</strong> Geçerli değil</p>
+    </div>
+  </div>
+  
+  <!-- 8. Panorama 1453 Tarih Müzesi -->
+  <div class="history-card">
+    <img src="img/panorama1453.jpg" alt="Panorama 1453 Tarih Müzesi">
+    <div class="history-card-content">
+      <h3>Panorama 1453 Tarih Müzesi</h3>
+      <p>İstanbul'un fethini 360 derece panoramik bir resimle anlatan bu müze, ziyaretçilerine adeta tarihin içinde hissettirir.</p>
+      <p><strong>Adres:</strong> Topkapı Kültür Parkı, Merkez Efendi Mh., 34093 Zeytinburnu/İstanbul</p>
+      <p><strong>Ziyaret Saatleri:</strong> Her gün 08:00 – 18:30</p>
+      <p><strong>Giriş:</strong> Ücretli (Tam: 100 TL)</p>
+      <p><strong>Müze Kart:</strong> Geçerli değil</p>
+    </div>
+  </div>
+  
+  <!-- 9. Masumiyet Müzesi -->
+  <div class="history-card">
+    <img src="img/masumiyetmuzesi.jpg" alt="Masumiyet Müzesi">
+    <div class="history-card-content">
+      <h3>Masumiyet Müzesi</h3>
+      <p>Orhan Pamuk’un aynı adlı romanından esinlenen bu müze, kurgusal karakterlerin eşyalarını ve dönemin İstanbul’unu yansıtan detaylarla doludur.</p>
+      <p><strong>Adres:</strong> Çukurcuma Cd. Dalgıç Sk. No:2, 34425 Beyoğlu/İstanbul</p>
+      <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 10:00 – 18:00</p>
+      <p><strong>Giriş:</strong> Ücretli (Tam: 120 TL)</p>
+      <p><strong>Müze Kart:</strong> Geçerli değil</p>
+    </div>
+  </div>
+  
+  <!-- 10. Deniz Müzesi -->
+  <div class="history-card">
+    <img src="img/denizmuzesi.jpg" alt="İstanbul Deniz Müzesi">
+    <div class="history-card-content">
+      <h3>İstanbul Deniz Müzesi</h3>
+      <p>Osmanlı dönemi savaş gemilerinden, saltanat kayıklarına kadar geniş koleksiyona sahip olan bu müze, denizcilik tarihine ışık tutar.</p>
+      <p><strong>Adres:</strong> Sinanpaşa, Beşiktaş Cd. No:6, 34353 Beşiktaş/İstanbul</p>
+      <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 09:00 – 17:00</p>
+      <p><strong>Giriş:</strong> Ücretli (Tam: 150 TL)</p>
+      <p><strong>Müze Kart:</strong> Geçerli</p>
+    </div>
+  </div>
+  
+
+
+
+    
+</body>
+</html>
