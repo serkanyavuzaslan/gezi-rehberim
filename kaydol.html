@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kayıt Ol</title>
+
+  <!-- style2.css bağlantısı -->
+  <link rel="stylesheet" href="style2.css">
+
+  <!-- FontAwesome ve Montserrat -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="container">
+    <div class="image-side">
+      <img src="img/kaydol.png" alt="Kayıt Görseli">
+    </div>
+    <div class="form-side">
+      <h2>KAYIT OL</h2>
+      <form id="registerForm">
+        <input type="email" id="registerEmail" placeholder="E-posta adresiniz" required />
+        <input type="password" id="registerPassword" placeholder="Şifre belirleyin" required />
+        <button type="submit">Kayıt Ol</button>
+      </form>
+      <p>Hesabınız var mı? <a href="giris.html">Giriş Yap</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("registerEmail").value;
+      const password = document.getElementById("registerPassword").value;
+
+      localStorage.setItem("userEmail", email);
+      localStorage.setItem("userPassword", password);
+
+      alert("Kayıt başarılı! Şimdi giriş yapabilirsiniz.");
+      window.location.href = "giris.html";
+    });
+  </script>
+
+</body>
+</html>

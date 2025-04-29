@@ -1,0 +1,105 @@
+/* style2.css: Giriş ve Kayıt Sayfası Tasarımı (Son Küçültülmüş Hali) */
+
+body {
+    background: #fff3e0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 850px; /* ❗ Max genişlik daha da küçültüldü */
+    height: 350px;    /* ❗ Yükseklik de küçüldü */
+  }
+  
+  .image-side {
+    flex: 1;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .image-side img {
+    max-width: 100%;
+    height: auto;
+    width: 80%; /* Görsel %80'e küçültüldü */
+  }
+  
+  .form-side {
+    flex: 1;
+    background-color: #ffe0b2;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .form-side h2 {
+    margin-bottom: 20px;
+    color: #e65100;
+    font-size: 26px;
+    text-align: center;
+  }
+  
+  .form-side input {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+  }
+  
+  .form-side button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 18px;
+    background-color: #fb8c00;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .form-side button:hover {
+    background-color: #ef6c00;
+  }
+  
+  .form-side p {
+    margin-top: 18px;
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  .form-side a {
+    color: #e65100;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  /* Responsive (Telefon için) */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto;
+      max-width: 90%;
+    }
+  
+    .image-side {
+      display: none;
+    }
+  }
+  

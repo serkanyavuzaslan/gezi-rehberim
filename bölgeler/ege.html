@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gezi Rehberim - Ege Bölgesi</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <h2>gezi rehberim.</h2>
+    </div>
+    <div class="links">
+      <ul>
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="icons">
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <i class="fa-solid fa-bars"></i>
+  </header>
+
+  <!-- Şehirler Başlık -->
+  <h1 style="text-align: center; margin: 40px 0; color: #0c0c0c; font-size: 32px;">Ege Bölgesi'ndeki Şehirler</h1>
+
+  <!-- Şehirler Kart Alanı -->
+  <div class="sehirler-container">
+
+    <!-- 1. Satır -->
+    <div class="satir">
+      <div class="sehir-karti">
+        <img src="img/izmir.jpg" alt="İzmir">
+        <div class="sehir-icerik">
+          <h2>İzmir</h2>
+          <p>Kordonboyu, Saat Kulesi ve Ege'nin sıcak ruhuyla ünlüdür.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/aydin.jpg" alt="Aydın">
+        <div class="sehir-icerik">
+          <h2>Aydın</h2>
+          <p>Aphrodisias Antik Kenti ve Didim sahilleri ile tanınır.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/mugla.jpg" alt="Muğla">
+        <div class="sehir-icerik">
+          <h2>Muğla</h2>
+          <p>Bodrum, Fethiye ve Marmaris gibi turizm cennetlerine ev sahipliği yapar.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Satır -->
+    <div class="satir">
+      <div class="sehir-karti">
+        <img src="img/manisa.jpg" alt="Manisa">
+        <div class="sehir-icerik">
+          <h2>Manisa</h2>
+          <p>Mesir Macunu ve Spil Dağı ile tarihi ve doğal güzellikler sunar.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/denizli.jpg" alt="Denizli">
+        <div class="sehir-icerik">
+          <h2>Denizli</h2>
+          <p>Pamukkale travertenleri ve Hierapolis Antik Kenti ile dikkat çeker.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/afyon-otelleri.jpg" alt="Afyonkarahisar">
+        <div class="sehir-icerik">
+          <h2>Afyonkarahisar</h2>
+          <p>Şifalı kaplıcaları ve tarihi kalesiyle meşhur bir şehirdir.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Satır -->
+    <div class="satir">
+      <div class="sehir-karti">
+        <img src="img/kutahya.jpg" alt="Kütahya">
+        <div class="sehir-icerik">
+          <h2>Kütahya</h2>
+          <p>Çinileri, kaleleri ve geleneksel el sanatlarıyla bilinen sanatsal bir şehirdir.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/usak.jpg" alt="Uşak">
+        <div class="sehir-icerik">
+          <h2>Uşak</h2>
+          <p>Ulubey Kanyonu ve tarihi Frig Vadisi ile doğayla buluşturur.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/balikesir.jpg" alt="Balıkesir">
+        <div class="sehir-icerik">
+          <h2>Balıkesir</h2>
+          <p>Ayvalık sahilleri ve Kazdağları’nın yeşil doğasıyla göz doldurur.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Şehirler Kartlarının Stili -->
+  <style>
+    .sehirler-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .satir {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .sehir-karti {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      width: 280px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .sehir-karti:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    }
+    .sehir-karti img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .sehir-icerik {
+      padding: 20px;
+    }
+    .sehir-icerik h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #000000;
+      text-align: center;
+    }
+    .sehir-icerik p {
+      color: #444;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .satir {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kullanıcı Paneli - Gezi Rehberim</title>
+
+  <!-- style3.css bağlantısı -->
+  <link rel="stylesheet" href="style3.css">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Font: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Profil Alanı -->
+  <section class="profile-section">
+    <div class="profile-img">
+      <div class="placeholder-img">Profil Resmi</div>
+    </div>
+    <h1>İsim Soyisim</h1>
+    <p>Kısa bir kendini tanıtma yazısı</p>
+  </section>
+
+  <!-- Kartlar Alanı -->
+  <section class="cards-section">
+
+    <!-- Favoriler -->
+    <div class="card">
+      <div class="card-img">Resim Buraya</div>
+      <h2>Favori Yerlerim</h2>
+      <ul>
+        <!-- Buraya favori yerlerini yazabilirsin -->
+      </ul>
+    </div>
+
+    <!-- Geçmiş Geziler -->
+    <div class="card">
+      <div class="card-img">Resim Buraya</div>
+      <h2>Geçmiş Gezilerim</h2>
+      <ul>
+        <!-- Buraya gezdiğin yerleri yazabilirsin -->
+      </ul>
+    </div>
+
+    <!-- Planlanan Geziler -->
+    <div class="card">
+      <div class="card-img">Resim Buraya</div>
+      <h2>Gezi Planlarım</h2>
+      <ul>
+        <!-- Buraya planladığın gezileri yazabilirsin -->
+      </ul>
+    </div>
+
+    <!-- Notlar -->
+    <div class="card">
+      <div class="card-img">Resim Buraya</div>
+      <h2>Gezi Notlarım</h2>
+      <p><!-- Buraya kişisel notlarını yazabilirsin --></p>
+    </div>
+
+    <!-- Öneriler -->
+    <div class="card">
+      <div class="card-img">Resim Buraya</div>
+      <h2>Önerilen Yerler</h2>
+      <ul>
+        <!-- Buraya kendine öneriler ekleyebilirsin -->
+      </ul>
+    </div>
+
+
+  </section>
+
+  <!-- Çıkış Butonu -->
+  <div class="logout-container">
+    <button onclick="logout()" class="logout-btn">
+      <i class="fa-solid fa-right-from-bracket"></i> Çıkış Yap
+    </button>
+  </div>
+
+  <script>
+    function logout() {
+      alert("Çıkış yapıldı!");
+      window.location.href = "giris.html"; // Giriş sayfasına yönlendirir
+    }
+  </script>
+
+</body>
+</html>
