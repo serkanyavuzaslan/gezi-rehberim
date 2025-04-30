@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda | Gezi Rehberim</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #e65100;
+            --hover-color: #ff7d26;
+            --bg-light: #fff5eb;
+            --text-color: #333;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Ana stil */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fcfcfc;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Hakkımızda sayfası için özel stiller */
+        .about-hero {
+            background: linear-gradient(to right, #fff, var(--bg-light));
+            padding: 5rem 10%;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .about-hero p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .about-content {
+            padding: 0 10% 5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .about-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2.5rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            transition: transform 0.3s ease;
+            animation: fadeIn 1s ease;
+        }
+
+        .about-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .about-section-content {
+            flex: 1;
+        }
+
+        .about-section-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-size: 2rem;
+        }
+
+        .about-section-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-section-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-section-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+            animation: fadeIn 1s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--bg-light);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon i {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        .team-section {
+            background-color: var(--bg-light);
+            padding: 5rem 10%;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-section {
+                flex-direction: column !important;
+                padding: 2rem;
+            }
+
+            .about-section-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <!-- Header içeriği header.js tarafından dinamik olarak eklenecek -->
+    </header>
+
+    <section class="about-hero">
+        <h1>Hakkımızda</h1>
+        <p>Türkiye'nin dört bir yanını keşfetmenize yardımcı olmak için buradayız.</p>
+    </section>
+
+    <main class="about-content">
+        <section class="about-section">
+            <div class="about-section-content">
+                <h2>Gezi Rehberi Nedir?</h2>
+                <p>Gezi Rehberi, seyahat deneyimlerini sistemli bir şekilde kayıt altına almak ve kullanıcıya özel öneriler sunmak amacıyla geliştirilmiş bir web tabanlı uygulamadır. Proje dersi kapsamında tasarlanan bu platformda, ekip üyelerinin ziyaret ettikleri şehirler ve bu şehirlerde gezdikleri yerler kayıt altına alınmakta; bu bilgiler yalnızca kullanıcıların kendi hesapları üzerinden erişilebilmektedir.</p>
+                <p>Platform, kullanıcı deneyimini zenginleştirmek adına "Nereye gitmeliyim?" başlıklı bir öneri sistemi de içermektedir. Bu sistem, temel karar yapıları (if-else blokları) kullanılarak geliştirilmiş olup, kullanıcıdan alınan yanıtlara göre destinasyon önerilerinde bulunmaktadır.</p>
+            </div>
+            <div class="about-section-image">
+                <img src="https://st2.depositphotos.com/3725083/5485/i/450/depositphotos_54856347-stock-photo-travel-the-world-monument-concept.jpg" alt="Türkiye Seyahat Haritası">
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-section-content">
+                <h2>Misyonumuz ve Vizyonumuz</h2>
+                <p>Gezi Rehberi, seyahat planlamalarını kolaylaştırmayı, kullanıcıya özel içerik sunmayı ve yazılım geliştirme becerilerimizi gerçek bir uygulama üzerinden pekiştirmeyi hedeflemektedir. Geliştirme süreci boyunca veri yönetimi, kullanıcı arayüz tasarımı ve algoritma mantığı gibi birçok yazılım disiplini üzerinde çalışma fırsatı elde edilmiştir.</p>
+                <p>Vizyonumuz, Türkiye'nin kültürel zenginliklerini ve turistik değerlerini dijital platformlar aracılığıyla daha erişilebilir kılmak ve kullanıcıların seyahat deneyimlerini kişiselleştirmektir.</p>
+            </div>
+            <div class="about-section-image">
+                <img src="https://st4.depositphotos.com/4640111/41072/i/450/depositphotos_410721236-stock-photo-planning-vacation-travel-plan-trip.jpg" alt="Seyahat Planlama">
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-section-content">
+                <h2>Özelliklerimiz</h2>
+                <p>Gezi Rehberi, kullanıcılarına birçok kullanışlı özellik sunmaktadır:</p>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Ziyaret Kaydı</h3>
+                        <p>Ziyaret ettiğiniz illeri ve yerleri kolayca kaydedin ve takip edin.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-compass"></i>
+                        </div>
+                        <h3>Seyahat Önerileri</h3>
+                        <p>Tercihlerinize göre size özel seyahat önerileri alın.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Kişisel Profil</h3>
+                        <p>Tüm seyahat geçmişinizi ve tercihlerinizi içeren kişisel profilinize erişin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="auth.js"></script>
+    <script src="header.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animasyonlar ve sayfa etkileşimleri buraya eklenebilir
+        });
+    </script>
+</body>
+
+</html> 

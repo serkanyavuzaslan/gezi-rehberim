@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gezi Rehberim - Kontrol Paneli</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ffe0b2;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: #e65100;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .user-details h3 {
+            margin: 0;
+            color: #e65100;
+        }
+
+        .user-details p {
+            margin: 5px 0 0;
+            color: #666;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #e65100;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #ff9800;
+            color: #ff9800;
+        }
+
+        .btn-outline:hover {
+            background-color: #fff5eb;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffe0b2;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #666;
+            position: relative;
+        }
+
+        .tab.active {
+            color: #e65100;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #e65100;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .province-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .province-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background-color: #fff5eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .province-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .province-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .province-places {
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ffe0b2;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #ff9800;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            margin: 0;
+            color: #e65100;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            background-color: #ffebee;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .user-info {
+                margin-bottom: 15px;
+            }
+            
+            .tabs {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Türkiye Gezi Rehberi</h1>
+            <p class="description">Türkiye'deki gezi deneyimlerinizi kaydedin ve paylaşın!</p>
+        </header>
+
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar" id="user-avatar">A</div>
+                    <div class="user-details">
+                        <h3 id="user-name">Kullanıcı Adı</h3>
+                        <p id="user-email">kullanici@example.com</p>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-outline" id="logout-btn">Çıkış Yap</button>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" data-tab="provinces">Gezilen İller</div>
+                <div class="tab" data-tab="places">Gezilen Yerler</div>
+            </div>
+
+            <div class="tab-content active" id="provinces-tab">
+                <div class="action-buttons" style="margin-bottom: 20px;">
+                    <button class="btn btn-primary" id="add-province-btn">Yeni İl Ekle</button>
+                </div>
+                
+                <div id="provinces-loading" class="loading">Yükleniyor...</div>
+                <div id="provinces-error" class="error-message" style="display: none;"></div>
+                
+                <ul class="province-list" id="province-list">
+                    <!-- İller buraya dinamik olarak eklenecek -->
+                </ul>
+            </div>
+
+            <div class="tab-content" id="places-tab">
+                <div id="places-loading" class="loading">Yükleniyor...</div>
+                <div id="places-error" class="error-message" style="display: none;"></div>
+                
+                <div id="places-container">
+                    <!-- Gezilen yerler buraya dinamik olarak eklenecek -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- İl Ekleme Modal -->
+    <div class="modal" id="add-province-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Yeni İl Ekle</h3>
+                <button class="close-btn" id="close-province-modal">&times;</button>
+            </div>
+            <form id="add-province-form">
+                <div class="form-group">
+                    <label for="province-name">İl Adı</label>
+                    <input type="text" id="province-name" name="province-name" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Ekle</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Gezilen Yer Ekleme Modal -->
+    <div class="modal" id="add-place-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Yeni Gezilen Yer Ekle</h3>
+                <button class="close-btn" id="close-place-modal">&times;</button>
+            </div>
+            <form id="add-place-form">
+                <input type="hidden" id="province-id" name="province-id">
+                <div class="form-group">
+                    <label for="place-name">Yer Adı</label>
+                    <input type="text" id="place-name" name="place-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="place-description">Açıklama</label>
+                    <textarea id="place-description" name="place-description" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Ekle</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tabs işlevselliği
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Aktif tab ve içeriği güncelle
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                    
+                    // İlgili içeriği yükle
+                    if (tabId === 'provinces') {
+                        loadProvinces();
+                    } else if (tabId === 'places') {
+                        loadAllPlaces();
+                    }
+                });
+            });
+            
+            // Kullanıcı bilgilerini yükle
+            loadUserInfo();
+            
+            // İlleri yükle
+            loadProvinces();
+            
+            // Modal işlevselliği
+            const addProvinceBtn = document.getElementById('add-province-btn');
+            const addProvinceModal = document.getElementById('add-province-modal');
+            const closeProvinceModal = document.getElementById('close-province-modal');
+            const addProvinceForm = document.getElementById('add-province-form');
+            
+            addProvinceBtn.addEventListener('click', function() {
+                addProvinceModal.style.display = 'flex';
+            });
+            
+            closeProvinceModal.addEventListener('click', function() {
+                addProvinceModal.style.display = 'none';
+            });
+            
+            window.addEventListener('click', function(event) {
+                if (event.target === addProvinceModal) {
+                    addProvinceModal.style.display = 'none';
+                }
+                if (event.target === document.getElementById('add-place-modal')) {
+                    document.getElementById('add-place-modal').style.display = 'none';
+                }
+            });
+            
+            // İl ekleme formu
+            addProvinceForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const provinceName = document.getElementById('province-name').value;
+                
+                try {
+                    const result = await apiRequest('/api/Province', 'POST', { name: provinceName });
+                    
+                    // Modalı kapat ve formu sıfırla
+                    addProvinceModal.style.display = 'none';
+                    addProvinceForm.reset();
+                    
+                    // İlleri yeniden yükle
+                    loadProvinces();
+                    
+                    alert('İl başarıyla eklendi!');
+                } catch (error) {
+                    alert('İl eklenirken bir hata oluştu: ' + error.message);
+                }
+            });
+            
+            // Gezilen yer ekleme formu
+            const addPlaceForm = document.getElementById('add-place-form');
+            
+            addPlaceForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const provinceId = document.getElementById('province-id').value;
+                const placeName = document.getElementById('place-name').value;
+                const placeDescription = document.getElementById('place-description').value;
+                
+                try {
+                    const result = await apiRequest(`/api/Province/${provinceId}/PlaceVisited`, 'POST', {
+                        name: placeName,
+                        description: placeDescription
+                    });
+                    
+                    // Modalı kapat ve formu sıfırla
+                    document.getElementById('add-place-modal').style.display = 'none';
+                    addPlaceForm.reset();
+                    
+                    // İlleri yeniden yükle
+                    loadProvinces();
+                    
+                    alert('Gezilen yer başarıyla eklendi!');
+                } catch (error) {
+                    alert('Gezilen yer eklenirken bir hata oluştu: ' + error.message);
+                }
+            });
+        });
+        
+        // Kullanıcı bilgilerini yükle
+        async function loadUserInfo() {
+            try {
+                const userInfo = await getUserInfo();
+                
+                if (userInfo) {
+                    // Kullanıcı adı ve avatarı güncelle
+                    document.getElementById('user-name').textContent = `${userInfo.firstName} ${userInfo.lastName}`;
+                    document.getElementById('user-email').textContent = userInfo.email;
+                    
+                    // Avatar için baş harfler
+                    const initials = `${userInfo.firstName.charAt(0)}${userInfo.lastName.charAt(0)}`;
+                    document.getElementById('user-avatar').textContent = initials;
+                }
+            } catch (error) {
+                console.error('Kullanıcı bilgileri yüklenirken hata:', error);
+            }
+        }
+        
+        // İlleri yükle
+        async function loadProvinces() {
+            const provincesList = document.getElementById('province-list');
+            const loadingElement = document.getElementById('provinces-loading');
+            const errorElement = document.getElementById('provinces-error');
+            
+            provincesList.innerHTML = '';
+            loadingElement.style.display = 'block';
+            errorElement.style.display = 'none';
+            
+            try {
+                const provinces = await apiRequest('/api/Province', 'GET');
+                
+                loadingElement.style.display = 'none';
+                
+                if (provinces.length === 0) {
+                    provincesList.innerHTML = '<p>Henüz kayıtlı il bulunmamaktadır. Yeni bir il ekleyebilirsiniz.</p>';
+                    return;
+                }
+                
+                // İlleri listele
+                provinces.forEach(province => {
+                    const item = document.createElement('li');
+                    item.className = 'province-item';
+                    
+                    let placesText = '';
+                    if (province.placesVisited && province.placesVisited.length > 0) {
+                        placesText = `<div class="province-places">${province.placesVisited.length} gezilen yer</div>`;
+                    }
+                    
+                    item.innerHTML = `
+                        <div>
+                            <div class="province-name">${province.name}</div>
+                            ${placesText}
+                        </div>
+                        <div class="province-actions">
+                            <button class="btn btn-outline add-place-btn" data-province-id="${province.id}" data-province-name="${province.name}">Yer Ekle</button>
+                            <button class="btn btn-outline view-places-btn" data-province-id="${province.id}" data-province-name="${province.name}">Yerleri Gör</button>
+                            <button class="btn btn-outline delete-province-btn" data-province-id="${province.id}">Sil</button>
+                        </div>
+                    `;
+                    
+                    provincesList.appendChild(item);
+                });
+                
+                // Yer ekleme butonları için event listener
+                document.querySelectorAll('.add-place-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const provinceId = this.getAttribute('data-province-id');
+                        const provinceName = this.getAttribute('data-province-name');
+                        
+                        // Modal içeriğini güncelle
+                        document.getElementById('province-id').value = provinceId;
+                        document.querySelector('#add-place-modal .modal-title').textContent = `${provinceName} - Yeni Yer Ekle`;
+                        
+                        // Modalı göster
+                        document.getElementById('add-place-modal').style.display = 'flex';
+                    });
+                });
+                
+                // Yer görüntüleme butonları için event listener
+                document.querySelectorAll('.view-places-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const provinceId = this.getAttribute('data-province-id');
+                        const provinceName = this.getAttribute('data-province-name');
+                        
+                        loadProvincePlaces(provinceId, provinceName);
+                        
+                        // Tabı değiştir
+                        document.querySelector('.tab[data-tab="places"]').click();
+                    });
+                });
+                
+                // İl silme butonları için event listener
+                document.querySelectorAll('.delete-province-btn').forEach(btn => {
+                    btn.addEventListener('click', async function() {
+                        const provinceId = this.getAttribute('data-province-id');
+                        
+                        if (confirm('Bu ili silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')) {
+                            try {
+                                await apiRequest(`/api/Province/${provinceId}`, 'DELETE');
+                                loadProvinces();
+                                alert('İl başarıyla silindi.');
+                            } catch (error) {
+                                alert('İl silinirken bir hata oluştu: ' + error.message);
+                            }
+                        }
+                    });
+                });
+                
+            } catch (error) {
+                loadingElement.style.display = 'none';
+                errorElement.style.display = 'block';
+                errorElement.textContent = 'İller yüklenirken bir hata oluştu: ' + error.message;
+            }
+        }
+        
+        // Bir ile ait gezilen yerleri yükle
+        async function loadProvincePlaces(provinceId, provinceName) {
+            const placesContainer = document.getElementById('places-container');
+            const loadingElement = document.getElementById('places-loading');
+            const errorElement = document.getElementById('places-error');
+            
+            placesContainer.innerHTML = '';
+            loadingElement.style.display = 'block';
+            errorElement.style.display = 'none';
+            
+            try {
+                const places = await apiRequest(`/api/Province/${provinceId}/PlaceVisited`, 'GET');
+                
+                loadingElement.style.display = 'none';
+                
+                // Başlık ekle
+                placesContainer.innerHTML = `
+                    <h3>${provinceName} - Gezilen Yerler</h3>
+                    <div class="action-buttons" style="margin-bottom: 20px;">
+                        <button class="btn btn-primary add-place-btn" data-province-id="${provinceId}" data-province-name="${provinceName}">Yeni Yer Ekle</button>
+                        <button class="btn btn-outline back-to-provinces">Tüm İllere Dön</button>
+                    </div>
+                `;
+                
+                if (places.length === 0) {
+                    placesContainer.innerHTML += '<p>Bu ile ait gezilen yer bulunmamaktadır.</p>';
+                } else {
+                    // Yerleri listele
+                    const placesList = document.createElement('ul');
+                    placesList.className = 'province-list';
+                    
+                    places.forEach(place => {
+                        const item = document.createElement('li');
+                        item.className = 'province-item';
+                        
+                        item.innerHTML = `
+                            <div>
+                                <div class="province-name">${place.name}</div>
+                                <div class="province-places">${place.description || ''}</div>
+                            </div>
+                            <div class="province-actions">
+                                <button class="btn btn-outline delete-place-btn" data-province-id="${provinceId}" data-place-id="${place.id}">Sil</button>
+                            </div>
+                        `;
+                        
+                        placesList.appendChild(item);
+                    });
+                    
+                    placesContainer.appendChild(placesList);
+                    
+                    // Yer silme butonları için event listener
+                    document.querySelectorAll('.delete-place-btn').forEach(btn => {
+                        btn.addEventListener('click', async function() {
+                            const placeId = this.getAttribute('data-place-id');
+                            const provinceId = this.getAttribute('data-province-id');
+                            
+                            if (confirm('Bu gezilen yeri silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')) {
+                                try {
+                                    await apiRequest(`/api/Province/${provinceId}/PlaceVisited/${placeId}`, 'DELETE');
+                                    loadProvincePlaces(provinceId, provinceName);
+                                    alert('Gezilen yer başarıyla silindi.');
+                                } catch (error) {
+                                    alert('Gezilen yer silinirken bir hata oluştu: ' + error.message);
+                                }
+                            }
+                        });
+                    });
+                }
+                
+                // Yer ekleme butonu için event listener
+                document.querySelector('#places-container .add-place-btn').addEventListener('click', function() {
+                    const provinceId = this.getAttribute('data-province-id');
+                    const provinceName = this.getAttribute('data-province-name');
+                    
+                    // Modal içeriğini güncelle
+                    document.getElementById('province-id').value = provinceId;
+                    document.querySelector('#add-place-modal .modal-title').textContent = `${provinceName} - Yeni Yer Ekle`;
+                    
+                    // Modalı göster
+                    document.getElementById('add-place-modal').style.display = 'flex';
+                });
+                
+                // İllere dönme butonu için event listener
+                document.querySelector('.back-to-provinces').addEventListener('click', function() {
+                    document.querySelector('.tab[data-tab="provinces"]').click();
+                });
+                
+            } catch (error) {
+                loadingElement.style.display = 'none';
+                errorElement.style.display = 'block';
+                errorElement.textContent = 'Gezilen yerler yüklenirken bir hata oluştu: ' + error.message;
+            }
+        }
+        
+        // Tüm gezilen yerleri yükle
+        async function loadAllPlaces() {
+            const placesContainer = document.getElementById('places-container');
+            const loadingElement = document.getElementById('places-loading');
+            const errorElement = document.getElementById('places-error');
+            
+            placesContainer.innerHTML = '';
+            loadingElement.style.display = 'block';
+            errorElement.style.display = 'none';
+            
+            try {
+                const provinces = await apiRequest('/api/Province', 'GET');
+                
+                loadingElement.style.display = 'none';
+                
+                // Başlık ekle
+                placesContainer.innerHTML = `
+                    <h3>Tüm Gezilen Yerler</h3>
+                `;
+                
+                let hasAnyPlaces = false;
+                
+                // Her ilin yerlerini listele
+                for (const province of provinces) {
+                    const places = await apiRequest(`/api/Province/${province.id}/PlaceVisited`, 'GET');
+                    
+                    if (places.length > 0) {
+                        hasAnyPlaces = true;
+                        
+                        const provinceHeader = document.createElement('div');
+                        provinceHeader.style.margin = '20px 0 10px';
+                        provinceHeader.innerHTML = `<h4>${province.name}</h4>`;
+                        placesContainer.appendChild(provinceHeader);
+                        
+                        const placesList = document.createElement('ul');
+                        placesList.className = 'province-list';
+                        
+                        places.forEach(place => {
+                            const item = document.createElement('li');
+                            item.className = 'province-item';
+                            
+                            item.innerHTML = `
+                                <div>
+                                    <div class="province-name">${place.name}</div>
+                                    <div class="province-places">${place.description || ''}</div>
+                                </div>
+                            `;
+                            
+                            placesList.appendChild(item);
+                        });
+                        
+                        placesContainer.appendChild(placesList);
+                    }
+                }
+                
+                if (!hasAnyPlaces) {
+                    placesContainer.innerHTML += '<p>Henüz gezilen yer kaydetmediniz.</p>';
+                }
+                
+            } catch (error) {
+                loadingElement.style.display = 'none';
+                errorElement.style.display = 'block';
+                errorElement.textContent = 'Gezilen yerler yüklenirken bir hata oluştu: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html> 

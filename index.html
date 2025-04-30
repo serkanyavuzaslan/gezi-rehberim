@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
     <meta charset="UTF-8">
@@ -18,159 +18,603 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-    <!-- Harita Boyutu -->
+    <!-- Sayfa Stilleri -->
     <style>
-        #map {
-            height: 370px; /* Küçültülmüş harita */
+        :root {
+            --primary-color: #e65100;
+            --hover-color: #ff7d26;
+            --bg-light: #fff5eb;
+            --text-color: #333;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fcfcfc;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Stil */
+        .header {
+            padding: 1rem 5%;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1010;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo h2 {
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .links ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .links a:hover {
+            color: var(--primary-color);
+        }
+
+        .links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .links a:hover::after,
+        .links a.active::after {
             width: 100%;
-            max-width: 1000px; /* Genişliği sınırlandır */
-            margin: auto; /* Ortala */
-            border-radius: 10px; /* Köşeleri yuvarlak yap */
-            margin-top: 100px;
-            margin-bottom: 100px;
+        }
+
+        .links a.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .icons i {
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-color);
+        }
+
+        .icons i:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .fa-bars {
+            display: none;
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logout-btn:hover {
+            background-color: var(--hover-color);
+        }
+
+        /* Ana Kısım Stil */
+        .main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5% 10%;
+            min-height: 70vh;
+            background: linear-gradient(to right, #fff, var(--bg-light));
+        }
+
+        .text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .text p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .text button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .text button:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(230, 81, 0, 0.2);
+        }
+
+        .img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .img img {
+            max-width: 90%;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Servisler Stil */
+        .section-1 {
+            padding: 5% 10%;
+            background-color: white;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .services-1 {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+            flex: 1;
+        }
+
+        .services-1:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .services-1 img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .services-1:hover img {
+            transform: scale(1.05);
+        }
+
+        .services-1 h3 {
+            color: var(--primary-color);
+            margin: 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .services-1 p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Harita Stil */
+        #map {
+            height: 450px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 5rem auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 3px solid #f0f0f0;
+        }
+
+        /* Ayırıcı çizgi */
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 3rem 0;
+            text-align: center;
+            color: #999;
+            font-weight: 300;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #eee;
+        }
+
+        .divider::before {
+            margin-right: 1rem;
+        }
+
+        .divider::after {
+            margin-left: 1rem;
+        }
+
+        /* Kutular Stil */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 0 10% 5% 10%;
+        }
+
+        .box {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box:hover {
+            transform: translateY(-8px);
+        }
+
+        .box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .box:hover::before {
+            transform: scaleX(1);
+        }
+
+        .box h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .box img {
+            max-width: 180px;
+            margin: 1rem 0;
+            transition: var(--transition);
+        }
+
+        .box:hover img {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .box p {
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        /* Kullanıcı menüsü stil */
+        .user-menu {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .user-menu:hover {
+            background-color: var(--bg-light);
+        }
+
+        .user-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            animation: fadeIn 0.3s ease;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-dropdown a {
+            color: var(--text-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .user-dropdown a:hover {
+            background-color: var(--bg-light);
+            padding-left: 20px;
+        }
+
+        .user-dropdown a.logout {
+            color: #e74c3c;
+            border-top: 1px solid #eee;
+        }
+
+        .user-dropdown a.login {
+            color: var(--primary-color);
+        }
+
+        .user-dropdown.show {
+            display: block;
+        }
+
+        .user-icon {
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .user-name {
+            margin-right: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Responsive Tasarım */
+        @media (max-width: 992px) {
+            .main {
+                flex-direction: column;
+                text-align: center;
+                padding: 15% 5%;
+            }
+            
+            .text {
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+            
+            .text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .text button {
+                margin: 0 auto;
+            }
+            
+            .services, 
+            .container {
+                flex-direction: column;
+            }
+            
+            .fa-bars {
+                display: block;
+            }
+            
+            .links {
+                display: none;
+            }
+            
+            .img img {
+                max-width: 80%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .user-name {
+                display: inline;
+            }
+        }
+
+        /* Yeni header stili */
+        .right-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-menu {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .user-menu:hover {
+            background-color: var(--bg-light);
+        }
+
+        .user-name {
+            margin-right: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
         }
     </style>    
-
-
-
 </head>
 
 <body>
-    <!-- header -->
     <header class="header">
-        <div class="logo">
-            <h2> gezi rehberim.</h2>
-        </div>
-        <div class="links">
-            <ul>
-                <li><a href="#">Anasayfa</a></li>
-                <li><a href="#">Hakkımızda</a></li>
-                <li><a href="#">İletişim</a></li>
-                <!-- <li><a href="#">About</a></li> -->
-                <!-- <li><a href="#">Contact</a></li> -->
-            </ul>
-        </div>
-        <div class="icons">
-            <!-- <i class="fa-solid fa-bag-shopping"></i> -->
-            <i class="fa-solid fa-user"></i>
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <i class="fa-solid fa-bars"></i>
+        <!-- Header içeriği header.js tarafından dinamik olarak eklenecek -->
     </header>
+    
     <!-- main -->
     <main class="main">
         <div class="text">
             <h1>Rotanı seç.</h1>
-            <p> Türkiye’nin en güzel köşelerini keşfetmeye hazır mısın? <br> Bu sitede, tarihi zenginliklerden doğal harikalara kadar gezilecek en özel yerleri bulabilir, <br> kendin için mükemmel rotayı oluşturabilirsin! 🚀🌍
-                </p>
+            <p>Türkiye'nin en güzel köşelerini keşfetmeye hazır mısın? <br> Bu sitede, tarihi zenginliklerden doğal harikalara kadar gezilecek en özel yerleri bulabilir, <br> kendin için mükemmel rotayı oluşturabilirsin! 🚀🌍</p>
             <a href="nereyeGitmeliyim.html" target="_blank"><button>Nereye Gitmeliyim? <i class="fa-solid fa-angle-right"></i></button></a> 
         </div>
         <div class="img">
-            <img src="img/undraw_traveling_c18z-photoaidcom--photoaid-remove-background.png" alt="">
+            <img src="img/undraw_traveling_c18z-photoaidcom--photoaid-remove-background.png" alt="Gezi İllüstrasyonu">
         </div>
     </main>
+    
     <!-- section -->
     <section class="section-1">
         <div class="services">
             <div class="services-1">
-                <img src="img/undraw_trip_rh66.png" alt="">
-                <h3>Yola Çık!
-                </h3>
-                <p>Hayalindeki seyahati planla <br> Türkiye’yi adım adım gez.
-
-                </p>
+                <img src="img/undraw_trip_rh66.png" alt="Yola Çık">
+                <h3>Yola Çık!</h3>
+                <p>Hayalindeki seyahati planla <br> Türkiye'yi adım adım gez.</p>
             </div>
             <div class="services-1">
-                <img src="img/undraw_map_cuix.png" alt="">
+                <img src="img/undraw_map_cuix.png" alt="Keşfet">
                 <h3>Keşfet!</h3>
-                <p>Türkiye'nin en güzel köşelerini  <br> keşfet unutulmaz rotalar oluştur.</p>
+                <p>Türkiye'nin en güzel köşelerini <br> keşfet unutulmaz rotalar oluştur.</p>
             </div>
             <div class="services-1">
-                <img src="img/undraw_high-five_w86k.png" alt="">
+                <img src="img/undraw_high-five_w86k.png" alt="Eğlen">
                 <h3>Eğlen!</h3>
                 <p>Yeni yerler keşfederken <br> eğlenceyi doyasıya yaşa.</p>
             </div>
         </div>
     </section>
-      <!-- GSAP -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
-     <!-- My script -->
-      <script src="script.js"></script>
-
-
-      <h2 style="text-align: center;"><br><br>_________________</h2>
-      <div id="map"></div>
+    
+    <!-- Ayırıcı -->
+    <div class="divider">Türkiye'de Popüler Yerler</div>
+    
+    <!-- Harita -->
+    <div id="map"></div>
 
     <!-- KUTUCUK KISMI -->
-
     <div class="container">
         <!-- Şehirler Kutusu -->
         <div class="box">
             <h2>Şehirler</h2>
-            <img src="img/undraw_town_oesm.png" alt="Şehirler" style="width: 280px;">
+            <img src="img/undraw_town_oesm.png" alt="Şehirler">
             <p>Türkiye'nin en güzel şehirlerini keşfedin.</p>
         </div>
 
         <!-- Blog Kutusu -->
         <div class="box">
             <h2>Blog</h2>
-            <img src="img/undraw_add-user_rbko.png" alt="Blog" style="width: 220px;">
+            <img src="img/undraw_add-user_rbko.png" alt="Blog">
             <p>Gezginlerin hikayeleri ve deneyimlerini okuyun.</p>
         </div>
 
         <!-- Önerilenler Kutusu -->
         <div class="box">
             <h2>Önerilenler</h2>
-            <img src="img/undraw_lightbulb-moment_c8jn.png" alt="Önerilenler" style="width: 130px;">
+            <img src="img/undraw_lightbulb-moment_c8jn.png" alt="Önerilenler">
             <p>Gezilecek en popüler yerler burada!</p>
         </div>
     </div>
 
+    <!-- Scriptler -->
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <!-- Header componentini ekle -->
+    <script src="header.js"></script>
+    <!-- Auth JS -->
+    <script src="auth.js"></script>
+    <!-- Ana script -->
+    <script src="script.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Animasyon efektleri
+            gsap.from(".text h1", {duration: 1, opacity: 0, y: 50, delay: 0.2, ease: "power3.out"});
+            gsap.from(".text p", {duration: 1, opacity: 0, y: 50, delay: 0.4, ease: "power3.out"});
+            gsap.from(".text button", {duration: 1, opacity: 0, y: 50, delay: 0.6, ease: "power3.out"});
+            gsap.from(".img img", {duration: 1.5, opacity: 0, scale: 0.8, delay: 0.3, ease: "power3.out"});
+            gsap.from(".services-1", {duration: 1, opacity: 0, y: 50, stagger: 0.2, delay: 0.8, ease: "power3.out"});
+            gsap.from(".box", {duration: 1, opacity: 0, y: 50, stagger: 0.2, delay: 1.5, ease: "power3.out"});
+        });
 
-
-
-
-
+        // Harita işlemleri
+        var map = L.map('map').setView([39.9334, 32.8597], 6); // Türkiye'nin ortası
   
-      <!-- Leaflet JS -->
-      <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
   
-      <script>
-          // 1️⃣ Haritayı Oluştur
-          var map = L.map('map').setView([39.9334, 32.8597], 6); // Türkiye'nin ortası
+        var places = [
+            { name: "İstanbul", lat: 41.0082, lng: 28.9784 },
+            { name: "Kapadokya", lat: 38.6454, lng: 34.8271 },
+            { name: "İzmir", lat: 38.4192, lng: 27.1287 },
+            { name: "Antalya", lat: 36.8969, lng: 30.7133 },
+            { name: "Ankara", lat: 39.9208, lng: 32.8541 }
+        ];
   
-          // 2️⃣ Harita Katmanı (Arka Plan)
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-              attribution: '© OpenStreetMap contributors'
-          }).addTo(map);
-  
-          // 3️⃣ Konumlar
-          var places = [
-              { name: "İstanbul", lat: 41.0082, lng: 28.9784 },
-              { name: "Kapadokya", lat: 38.6454, lng: 34.8271 },
-              { name: "İzmir", lat: 38.4192, lng: 27.1287 },
-              { name: "Antalya", lat: 36.8969, lng: 30.7133 },
-              { name: "Ankara", lat: 39.9208, lng: 32.8541 }
-          ];
-  
-          // 4️⃣ İşaretleri Ekle
-          places.forEach(place => {
-              L.marker([place.lat, place.lng]).addTo(map)
-                  .bindPopup(`<b>${place.name}</b>`);
-          });
-  
-      </script>
-
-
-
-
-
-
-
-
-
-
-    </body>
-
+        places.forEach(place => {
+            L.marker([place.lat, place.lng]).addTo(map)
+                .bindPopup(`<b>${place.name}</b>`);
+        });
+    </script>
+</body>
 </html>

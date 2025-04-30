@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilim | Gezi Rehberim</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #e65100;
+            --hover-color: #ff7d26;
+            --bg-light: #fff5eb;
+            --text-color: #333;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Navbar ek stilleri */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1010;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            background-color: white;
+            padding: 1rem 5%;
+        }
+
+        .right-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .links ul li a.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .links ul li a.active::after {
+            width: 100%;
+            background-color: var(--primary-color);
+        }
+
+        /* Kullanıcı Menüsü */
+        .user-menu {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .user-menu:hover {
+            background-color: var(--bg-light);
+        }
+
+        .user-name {
+            margin-right: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .user-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            animation: fadeIn 0.3s ease;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-dropdown a {
+            color: var(--text-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .user-dropdown a:hover {
+            background-color: var(--bg-light);
+            padding-left: 20px;
+        }
+
+        .user-dropdown a.logout {
+            color: #e74c3c;
+            border-top: 1px solid #eee;
+        }
+
+        .user-dropdown.show {
+            display: block;
+        }
+
+        #logout-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        #logout-btn:hover {
+            background-color: var(--hover-color);
+        }
+
+        .profile-header {
+            background: linear-gradient(to right, #fff, var(--bg-light));
+            padding: 3rem 10%;
+            margin-bottom: 2rem;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .profile-details h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+
+        .profile-username {
+            color: #777;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-email {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .profile-content {
+            padding: 0 10%;
+        }
+
+        .profile-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .profile-card-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.2rem 1.5rem;
+            font-weight: 600;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .profile-card-body {
+            padding: 1.5rem;
+        }
+
+        .provinces-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .province-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: var(--transition);
+            height: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .province-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .province-header {
+            padding: 1rem 1.5rem;
+            background-color: var(--bg-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .province-name {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .province-count {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            padding: 0.25rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .province-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .place-item {
+            border-bottom: 1px solid #eee;
+            padding: 0.8rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .place-item:last-child {
+            border-bottom: none;
+        }
+
+        .place-content {
+            flex: 1;
+        }
+
+        .place-name {
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 0 0 0.3rem 0;
+        }
+
+        .place-description {
+            color: #777;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .delete-place-btn {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .delete-place-btn:hover {
+            background-color: #ffe5e5;
+        }
+
+        .delete-place-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .empty-state {
+            color: #777;
+            font-style: italic;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--bg-light);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .profile-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .profile-avatar {
+                margin: 0 auto;
+            }
+
+            .provinces-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Yeni yer ekleme formu için ekstra stiller */
+        .add-place-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 12px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(230, 81, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .add-place-button:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(230, 81, 0, 0.4);
+        }
+
+        .add-place-button i {
+            font-size: 1.1rem;
+        }
+
+        .add-place-form {
+            background-color: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            display: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .form-row {
+            margin-bottom: 1rem;
+        }
+
+        .form-row:last-child {
+            margin-bottom: 0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .form-row label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-row select,
+        .form-row input,
+        .form-row textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-row select:focus,
+        .form-row input:focus,
+        .form-row textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(230, 81, 0, 0.1);
+        }
+
+        .form-submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-submit-btn:hover {
+            background-color: var(--hover-color);
+        }
+
+        .form-cancel-btn {
+            background-color: #f5f5f5;
+            color: #666;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-cancel-btn:hover {
+            background-color: #e9e9e9;
+        }
+
+        .success-message, .error-message {
+            padding: 12px 16px;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .success-message {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+
+        .error-message {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+
+        /* Bildirim Stilleri */
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            min-width: 300px;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+            padding: 15px;
+            z-index: 1050;
+            animation: slideIn 0.3s ease, fadeOut 0.3s ease forwards 3s;
+        }
+
+        .notification.success {
+            border-left: 4px solid #2ecc71;
+        }
+
+        .notification.error {
+            border-left: 4px solid #e74c3c;
+        }
+
+        .notification.info {
+            border-left: 4px solid #3498db;
+        }
+
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .notification-header h4 {
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        .close-notification {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #777;
+        }
+
+        .notification p {
+            margin: 0;
+            color: #555;
+        }
+
+        .notification.fade-out {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <!-- Header içeriği header.js tarafından dinamik olarak eklenecek -->
+    </header>
+
+    <!-- Profil Ana İçerik -->
+    <section class="profile-header">
+            <div class="profile-info">
+            <div class="profile-avatar" id="profile-avatar"></div>
+            <div class="profile-details">
+                <h1 id="user-fullname"></h1>
+                <p class="profile-username" id="user-username"></p>
+                <p class="profile-email" id="user-email"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="profile-content">
+            <div class="profile-card">
+            <div class="profile-card-header">
+                <span>Ziyaret Ettiğim İller</span>
+                <button id="add-place-btn" class="add-place-button">
+                    <i class="fas fa-plus"></i> Yeni Yer Ekle
+                </button>
+            </div>
+            <div class="profile-card-body">
+                <!-- Başarı mesajı -->
+                <div id="success-message" class="success-message">
+                    <i class="fas fa-check-circle"></i> Ziyaret ettiğiniz yer başarıyla eklendi!
+                </div>
+
+                <!-- Hata mesajı -->
+                <div id="error-message" class="error-message">
+                    <i class="fas fa-exclamation-circle"></i> <span id="error-text">Bir hata oluştu. Lütfen tekrar deneyin.</span>
+                </div>
+
+                <!-- Yeni yer ekleme formu -->
+                <div id="add-place-form" class="add-place-form">
+                    <h3>Ziyaret Ettiğiniz Yeri Ekleyin</h3>
+                    <div class="form-row">
+                        <label for="province-select">İl Seçin</label>
+                        <select id="province-select" required>
+                            <option value="">İl seçiniz</option>
+                            <!-- İller JavaScript ile doldurulacak -->
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="place-name">Yer Adı</label>
+                        <input type="text" id="place-name" placeholder="Örn: Sultanahmet Camii" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="place-description">Açıklama</label>
+                        <textarea id="place-description" rows="3" placeholder="Burası hakkında kısa bir açıklama yazabilirsiniz"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <button type="button" id="cancel-add-place" class="form-cancel-btn">İptal</button>
+                        <button type="button" id="submit-place" class="form-submit-btn">Ekle</button>
+                    </div>
+                </div>
+
+                <div id="visited-provinces-container">
+                    <div id="loading-indicator" class="loading-container">
+                        <div class="loading-spinner"></div>
+                        <p>Bilgileriniz yükleniyor...</p>
+                    </div>
+                    
+                    <div id="no-visits-message" class="empty-state" style="display: none;">
+                        <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: #ddd; margin-bottom: 1rem;"></i>
+                        <h3>Henüz Ziyaret Ettiğiniz İl Yok</h3>
+                        <p>Gezdiğiniz yerleri eklemek için "Yeni Yer Ekle" butonunu kullanabilirsiniz.</p>
+                    </div>
+
+                    <div id="provinces-list" class="provinces-list" style="display: none;">
+                        <!-- Ziyaret edilen iller buraya JavaScript ile eklenecek -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scriptler -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script src="auth.js"></script>
+    <script src="header.js"></script>
+    <script src="profile.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animasyonlar
+            gsap.from(".profile-avatar", {duration: 1, opacity: 0, scale: 0.8, ease: "power3.out"});
+            gsap.from(".profile-details", {duration: 1, opacity: 0, y: 30, ease: "power3.out"});
+            gsap.from(".profile-card", {duration: 1, opacity: 0, y: 50, delay: 0.3, ease: "power3.out"});
+            
+            const addPlaceBtn = document.getElementById('add-place-btn');
+            const addPlaceForm = document.getElementById('add-place-form');
+            const cancelAddPlaceBtn = document.getElementById('cancel-add-place');
+            const submitPlaceBtn = document.getElementById('submit-place');
+            const provinceSelect = document.getElementById('province-select');
+            const placeNameInput = document.getElementById('place-name');
+            const placeDescriptionInput = document.getElementById('place-description');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            const errorText = document.getElementById('error-text');
+            
+            // Formu göster/gizle
+            addPlaceBtn.addEventListener('click', function() {
+                addPlaceForm.style.display = 'block';
+                loadProvinces();
+            });
+            
+            cancelAddPlaceBtn.addEventListener('click', function() {
+                addPlaceForm.style.display = 'none';
+                resetForm();
+            });
+            
+            // İlleri yükle
+            function loadProvinces() {
+                fetch('http://localhost:5123/api/Province', {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('İller yüklenirken bir hata oluştu');
+                    }
+                    return response.json();
+                })
+                .then(provinces => {
+                    provinceSelect.innerHTML = '<option value="">İl seçiniz</option>';
+                    
+                    // İlleri alfabetik sıraya göre sırala
+                    provinces.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+                    
+                    provinces.forEach(province => {
+                        const option = document.createElement('option');
+                        option.value = province.id;
+                        option.textContent = province.name;
+                        provinceSelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('İller yüklenirken hata:', error);
+                    errorText.textContent = 'İller yüklenirken bir hata oluştu. Lütfen sayfayı yenileyip tekrar deneyin.';
+                    errorMessage.style.display = 'block';
+                    setTimeout(() => {
+                        errorMessage.style.display = 'none';
+                    }, 5000);
+                });
+            }
+            
+            // Formu gönder
+            submitPlaceBtn.addEventListener('click', function() {
+                const provinceId = provinceSelect.value;
+                const placeName = placeNameInput.value;
+                const placeDescription = placeDescriptionInput.value;
+                
+                // Form validasyonu
+                if (!provinceId || !placeName) {
+                    errorText.textContent = 'Lütfen il ve yer adı alanlarını doldurun.';
+                    errorMessage.style.display = 'block';
+                    setTimeout(() => {
+                        errorMessage.style.display = 'none';
+                    }, 5000);
+                    return;
+                }
+                
+                // API'ye gönder
+                const data = {
+                    name: placeName,
+                    description: placeDescription
+                };
+                
+                fetch(`http://localhost:5123/api/Province/${provinceId}/PlaceVisited`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Yer eklenirken bir hata oluştu');
+                    }
+                    return response.json();
+                })
+                .then(result => {
+                    // Başarı mesajı göster
+                    successMessage.style.display = 'block';
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                    
+                    // Formu resetle ve gizle
+                    resetForm();
+                    addPlaceForm.style.display = 'none';
+                    
+                    // Sayfayı yenile veya ziyaret edilenleri tekrar yükle
+                    // Not: profile.js'deki loadUserVisits fonksiyonu çağrılabilir
+                    // ama burada basitçe sayfayı yenileme yaklaşımı kullanıldı
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000);
+                })
+                .catch(error => {
+                    console.error('Yer eklenirken hata:', error);
+                    errorText.textContent = 'Yer eklenirken bir hata oluştu. Lütfen tekrar deneyin.';
+                    errorMessage.style.display = 'block';
+                    setTimeout(() => {
+                        errorMessage.style.display = 'none';
+                    }, 5000);
+                });
+            });
+            
+            // Formu resetle
+            function resetForm() {
+                provinceSelect.value = '';
+                placeNameInput.value = '';
+                placeDescriptionInput.value = '';
+            }
+        });
+    </script>
+</body>
+
+</html> 
