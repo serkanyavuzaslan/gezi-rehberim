@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giriş Yap - Gezi Rehberim</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      display: flex;
+      width: 800px;
+      height: 500px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .left-side, .right-side {
+      width: 50%;
+      height: 100%;
+    }
+
+    .left-side {
+      background: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902') center/cover no-repeat;
+    }
+
+    .right-side {
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .right-side h2 {
+      color: #e65100;
+      font-size: 26px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #333;
+      font-size: 13px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 13px;
+      background: #f7f7f7;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus {
+      background: #fff;
+      border: 2px solid #ff7d26;
+      outline: none;
+    }
+
+    .login-btn {
+      width: 100%;
+      background: linear-gradient(to right, #e65100, #ff7d26);
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      opacity: 0.9;
+    }
+
+    .register-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+
+    .register-link a {
+      color: #e65100;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-side"></div>
+    <div class="right-side">
+      <h2>Giriş Yap</h2>
+      <form>
+        <div class="form-group">
+          <label for="username">Kullanıcı Adı</label>
+          <input type="text" id="username" name="username" placeholder="Kullanıcı adınızı girin" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Şifre</label>
+          <input type="password" id="password" name="password" placeholder="Şifrenizi girin" required />
+        </div>
+        <button type="submit" class="login-btn">Giriş Yap</button>
+      </form>
+      <div class="register-link">
+        Hesabınız yok mu? <a href="register.html">Kayıt Ol</a>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const inputUsername = document.getElementById("username").value;
+    const inputPassword = document.getElementById("password").value;
+
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+
+    if (!savedUser) {
+      alert("Kayıt bulunamadı. Lütfen önce kayıt olun.");
+      return;
+    }
+
+    if (inputUsername === savedUser.username && inputPassword === savedUser.password) {
+      alert("Giriş başarılı!");
+      window.location.href = "index.html"; // anasayfa
+    } else {
+      alert("Kullanıcı adı veya şifre yanlış.");
+    }
+  });
+</script>
+
+</html>
