@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İstanbul’daki Doğal Yerler</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="logo">
+            <h2> gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">İstanbul’daki Doğal Güzellikler</h2>
+
+        <style>
+            .history-card {
+                display: flex;
+                flex-wrap: wrap;
+                background: #ffffff;
+                border-radius: 14px;
+                margin-bottom: 40px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+                overflow: hidden;
+                max-width: 1200px;
+                margin-inline: auto;
+                transition: transform 0.3s ease;
+            }
+            .history-card img {
+                width: 100%;
+                max-width: 500px;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+                cursor: pointer;
+            }
+            .history-card img:hover {
+                transform: scale(1.03);
+            }
+            .history-card-content {
+                padding: 30px;
+                flex: 1;
+            }
+            .history-card-content h3 {
+                font-size: 30px;
+                margin-bottom: 15px;
+                color: #222;
+            }
+            .history-card-content p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #444;
+                margin-bottom: 8px;
+            }
+        </style>
+
+        <!-- 1. Belgrad Ormanı -->
+        <div class="history-card">
+            <img src="img/belgrad.jpg" alt="Belgrad Ormanı">
+            <div class="history-card-content">
+                <h3>Belgrad Ormanı</h3>
+                <p>İstanbul'un en büyük ormanlık alanlarından biri olan Belgrad Ormanı, yürüyüş parkurları, bisiklet yolları ve piknik alanlarıyla doğaseverlerin gözdesidir.</p>
+                <p><strong>Adres:</strong> Bahçeköy Merkez, 34473 Sarıyer/İstanbul</p>
+                <p><strong>Açık Günler:</strong> Haftanın her günü</p>
+                <p><strong>Giriş:</strong> Ücretli (Araçla giriş: 40 TL civarı)</p>
+            </div>
+        </div>
+
+        <!-- 2. Atatürk Arboretumu -->
+        <div class="history-card">
+            <img src="img/arboretum.jpg" alt="Atatürk Arboretumu">
+            <div class="history-card-content">
+                <h3>Atatürk Arboretumu</h3>
+                <p>Botanik meraklıları için eşsiz bir doğa cenneti olan arboretum, nadir bitkileri ve göletleriyle huzur dolu bir deneyim sunar. Sessizliği ile meşhurdur.</p>
+                <p><strong>Adres:</strong> Bahçeköy Merkez, 34473 Sarıyer/İstanbul</p>
+                <p><strong>Açık Günler:</strong> Pazartesi hariç her gün</p>
+                <p><strong>Giriş:</strong> Ücretli (Tam: 30 TL – Öğrenci: 15 TL)</p>
+            </div>
+        </div>
+
+        <!-- 3. Polonezköy Tabiat Parkı -->
+        <div class="history-card">
+            <img src="img/polonezkoy.jpg" alt="Polonezköy Tabiat Parkı">
+            <div class="history-card-content">
+                <h3>Polonezköy Tabiat Parkı</h3>
+                <p>Yeşilin her tonunu barındıran bu park, hafta sonu kaçamakları için ideal. Doğa yürüyüşleri, kahvaltı mekanları ve kuş sesleriyle dolu bir atmosfer sunar.</p>
+                <p><strong>Adres:</strong> Polonez, Beykoz/İstanbul</p>
+                <p><strong>Açık Günler:</strong> Her gün</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+        <!-- 4. Aydos Ormanı -->
+        <div class="history-card">
+            <img src="img/aydos.jpg" alt="Aydos Ormanı">
+            <div class="history-card-content">
+                <h3>Aydos Ormanı</h3>
+                <p>Anadolu Yakası’nın saklı güzelliklerinden biri olan Aydos Ormanı, göleti ve temiz havasıyla doğa yürüyüşleri için idealdir. Kamp severler için de uygun alanlara sahiptir.</p>
+                <p><strong>Adres:</strong> Kartal/Aydos, İstanbul</p>
+                <p><strong>Açık Günler:</strong> Haftanın her günü</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+        <!-- 5. Emirgan Korusu -->
+        <div class="history-card">
+            <img src="img/emirgankorusu.jpg" alt="Emirgan Korusu">
+            <div class="history-card-content">
+                <h3>Emirgan Korusu</h3>
+                <p>Boğaz manzarasına karşı rengarenk lalelerle ünlü bu koru, bahar aylarında ziyaretçilerin ilgi odağı. Dinlenme alanları ve kafeleriyle keyifli vakit geçirilebilir.</p>
+                <p><strong>Adres:</strong> Reşitpaşa, Emirgan Sk., 34467 Sarıyer/İstanbul</p>
+                <p><strong>Açık Günler:</strong> Her gün</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>

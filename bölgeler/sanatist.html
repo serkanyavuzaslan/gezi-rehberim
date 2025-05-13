@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İstanbul’da Sanat ve Etkinlik Mekanları</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="logo">
+            <h2> gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">İstanbul’da Sanat ve Etkinlik Mekanları</h2>
+
+        <style>
+            .history-card {
+                display: flex;
+                flex-wrap: wrap;
+                background: #ffffff;
+                border-radius: 14px;
+                margin-bottom: 40px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+                overflow: hidden;
+                max-width: 1200px;
+                margin-inline: auto;
+                transition: transform 0.3s ease;
+            }
+            .history-card img {
+                width: 100%;
+                max-width: 500px;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+                cursor: pointer;
+            }
+            .history-card img:hover {
+                transform: scale(1.03);
+            }
+            .history-card-content {
+                padding: 30px;
+                flex: 1;
+            }
+            .history-card-content h3 {
+                font-size: 30px;
+                margin-bottom: 15px;
+                color: #222;
+            }
+            .history-card-content p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #444;
+                margin-bottom: 8px;
+            }
+        </style>
+
+        <!-- 1. Zorlu PSM -->
+        <div class="history-card">
+            <img src="img/zorlupsm.jpg" alt="Zorlu PSM">
+            <div class="history-card-content">
+                <h3>Zorlu PSM</h3>
+                <p>Konserler, tiyatro oyunları, müzikaller ve daha fazlası için İstanbul’un en modern sahnelerinden biri. Sanatın kalbi burada atıyor.</p>
+                <p><strong>Adres:</strong> Levazım, Koru Sokağı No:2, Zorlu Center, Beşiktaş/İstanbul</p>
+                <p><strong>Etkinlik Günleri:</strong> Haftanın her günü</p>
+                <p><strong>Bilet:</strong> Etkinliğe göre değişken</p>
+            </div>
+        </div>
+
+        <!-- 2. Harbiye Cemil Topuzlu Açıkhava Tiyatrosu -->
+        <div class="history-card">
+            <img src="img/harbiye.jpg" alt="Harbiye Açıkhava Tiyatrosu">
+            <div class="history-card-content">
+                <h3>Harbiye Cemil Topuzlu Açıkhava Tiyatrosu</h3>
+                <p>Yaz aylarında yıldızların altında konser keyfi. İstanbul’un en nostaljik ve sevilen açık hava sahnelerinden biridir.</p>
+                <p><strong>Adres:</strong> Harbiye, Taşkışla Cd. No:8, 34367 Şişli/İstanbul</p>
+                <p><strong>Sezon:</strong> Mayıs – Eylül arası</p>
+                <p><strong>Bilet:</strong> Ücretli, Biletix üzerinden satışta</p>
+            </div>
+        </div>
+
+        <!-- 3. DasDas Sahne -->
+        <div class="history-card">
+            <img src="img/dasdas.jpg" alt="DasDas Sahne">
+            <div class="history-card-content">
+                <h3>DasDas Sahne</h3>
+                <p>Anadolu Yakası’nın yükselen yıldızı DasDas; tiyatro, konser ve atölye etkinlikleriyle sanatseverlere alternatif bir kültür sunar.</p>
+                <p><strong>Adres:</strong> Merdivenköy, Metropol İstanbul AVM, Ataşehir/İstanbul</p>
+                <p><strong>Etkinlik Günleri:</strong> Çoğunlukla hafta içi akşam ve hafta sonu</p>
+                <p><strong>Bilet:</strong> Ücretli (Biletinial veya Passo)</p>
+            </div>
+        </div>
+
+        <!-- 4. Süreyya Operası -->
+        <div class="history-card">
+            <img src="img/sureyya.jpg" alt="Süreyya Operası">
+            <div class="history-card-content">
+                <h3>Süreyya Operası</h3>
+                <p>Klasik müzik, bale ve opera temsillerinin adresi olan Süreyya Operası, tarihi atmosferiyle Kadıköy'ün en zarif mekânlarından biridir.</p>
+                <p><strong>Adres:</strong> Osmanağa, General Asım Gündüz Cd. No:29, Kadıköy/İstanbul</p>
+                <p><strong>Etkinlikler:</strong> Devlet Opera ve Balesi sezon programına göre</p>
+                <p><strong>Bilet:</strong> Biletinial ve gişe</p>
+            </div>
+        </div>
+
+        <!-- 5. Babylon -->
+        <div class="history-card">
+            <img src="img/babylon.jpg" alt="Babylon Bomonti">
+            <div class="history-card-content">
+                <h3>Babylon Bomonti</h3>
+                <p>Canlı müzik performansları, DJ setleri ve özel etkinliklerle gençlerin vazgeçilmezi olan Babylon, enerjisiyle dikkat çeker.</p>
+                <p><strong>Adres:</strong> Bomontiada, Birahane Sok. No:1, Şişli/İstanbul</p>
+                <p><strong>Etkinlik Günleri:</strong> Özellikle Cuma – Cumartesi geceleri</p>
+                <p><strong>Bilet:</strong> Biletix üzerinden</p>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>
