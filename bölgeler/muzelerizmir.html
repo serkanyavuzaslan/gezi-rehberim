@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İzmir'deki Müzeler</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h2>gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <!-- Sayfa İçeriği -->
+    <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">İzmir’deki Müzeler</h2>
+
+        <style>
+            .history-card {
+                display: flex;
+                flex-wrap: wrap;
+                background: #ffffff;
+                border-radius: 14px;
+                margin-bottom: 40px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+                overflow: hidden;
+                max-width: 1200px;
+                margin-inline: auto;
+                transition: transform 0.3s ease;
+            }
+            .history-card img {
+                width: 100%;
+                max-width: 500px;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+                cursor: pointer;
+            }
+            .history-card img:hover {
+                transform: scale(1.03);
+            }
+            .history-card-content {
+                padding: 30px;
+                flex: 1;
+            }
+            .history-card-content h3 {
+                font-size: 30px;
+                margin-bottom: 15px;
+                color: #222;
+            }
+            .history-card-content p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #444;
+                margin-bottom: 8px;
+            }
+        </style>
+
+        <!-- 1. İzmir Arkeoloji Müzesi -->
+        <div class="history-card">
+            <img src="img/izmirarkeoloji.jpg" alt="İzmir Arkeoloji Müzesi">
+            <div class="history-card-content">
+                <h3>İzmir Arkeoloji Müzesi</h3>
+                <p>İzmir ve çevresinden çıkarılan antik eserlerin sergilendiği bu müze, tarih meraklıları için eşsiz bir keşif alanıdır.</p>
+                <p><strong>Adres:</strong> Konak, Bahribaba Parkı, İzmir</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 17:30</p>
+                <p><strong>Giriş:</strong> Ücretli (Tam: 100 TL)</p>
+                <p><strong>Müze Kart:</strong> Geçerli</p>
+            </div>
+        </div>
+
+        <!-- 2. Atatürk Müzesi -->
+        <div class="history-card">
+            <img src="img/ataturkmuze.jpg" alt="Atatürk Müzesi">
+            <div class="history-card-content">
+                <h3>İzmir Atatürk Müzesi</h3>
+                <p>Mustafa Kemal Atatürk’ün İzmir ziyaretlerinde kullandığı bu yapı, günümüzde müze olarak ziyaretçilere açık.</p>
+                <p><strong>Adres:</strong> Alsancak, Atatürk Cd. No:248, Konak/İzmir</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 17:30</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+                <p><strong>Müze Kart:</strong> Gerekli değil</p>
+            </div>
+        </div>
+
+        <!-- 3. İzmir Tarih ve Sanat Müzesi -->
+        <div class="history-card">
+            <img src="img/izmirsanat.jpg" alt="Tarih ve Sanat Müzesi">
+            <div class="history-card-content">
+                <h3>Tarih ve Sanat Müzesi</h3>
+                <p>Heykel, taş eser ve seramik bölümleriyle İzmir’in kültürel birikimini gözler önüne serer.</p>
+                <p><strong>Adres:</strong> Kültürpark Fuar Alanı, Lozan Kapısı, Konak/İzmir</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 17:30</p>
+                <p><strong>Giriş:</strong> Ücretli (Tam: 100 TL)</p>
+                <p><strong>Müze Kart:</strong> Geçerli</p>
+            </div>
+        </div>
+
+        <!-- 4. İzmir Oyuncak Müzesi -->
+        <div class="history-card">
+            <img src="img/oyuncakmuzesi.jpg" alt="İzmir Oyuncak Müzesi">
+            <div class="history-card-content">
+                <h3>Oyuncak Müzesi</h3>
+                <p>Geçmişten günümüze oyuncakların sergilendiği bu eğlenceli müze hem çocuklar hem de nostalji sevenler için keyifli bir duraktır.</p>
+                <p><strong>Adres:</strong> Varyant Yolu, Halil Rıfat Paşa, Konak/İzmir</p>
+                <p><strong>Ziyaret Saatleri:</strong> Salı-Pazar 10:00 – 18:00</p>
+                <p><strong>Giriş:</strong> Ücretli (Tam: 40 TL)</p>
+                <p><strong>Müze Kart:</strong> Gerekli değil</p>
+            </div>
+        </div>
+
+        <!-- 5. İzmir Kadın Müzesi -->
+        <div class="history-card">
+            <img src="img/kadinmuze.jpg" alt="Kadın Müzesi">
+            <div class="history-card-content">
+                <h3>İzmir Kadın Müzesi</h3>
+                <p>Türkiye’nin ilk kadın temalı müzesi olan bu yapı, kadınların toplumsal tarih içindeki izlerini sunmaktadır.</p>
+                <p><strong>Adres:</strong> Basmane, 1298. Sk. No:14, Konak/İzmir</p>
+                <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 09:00 – 17:00</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+                <p><strong>Müze Kart:</strong> Gerekli değil</p>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>

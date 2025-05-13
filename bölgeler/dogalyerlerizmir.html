@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İzmir'deki Doğal Güzellikler</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 40px 20px;
+        }
+        .place-card {
+            display: flex;
+            flex-wrap: wrap;
+            background: #ffffff;
+            border-radius: 14px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            overflow: hidden;
+            max-width: 1200px;
+            margin-inline: auto;
+            transition: transform 0.3s ease;
+        }
+        .place-card img {
+            width: 100%;
+            max-width: 500px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            cursor: pointer;
+        }
+        .place-card img:hover {
+            transform: scale(1.03);
+        }
+        .place-card-content {
+            padding: 30px;
+            flex: 1;
+        }
+        .place-card-content h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        .place-card-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 8px;
+        }
+        @media (max-width: 768px) {
+            .place-card {
+                flex-direction: column;
+            }
+            .place-card img {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>İzmir'deki Doğal Güzellikler</h1>
+    </div>
+
+    <div class="content">
+
+        <!-- Kordon -->
+        <div class="place-card">
+            <img src="https://unsplash.com/photos/a-train-on-the-tracks-x7t6uRTEAMo" alt="Kordon, İzmir">
+            <div class="place-card-content">
+                <h3>Kordon</h3>
+                <p>İzmir'in simgelerinden biri olan Kordon, deniz kenarında yürüyüş yapmak ve gün batımını izlemek için mükemmel bir yerdir.</p>
+                <p><strong>Konum:</strong> Alsancak, İzmir</p>
+            </div>
+        </div>
+
+        <!-- Karagöl Tabiat Parkı -->
+        <div class="place-card">
+            <img src="https://www.hurriyet.com.tr/seyahat/karagol-tabiat-parki-nerede-ve-nasil-gidilir-giris-ucreti-ve-ziyaret-saatleri-2020-41614989" alt="Karagöl Tabiat Parkı">
+            <div class="place-card-content">
+                <h3>Karagöl Tabiat Parkı</h3>
+                <p>Yamanlar Dağı'nda yer alan Karagöl, doğa yürüyüşleri ve piknik için ideal bir tabiat parkıdır.</p>
+                <p><strong>Konum:</strong> Menemen, İzmir</p>
+            </div>
+        </div>
+
+        <!-- Yamanlar Dağı -->
+        <div class="place-card">
+            <img src="https://cemkaragozlu.blogspot.com/2012/08/karsiyakanin-sirtini-dayadigi-yamanlar.html" alt="Yamanlar Dağı">
+            <div class="place-card-content">
+                <h3>Yamanlar Dağı</h3>
+                <p>İzmir Körfezi'ne hakim manzarasıyla Yamanlar Dağı, doğa severler için vazgeçilmez bir rotadır.</p>
+                <p><strong>Konum:</strong> Karşıyaka, İzmir</p>
+            </div>
+        </div>
+
+        <!-- Balçova Teleferik -->
+        <div class="place-card">
+            <img src="https://orayanasilgiderim.com/izmir/balcova-teleferik/" alt="Balçova Teleferik">
+            <div class="place-card-content">
+                <h3>Balçova Teleferik</h3>
+                <p>Balçova Teleferik, İzmir manzarasını kuşbakışı izlemek isteyenler için harika bir deneyim sunar.</p>
+                <p><strong>Konum:</strong> Balçova, İzmir</p>
+            </div>
+        </div>
+
+        <!-- Sasalı Doğal Yaşam Parkı -->
+        <div class="place-card">
+            <img src="https://www.fibartur.com/aydin-cikisli-sasali-dogal-yasam-parki-konak-hilltown-avm-turu" alt="Sasalı Doğal Yaşam Parkı">
+            <div class="place-card-content">
+                <h3>Sasalı Doğal Yaşam Parkı</h3>
+                <p>Türkiye'nin en büyük doğal yaşam parklarından biri olan Sasalı, birçok hayvan türüne ev sahipliği yapmaktadır.</p>
+                <p><strong>Konum:</strong> Çiğli, İzmir</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

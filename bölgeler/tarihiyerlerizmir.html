@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İzmir'deki Tarihi Yerler</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h2> gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <!-- Sayfa İçeriği -->
+    <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">İzmir’deki Tarihi Yerler</h2>
+
+        <style>
+            .history-card {
+                display: flex;
+                flex-wrap: wrap;
+                background: #ffffff;
+                border-radius: 14px;
+                margin-bottom: 40px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+                overflow: hidden;
+                max-width: 1200px;
+                margin-inline: auto;
+                transition: transform 0.3s ease;
+            }
+            .history-card img {
+                width: 100%;
+                max-width: 500px;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+                cursor: pointer;
+            }
+            .history-card img:hover {
+                transform: scale(1.03);
+            }
+            .history-card-content {
+                padding: 30px;
+                flex: 1;
+            }
+            .history-card-content h3 {
+                font-size: 30px;
+                margin-bottom: 15px;
+                color: #222;
+            }
+            .history-card-content p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #444;
+                margin-bottom: 8px;
+            }
+        </style>
+
+        <!-- 1. Agora Ören Yeri -->
+        <div class="history-card">
+            <img src="img/agora.jpg" alt="Agora">
+            <div class="history-card-content">
+                <h3>Agora Ören Yeri</h3>
+                <p>İzmir’in merkezinde yer alan Roma Dönemi'ne ait Agora, antik kentin ticaret ve sosyal yaşamının merkeziydi. Günümüzde arkeolojik kazılarla ortaya çıkarılan yapılar ziyaretçilere tarihsel bir yolculuk sunar.</p>
+                <p><strong>Adres:</strong> Namazgah, 920. Sk. No:42, Konak/İzmir</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 17:30</p>
+                <p><strong>Giriş:</strong> Ücretli (Tam: 100 TL)</p>
+                <p><strong>Müze Kart:</strong> Geçerli</p>
+            </div>
+        </div>
+
+        <!-- 2. Efes Antik Kenti -->
+        <div class="history-card">
+            <img src="img/efes.jpg" alt="Efes">
+            <div class="history-card-content">
+                <h3>Efes Antik Kenti</h3>
+                <p>Dünyaca ünlü Efes Antik Kenti, Artemis Tapınağı ve Celsus Kütüphanesi gibi yapılarıyla İzmir’in tarihsel mirasının en önemli parçalarından biridir.</p>
+                <p><strong>Adres:</strong> Acarlar, Efes Harabeleri, Selçuk/İzmir</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 19:00</p>
+                <p><strong>Giriş:</strong> Ücretli (Tam: 700 TL)</p>
+                <p><strong>Müze Kart:</strong> Geçerli</p>
+            </div>
+        </div>
+
+        <!-- 3. Kadifekale -->
+        <div class="history-card">
+            <img src="img/kadifekale.jpg" alt="Kadifekale">
+            <div class="history-card-content">
+                <h3>Kadifekale</h3>
+                <p>Helenistik dönemde inşa edilen Kadifekale, İzmir'e tepeden bakan tarihi bir kaledir. Aynı zamanda muhteşem bir manzara ve tarihi atmosfer sunar.</p>
+                <p><strong>Adres:</strong> Kadifekale Mah., Konak/İzmir</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 09:00 – 18:00</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+                <p><strong>Müze Kart:</strong> Gerekli değil</p>
+            </div>
+        </div>
+
+        <!-- 4. Smyrna Tiyatrosu -->
+        <div class="history-card">
+            <img src="img/smyrna.jpg" alt="Smyrna Tiyatrosu">
+            <div class="history-card-content">
+                <h3>Smyrna Tiyatrosu</h3>
+                <p>İzmir’in antik geçmişine ışık tutan Smyrna Tiyatrosu, Roma dönemine ait kalıntılarıyla dikkat çeker. Tiyatronun sahne binası ve oturma alanları hâlâ görülebilir durumdadır.</p>
+                <p><strong>Adres:</strong> Namazgah, Konak/İzmir</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 17:00</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+                <p><strong>Müze Kart:</strong> Gerekli değil</p>
+            </div>
+        </div>
+
+        <!-- 5. Bergama Akropolü -->
+        <div class="history-card">
+            <img src="img/bergama.jpg" alt="Bergama Akropolü">
+            <div class="history-card-content">
+                <h3>Bergama Akropolü</h3>
+                <p>UNESCO Dünya Mirası Listesi'nde yer alan Bergama, antik çağların en önemli bilim ve kültür merkezlerinden biridir. Tiyatro, Athena Tapınağı ve Kütüphane gibi yapılar görülmeye değerdir.</p>
+                <p><strong>Adres:</strong> Bergama Akropolü, Bergama/İzmir</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 08:00 – 18:30</p>
+                <p><strong>Giriş:</strong> Ücretli (Tam: 300 TL)</p>
+                <p><strong>Müze Kart:</strong> Geçerli</p>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>
