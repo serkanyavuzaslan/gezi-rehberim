@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antalya’daki Eğlence ve Aile Aktiviteleri</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <h2>gezi rehberim.</h2>
+    </div>
+    <div class="links">
+      <ul>
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="icons">
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <i class="fa-solid fa-bars"></i>
+  </header>
+
+  <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+    <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">Antalya’daki Eğlence ve Aile Aktiviteleri</h2>
+
+    <style>
+      .history-card {
+        display: flex;
+        flex-wrap: wrap;
+        background: #ffffff;
+        border-radius: 14px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        overflow: hidden;
+        max-width: 1200px;
+        margin-inline: auto;
+        transition: transform 0.3s ease;
+      }
+      .history-card img {
+        width: 100%;
+        max-width: 500px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        cursor: pointer;
+      }
+      .history-card img:hover {
+        transform: scale(1.03);
+      }
+      .history-card-content {
+        padding: 30px;
+        flex: 1;
+      }
+      .history-card-content h3 {
+        font-size: 30px;
+        margin-bottom: 15px;
+        color: #222;
+      }
+      .history-card-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #444;
+        margin-bottom: 8px;
+      }
+    </style>
+
+    <!-- 1. Antalya Akvaryum -->
+    <div class="history-card">
+      <img src="img/antalyaakvaryum.jpg" alt="Antalya Akvaryum">
+      <div class="history-card-content">
+        <h3>Antalya Akvaryum</h3>
+        <p>Dünyanın en büyük tünel akvaryumlarından biri olan bu merkez, deniz altı dünyasını keşfetmek için eğlenceli bir seçenek.</p>
+        <p><strong>Adres:</strong> Konyaaltı/Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> 10:00 – 20:00</p>
+        <p><strong>Giriş:</strong> Ortalama 400 TL (yaşa göre değişir)</p>
+      </div>
+    </div>
+
+    <!-- 2. Aktur Park (Lunapark) -->
+    <div class="history-card">
+      <img src="img/akturpark.jpg" alt="Aktur Park Lunapark">
+      <div class="history-card-content">
+        <h3>Aktur Park Lunapark</h3>
+        <p>Dev dönme dolabı ve adrenalin dolu oyuncaklarıyla hem çocuklar hem de yetişkinler için keyifli bir eğlence parkı.</p>
+        <p><strong>Adres:</strong> Meltem Mah., Muratpaşa/Antalya</p>
+        <p><strong>Açık Saatler:</strong> 16:00 – 00:00</p>
+        <p><strong>Giriş:</strong> Jetonlu sistem (Her oyuncak için ayrı)</p>
+      </div>
+    </div>
+
+    <!-- 3. The Land of Legends Tema Park -->
+    <div class="history-card">
+      <img src="img/landoflegends.jpg" alt="Land of Legends Antalya">
+      <div class="history-card-content">
+        <h3>The Land of Legends Tema Park</h3>
+        <p>Su kaydırakları, roller coaster’lar ve su altı gösterileriyle Antalya’nın en büyük tema parklarından biri.</p>
+        <p><strong>Adres:</strong> Kadriye, Serik/Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> 10:00 – 18:00</p>
+        <p><strong>Giriş:</strong> Ortalama 950 TL</p>
+      </div>
+    </div>
+
+    <!-- 4. Antalya Toy Museum (Oyuncak Müzesi) -->
+    <div class="history-card">
+      <img src="img/oyuncakmuzesii.jpg" alt="Antalya Oyuncak Müzesi">
+      <div class="history-card-content">
+        <h3>Antalya Oyuncak Müzesi</h3>
+        <p>Geçmişten bugüne oyuncakların sergilendiği nostaljik bir mekan. Ailece gezmek için harika bir durak.</p>
+        <p><strong>Adres:</strong> Selçuk Mah., Kaleiçi, Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> 09:00 – 18:00</p>
+        <p><strong>Giriş:</strong> 30 TL</p>
+      </div>
+    </div>
+
+    <!-- 5. Tünektepe Teleferik ve Sosyal Tesis -->
+    <div class="history-card">
+      <img src="img/tunektepe.jpg" alt="Tünektepe Teleferik">
+      <div class="history-card-content">
+        <h3>Tünektepe Teleferik</h3>
+        <p>Antalya’nın eşsiz manzarasını izleyebileceğiniz bu teleferik hattı, ailece keyifli bir gün geçirmek için birebir.</p>
+        <p><strong>Adres:</strong> Sarısu Mah., Konyaaltı/Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> 10:00 – 18:00</p>
+        <p><strong>Giriş:</strong> Gidiş-dönüş 40 TL</p>
+      </div>
+    </div>
+
+  </section>
+</body>
+</html>

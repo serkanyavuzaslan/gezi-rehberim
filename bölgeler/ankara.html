@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gezi Rehberim | Ankara</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">
+      <h2>gezi rehberim.</h2>
+    </div>
+    <div class="links">
+      <ul>
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="icons">
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <i class="fa-solid fa-bars"></i>
+  </header>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    .hero {
+      width: 100%;
+      height: 70vh;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
+    }
+
+    .content {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .content p {
+      font-size: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    @media (max-width: 768px) {
+      .content h1 {
+        font-size: 32px;
+      }
+
+      .content p {
+        font-size: 16px;
+      }
+    }
+  </style>
+
+  <!-- Arka Plan -->
+  <section class="hero" id="hero"></section>
+  <script>
+    const hero = document.getElementById('hero');
+    const images = ['img/ankara1.jpg'];
+    let index = 0;
+    function changeBackground() {
+      hero.style.backgroundImage = `url('${images[index]}')`;
+      index = (index + 1) % images.length;
+    }
+    changeBackground();
+    setInterval(changeBackground, 7000);
+  </script>
+
+  <!-- Giriş Tanıtımı -->
+  <div class="content" style="padding: 60px 20px;">
+    <h1 style="font-size: 42px; color: #222; margin-bottom: 40px;">Ankara’yı Keşfet!</h1>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1200px; margin: auto;">
+      <div style="flex: 1 1 450px; background-color: #f0f0f0; padding: 40px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.05); display: flex; align-items: center;">
+        <p style="font-size: 18px; color: #444; line-height: 1.8;">
+          Ankara, Türkiye’nin başkenti olarak hem tarihsel hem de modern yönleriyle öne çıkar. Siyasi merkez olmasının yanında sanat, müze ve yeşil alan açısından da oldukça zengindir.
+        </p>
+      </div>
+      <div style="flex: 1 1 450px; background-color: #f0f0f0; padding: 40px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.05); display: flex; align-items: center;">
+        <p style="font-size: 18px; color: #444; line-height: 1.8;">
+          Anıtkabir ziyareti, Atatürk Orman Çiftliği’nde yürüyüş ve Hamamönü’nde kahve keyfi Ankara’nın ruhunu yansıtır.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GEZİLECEK YERLER -->
+  <section style="padding: 60px 10px; background-color: #f9f9f9;">
+    <div style="max-width: 1350px; margin: auto;">
+      <h2 style="text-align: center; font-size: 38px; margin-bottom: 40px; color: #222; font-weight: bold;">
+        Ankara’da Gezilecek Yerler
+      </h2>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+
+        <a href="tarihiyerlerankara.html" target="_blank">
+          <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+            <img src="img/tarihiyerler_ankara.jpg" alt="Tarihi Yerler" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 25px; text-align: center;">
+              <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Tarihi Yerler</h3>
+              <p style="font-size: 17px; color: #555;">Anıtkabir, Ankara Kalesi, Roma Hamamı ve Augustus Tapınağı gibi tarihi yapılar.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="muzelerankara.html" target="_blank">
+          <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+            <img src="img/muzeler_ankara.jpg" alt="Müzeler" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 25px; text-align: center;">
+              <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Müzeler</h3>
+              <p style="font-size: 17px; color: #555;">Anadolu Medeniyetleri Müzesi, Cumhuriyet Müzesi, Rahmi Koç Müzesi gibi kültürel duraklar.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="dogalyerlerankara.html" target="_blank">
+          <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+            <img src="img/dogal_ankara.jpg" alt="Doğal Yerler" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 25px; text-align: center;">
+              <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Doğal Yerler</h3>
+              <p style="font-size: 17px; color: #555;">Atatürk Orman Çiftliği, Eymir Gölü, Mogan Gölü gibi doğa ile iç içe alanlar.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="sanatankara.html" target="_blank">
+          <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+            <img src="img/sanat_ankara.jpg" alt="Sanat" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 25px; text-align: center;">
+              <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Sanat & Etkinlik</h3>
+              <p style="font-size: 17px; color: #555;">CSO Ada Ankara, Devlet Tiyatroları ve festivallerle dolu kültür takvimi.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="diniyerlerankara.html" target="_blank">
+          <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+            <img src="img/dini_ankara.jpg" alt="Dini Mekanlar" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 25px; text-align: center;">
+              <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Dini & Kültürel Mekanlar</h3>
+              <p style="font-size: 17px; color: #555;">Hacı Bayram Veli Camii, Kocatepe Camii ve Augustus Tapınağı gibi kutsal yapılar.</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="eglenceankara.html" target="_blank">
+          <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+            <img src="img/eglence_ankara.jpg" alt="Eğlence" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 25px; text-align: center;">
+              <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Eğlence & Aile Aktiviteleri</h3>
+              <p style="font-size: 17px; color: #555;">Gençlik Parkı, lunapark, teleferik, akvaryum ve tematik parklar.</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+</body>
+</html>

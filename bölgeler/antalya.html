@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gezi Rehberim | Antalya</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <h2>gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        .hero {
+            width: 100%;
+            height: 70vh;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+
+        .content {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .content p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 32px;
+            }
+
+            .content p {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+    <!-- Arka Plan -->
+    <section class="hero" id="hero"></section>
+    <script>
+        const hero = document.getElementById('hero');
+        const images = ['img/antalya1.jpg'];
+        let index = 0;
+        function changeBackground() {
+            hero.style.backgroundImage = `url('${images[index]}')`;
+            index = (index + 1) % images.length;
+        }
+        changeBackground();
+        setInterval(changeBackground, 7000);
+    </script>
+
+    <!-- Giriş Tanıtımı -->
+    <div class="content" style="padding: 60px 20px; text-align: center;">
+        <h1 style="font-size: 42px; color: #222; margin-bottom: 40px;">Antalya’yı Keşfet!</h1>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; max-width: 1200px; margin: auto;">
+            <div style="flex: 1 1 450px; background-color: #f0f0f0; padding: 40px; min-height: 250px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.05); display: flex; align-items: center;">
+                <p style="font-size: 18px; color: #444; line-height: 1.8;">
+                    Antalya, Akdeniz’in en popüler tatil destinasyonlarından biri olup, tarihi kalıntıları ve doğal plajlarıyla her yıl milyonlarca turisti ağırlar.
+                </p>
+            </div>
+            <div style="flex: 1 1 450px; background-color: #f0f0f0; padding: 40px; min-height: 250px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.05); display: flex; align-items: center;">
+                <p style="font-size: 18px; color: #444; line-height: 1.8;">
+                    Kaleiçi’nin taş sokaklarında gezmek, Düden Şelalesi’ni görmek ve Konyaaltı sahilinde yüzmek Antalya ruhunun bir parçasıdır.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GEZİLECEK YERLER -->
+    <section style="padding: 60px 10px; cursor: pointer; background-color: #f9f9f9;">
+        <div style="max-width: 1350px; margin: auto;">
+            <h2 style="text-align: center; font-size: 38px; margin-bottom: 40px; color: #222; font-weight: bold;">
+                Antalya’da Gezilecek Yerler
+            </h2>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+
+                <a href="tarihiyerlerantalya.html" target="_blank">
+                    <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+                        <img src="img/tarihiyerler_antalya.jpg" alt="Tarihi Yerler" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 25px; text-align: center;">
+                            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Tarihi Yerler</h3>
+                            <p style="font-size: 17px; color: #555;">Kaleiçi, Hadrian Kapısı, Perge Antik Kenti gibi tarih kokan noktalar.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="muzelerantalya.html" target="_blank">
+                    <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+                        <img src="img/muzeler_antalya.jpg" alt="Müzeler" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 25px; text-align: center;">
+                            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Müzeler</h3>
+                            <p style="font-size: 17px; color: #555;">Antalya Müzesi, Oyuncak Müzesi ve Deniz Biyolojisi Müzesi gibi kültürel noktalar.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="dogalyerlerantalya.html" target="_blank">
+                    <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+                        <img src="img/dogal_antalya.jpg" alt="Doğal Yerler" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 25px; text-align: center;">
+                            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Doğal Yerler</h3>
+                            <p style="font-size: 17px; color: #555;">Düden ve Kurşunlu Şelaleleri, Konyaaltı ve Lara sahilleri.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="sanatantalya.html" target="_blank">
+                    <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+                        <img src="img/sanat_antalya.jpg" alt="Sanat" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 25px; text-align: center;">
+                            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Sanat & Etkinlik</h3>
+                            <p style="font-size: 17px; color: #555;">AKM, tiyatrolar, festivaller ve açık hava konserleriyle dolu bir şehir.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="diniyerlerantalya.html" target="_blank">
+                    <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+                        <img src="img/dini_antalya.jpg" alt="Dini Mekanlar" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 25px; text-align: center;">
+                            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Dini & Kültürel Mekanlar</h3>
+                            <p style="font-size: 17px; color: #555;">Yivli Minare Camii, Aziz Nikolaos Kilisesi gibi önemli yapılar.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="eglenceantalya.html" target="_blank">
+                    <div style="width: 320px; background: #fff; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.08); overflow: hidden;">
+                        <img src="img/eglence_antalya.jpg" alt="Eğlence" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 25px; text-align: center;">
+                            <h3 style="font-size: 22px; margin-bottom: 12px; color: #222;">Eğlence & Aile Aktiviteleri</h3>
+                            <p style="font-size: 17px; color: #555;">Aqualand, Antalya Akvaryum, lunapark ve su oyun parkları.</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

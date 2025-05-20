@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antalya’daki Müzeler</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <h2>gezi rehberim.</h2>
+    </div>
+    <div class="links">
+      <ul>
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="icons">
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <i class="fa-solid fa-bars"></i>
+  </header>
+
+  <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+    <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">Antalya’daki Müzeler</h2>
+
+    <style>
+      .history-card {
+        display: flex;
+        flex-wrap: wrap;
+        background: #ffffff;
+        border-radius: 14px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        overflow: hidden;
+        max-width: 1200px;
+        margin-inline: auto;
+        transition: transform 0.3s ease;
+      }
+      .history-card img {
+        width: 100%;
+        max-width: 500px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        cursor: pointer;
+      }
+      .history-card img:hover {
+        transform: scale(1.03);
+      }
+      .history-card-content {
+        padding: 30px;
+        flex: 1;
+      }
+      .history-card-content h3 {
+        font-size: 30px;
+        margin-bottom: 15px;
+        color: #222;
+      }
+      .history-card-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #444;
+        margin-bottom: 8px;
+      }
+    </style>
+
+    <!-- 1. Antalya Müzesi -->
+    <div class="history-card">
+      <img src="img/antalyamuzesi.jpg" alt="Antalya Müzesi">
+      <div class="history-card-content">
+        <h3>Antalya Müzesi</h3>
+        <p>Antik Likya, Pamfilya ve Pisidya bölgelerinden gelen arkeolojik eserlerin sergilendiği Türkiye’nin en büyük müzelerinden biridir.</p>
+        <p><strong>Adres:</strong> Bahçelievler Mah., Konyaaltı/Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 20:00</p>
+        <p><strong>Giriş:</strong> Tam: 150 TL</p>
+        <p><strong>Müze Kart:</strong> Geçerli</p>
+      </div>
+    </div>
+
+    <!-- 2. Oyuncak Müzesi -->
+    <div class="history-card">
+      <img src="img/oyuncakmuzesi.jpg" alt="Oyuncak Müzesi">
+      <div class="history-card-content">
+        <h3>Oyuncak Müzesi</h3>
+        <p>Antalya Kaleiçi’nde yer alan müze, geçmişten günümüze binlerce oyuncağın sergilendiği renkli ve nostaljik bir dünyadır.</p>
+        <p><strong>Adres:</strong> Kaleiçi, Selçuk Mah., Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 09:00 – 18:00</p>
+        <p><strong>Giriş:</strong> Tam: 30 TL</p>
+        <p><strong>Müze Kart:</strong> Geçerli değil</p>
+      </div>
+    </div>
+
+    <!-- 3. Suna & İnan Kıraç Kaleiçi Müzesi -->
+    <div class="history-card">
+      <img src="img/kiracmuzesi.jpg" alt="Suna & İnan Kıraç Müzesi">
+      <div class="history-card-content">
+        <h3>Suna & İnan Kıraç Kaleiçi Müzesi</h3>
+        <p>Antalya’nın geleneksel yaşamını yansıtan etnografik koleksiyonları ve restore edilmiş eski Antalya eviyle dikkat çeker.</p>
+        <p><strong>Adres:</strong> Barbaros Mah., Hıdırlık Sokak, Kaleiçi/Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> Salı – Pazar 09:00 – 17:00</p>
+        <p><strong>Giriş:</strong> Ücretli (Tam: 40 TL)</p>
+        <p><strong>Müze Kart:</strong> Geçerli değil</p>
+      </div>
+    </div>
+
+    <!-- 4. Deniz Biyolojisi Müzesi -->
+    <div class="history-card">
+      <img src="img/denizmuzesii.jpg" alt="Deniz Biyolojisi Müzesi">
+      <div class="history-card-content">
+        <h3>Deniz Biyolojisi Müzesi</h3>
+        <p>Antalya Marina’da yer alan müze, Akdeniz’in su altı canlılarına dair çeşitli türleri keşfetme fırsatı sunar.</p>
+        <p><strong>Adres:</strong> Antalya Yat Limanı, Kaleiçi</p>
+        <p><strong>Ziyaret Saatleri:</strong> Her gün 10:00 – 18:00</p>
+        <p><strong>Giriş:</strong> Ücretli (Tam: 20 TL)</p>
+        <p><strong>Müze Kart:</strong> Geçerli değil</p>
+      </div>
+    </div>
+
+    <!-- 5. Atatürk Evi ve Müzesi -->
+    <div class="history-card">
+      <img src="img/ataturkevi.jpg" alt="Atatürk Evi ve Müzesi">
+      <div class="history-card-content">
+        <h3>Atatürk Evi ve Müzesi</h3>
+        <p>Mustafa Kemal Atatürk'ün Antalya ziyareti sırasında kaldığı evdir. İçinde Atatürk’e ait fotoğraflar, eşyalar ve belgeler sergilenir.</p>
+        <p><strong>Adres:</strong> Şirinyalı Mah., Muratpaşa/Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 17:30</p>
+        <p><strong>Giriş:</strong> Ücretsiz</p>
+        <p><strong>Müze Kart:</strong> Gerekli değil</p>
+      </div>
+    </div>
+
+  </section>
+</body>
+</html>

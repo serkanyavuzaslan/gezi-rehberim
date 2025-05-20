@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankara'daki Müzeler</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h2>gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">Ankara’daki Müzeler</h2>
+
+        <style>
+            .history-card {
+                display: flex;
+                flex-wrap: wrap;
+                background: #ffffff;
+                border-radius: 14px;
+                margin-bottom: 40px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+                overflow: hidden;
+                max-width: 1200px;
+                margin-inline: auto;
+                transition: transform 0.3s ease;
+            }
+            .history-card img {
+                width: 100%;
+                max-width: 500px;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+                cursor: pointer;
+            }
+            .history-card img:hover {
+                transform: scale(1.03);
+            }
+            .history-card-content {
+                padding: 30px;
+                flex: 1;
+            }
+            .history-card-content h3 {
+                font-size: 30px;
+                margin-bottom: 15px;
+                color: #222;
+            }
+            .history-card-content p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #444;
+                margin-bottom: 8px;
+            }
+        </style>
+
+        <!-- 1. Anadolu Medeniyetleri Müzesi -->
+        <div class="history-card">
+            <img src="img/anadolu_medeniyetleri.jpg" alt="Anadolu Medeniyetleri Müzesi">
+            <div class="history-card-content">
+                <h3>Anadolu Medeniyetleri Müzesi</h3>
+                <p>Hitit, Urartu, Frig ve Roma medeniyetlerine ait eserlerle Türkiye'nin en zengin arkeoloji müzelerinden biridir.</p>
+                <p><strong>Adres:</strong> Gözcü Sk. No:2, Ulus/Ankara</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 17:30</p>
+                <p><strong>Giriş:</strong> Ücretli (Tam: 90 TL)</p>
+            </div>
+        </div>
+
+        <!-- 2. Cumhuriyet Müzesi (II. TBMM) -->
+        <div class="history-card">
+            <img src="img/cumhuriyet_muzesi.jpg" alt="Cumhuriyet Müzesi">
+            <div class="history-card-content">
+                <h3>Cumhuriyet Müzesi</h3>
+                <p>1924-1960 arasında Türkiye Büyük Millet Meclisi olarak kullanılan bina, Atatürk ve Cumhuriyet tarihine ışık tutar.</p>
+                <p><strong>Adres:</strong> Cumhuriyet Cd., Ulus/Ankara</p>
+                <p><strong>Ziyaret Saatleri:</strong> Salı hariç her gün 09:00 – 17:00</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+        <!-- 3. Etnografya Müzesi -->
+        <div class="history-card">
+            <img src="img/etnografya.jpg" alt="Etnografya Müzesi">
+            <div class="history-card-content">
+                <h3>Etnografya Müzesi</h3>
+                <p>Anadolu'nun geleneksel yaşam tarzını yansıtan giysi, silah, el sanatı ve günlük yaşam objeleriyle doludur.</p>
+                <p><strong>Adres:</strong> Talatpaşa Bulvarı, Opera, Altındağ/Ankara</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 17:30</p>
+                <p><strong>Giriş:</strong> Ücretli (Tam: 50 TL)</p>
+            </div>
+        </div>
+
+        <!-- 4. Rahmi M. Koç Müzesi Ankara -->
+        <div class="history-card">
+            <img src="img/rahmi_koc.jpg" alt="Rahmi Koç Müzesi">
+            <div class="history-card-content">
+                <h3>Rahmi M. Koç Müzesi</h3>
+                <p>Sanayi, ulaşım, iletişim ve teknoloji temalarıyla çocuklar ve yetişkinler için interaktif deneyimler sunar.</p>
+                <p><strong>Adres:</strong> Çengelhan, Kale Mah., Altındağ/Ankara</p>
+                <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 10:00 – 17:00</p>
+                <p><strong>Giriş:</strong> Ücretli (Tam: 90 TL)</p>
+            </div>
+        </div>
+
+        <!-- 5. Oyuncak Müzesi -->
+        <div class="history-card">
+            <img src="img/oyuncak_muzesiank.jpg" alt="Oyuncak Müzesi">
+            <div class="history-card-content">
+                <h3>Oyuncak Müzesi</h3>
+                <p>Geçmişten günümüze oyuncakların sergilendiği, nostaljik ve eğlenceli bir müzedir.</p>
+                <p><strong>Adres:</strong> Cebeci, Altındağ/Ankara</p>
+                <p><strong>Ziyaret Saatleri:</strong> Salı – Pazar 10:00 – 17:00</p>
+                <p><strong>Giriş:</strong> Ücretli (Tam: 25 TL)</p>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>

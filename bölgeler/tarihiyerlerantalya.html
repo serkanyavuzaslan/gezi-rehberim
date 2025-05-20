@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antalya’daki Tarihi Yerler</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <h2>gezi rehberim.</h2>
+    </div>
+    <div class="links">
+      <ul>
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="icons">
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <i class="fa-solid fa-bars"></i>
+  </header>
+
+  <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+    <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">Antalya’daki Tarihi Yerler</h2>
+
+    <style>
+      .history-card {
+        display: flex;
+        flex-wrap: wrap;
+        background: #ffffff;
+        border-radius: 14px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        overflow: hidden;
+        max-width: 1200px;
+        margin-inline: auto;
+        transition: transform 0.3s ease;
+      }
+      .history-card img {
+        width: 100%;
+        max-width: 500px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        cursor: pointer;
+      }
+      .history-card img:hover {
+        transform: scale(1.03);
+      }
+      .history-card-content {
+        padding: 30px;
+        flex: 1;
+      }
+      .history-card-content h3 {
+        font-size: 30px;
+        margin-bottom: 15px;
+        color: #222;
+      }
+      .history-card-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #444;
+        margin-bottom: 8px;
+      }
+    </style>
+
+    <!-- 1. Kaleiçi -->
+    <div class="history-card">
+      <img src="img/kaleici.jpg" alt="Kaleiçi">
+      <div class="history-card-content">
+        <h3>Kaleiçi</h3>
+        <p>Antalya’nın kalbinde yer alan Kaleiçi, Osmanlı, Roma ve Bizans izlerini taşıyan sokakları ve evleriyle tarihi bir atmosfer sunar.</p>
+        <p><strong>Adres:</strong> Selçuk Mahallesi, Muratpaşa/Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> Her gün, gün boyu açık</p>
+        <p><strong>Giriş:</strong> Ücretsiz</p>
+        <p><strong>Müze Kart:</strong> Gerekli değil</p>
+      </div>
+    </div>
+
+    <!-- 2. Hadrian Kapısı -->
+    <div class="history-card">
+      <img src="img/hadriankapisi.jpg" alt="Hadrian Kapısı">
+      <div class="history-card-content">
+        <h3>Hadrian Kapısı</h3>
+        <p>Roma İmparatoru Hadrianus’un Antalya ziyaretine ithafen inşa edilen bu ihtişamlı yapı, şehrin simgelerindendir.</p>
+        <p><strong>Adres:</strong> Barbaros Mah., Muratpaşa/Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> Her gün</p>
+        <p><strong>Giriş:</strong> Ücretsiz</p>
+        <p><strong>Müze Kart:</strong> Gerekli değil</p>
+      </div>
+    </div>
+
+    <!-- 3. Antalya Müzesi -->
+    <div class="history-card">
+      <img src="img/antalyamuzesi.jpg" alt="Antalya Müzesi">
+      <div class="history-card-content">
+        <h3>Antalya Müzesi</h3>
+        <p>Antik döneme ait heykeller, mozaikler ve günlük yaşama dair objelerin sergilendiği müze, Türkiye’nin en büyük müzelerinden biridir.</p>
+        <p><strong>Adres:</strong> Bahçelievler Mah., Konyaaltı/Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 20:00</p>
+        <p><strong>Giriş:</strong> Tam: 150 TL</p>
+        <p><strong>Müze Kart:</strong> Geçerli</p>
+      </div>
+    </div>
+
+    <!-- 4. Aspendos Antik Tiyatrosu -->
+    <div class="history-card">
+      <img src="img/aspendos.jpg" alt="Aspendos Tiyatrosu">
+      <div class="history-card-content">
+        <h3>Aspendos Antik Tiyatrosu</h3>
+        <p>Dünyanın en iyi korunmuş Roma tiyatrolarından biri olan Aspendos, hala konser ve etkinlikler için kullanılmaktadır.</p>
+        <p><strong>Adres:</strong> Serik/Aspendos, Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 19:00</p>
+        <p><strong>Giriş:</strong> Ücretli (Tam: 200 TL)</p>
+        <p><strong>Müze Kart:</strong> Geçerli</p>
+      </div>
+    </div>
+
+    <!-- 5. Perge Antik Kenti -->
+    <div class="history-card">
+      <img src="img/perge.jpg" alt="Perge Antik Kenti">
+      <div class="history-card-content">
+        <h3>Perge Antik Kenti</h3>
+        <p>Roma dönemine ait stadyum, hamam ve agora yapılarıyla ünlü Perge, tarihi doku arayanlar için büyüleyicidir.</p>
+        <p><strong>Adres:</strong> Aksu/Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 20:00</p>
+        <p><strong>Giriş:</strong> Ücretli (Tam: 200 TL)</p>
+        <p><strong>Müze Kart:</strong> Geçerli</p>
+      </div>
+    </div>
+
+    <!-- 6. Termessos Antik Kenti -->
+    <div class="history-card">
+      <img src="img/termessos.jpg" alt="Termessos Antik Kenti">
+      <div class="history-card-content">
+        <h3>Termessos Antik Kenti</h3>
+        <p>Toros Dağları’nın zirvesinde kurulu olan Termessos, doğal yapısıyla büyüleyici bir antik kent deneyimi sunar.</p>
+        <p><strong>Adres:</strong> Döşemealtı/Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> Her gün 08:00 – 17:00</p>
+        <p><strong>Giriş:</strong> Ücretli (Tam: 100 TL)</p>
+        <p><strong>Müze Kart:</strong> Geçerli</p>
+      </div>
+    </div>
+
+    <!-- 7. Side Antik Kenti -->
+    <div class="history-card">
+      <img src="img/side.jpg" alt="Side Antik Kenti">
+      <div class="history-card-content">
+        <h3>Side Antik Kenti</h3>
+        <p>Deniz kenarında konumlanan bu antik şehir, tapınakları ve tiyatrosuyla tarihi güzellikleri sahil manzarasıyla buluşturur.</p>
+        <p><strong>Adres:</strong> Side, Manavgat/Antalya</p>
+        <p><strong>Ziyaret Saatleri:</strong> Her gün</p>
+        <p><strong>Giriş:</strong> Ücretsiz (Bazı bölümler ücretli olabilir)</p>
+        <p><strong>Müze Kart:</strong> Kısmen geçerli</p>
+      </div>
+    </div>
+
+  </section>
+</body>
+</html>

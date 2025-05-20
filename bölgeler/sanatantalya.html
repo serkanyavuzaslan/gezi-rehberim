@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antalya’da Sanat & Etkinlik Mekanları</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <h2>gezi rehberim.</h2>
+    </div>
+    <div class="links">
+      <ul>
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="icons">
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <i class="fa-solid fa-bars"></i>
+  </header>
+
+  <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+    <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">Antalya’daki Sanat ve Etkinlik Mekanları</h2>
+
+    <style>
+      .history-card {
+        display: flex;
+        flex-wrap: wrap;
+        background: #ffffff;
+        border-radius: 14px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        overflow: hidden;
+        max-width: 1200px;
+        margin-inline: auto;
+        transition: transform 0.3s ease;
+      }
+      .history-card img {
+        width: 100%;
+        max-width: 500px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        cursor: pointer;
+      }
+      .history-card img:hover {
+        transform: scale(1.03);
+      }
+      .history-card-content {
+        padding: 30px;
+        flex: 1;
+      }
+      .history-card-content h3 {
+        font-size: 30px;
+        margin-bottom: 15px;
+        color: #222;
+      }
+      .history-card-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #444;
+        margin-bottom: 8px;
+      }
+    </style>
+
+    <!-- 1. Antalya Kültür Merkezi (AKM) -->
+    <div class="history-card">
+      <img src="img/akm.jpg" alt="Antalya Kültür Merkezi">
+      <div class="history-card-content">
+        <h3>Antalya Kültür Merkezi (AKM)</h3>
+        <p>Tiyatro, konser, opera ve sergilerin düzenlendiği Antalya’nın en büyük kültür merkezi. Sanat dolu akşamlar için ideal.</p>
+        <p><strong>Adres:</strong> Meltem Mah., Muratpaşa/Antalya</p>
+        <p><strong>Etkinlikler:</strong> Yıl boyu tiyatro, konser, sergi</p>
+        <p><strong>Giriş:</strong> Etkinliğe göre değişir</p>
+      </div>
+    </div>
+
+    <!-- 2. Antalya Devlet Opera ve Balesi -->
+    <div class="history-card">
+      <img src="img/operaa.jpg" alt="Antalya Devlet Opera ve Balesi">
+      <div class="history-card-content">
+        <h3>Antalya Devlet Opera ve Balesi</h3>
+        <p>Sanatseverler için klasik müzik, bale ve opera temsillerini barındıran büyüleyici bir sahne deneyimi sunar.</p>
+        <p><strong>Adres:</strong> Haşim İşcan Kültür Merkezi, Muratpaşa/Antalya</p>
+        <p><strong>Sezon:</strong> Ekim – Haziran</p>
+        <p><strong>Giriş:</strong> Biletli</p>
+      </div>
+    </div>
+
+    <!-- 3. Antalya Müzik Festivali -->
+    <div class="history-card">
+      <img src="img/antalyafestival.jpg" alt="Antalya Müzik Festivali">
+      <div class="history-card-content">
+        <h3>Uluslararası Antalya Müzik Festivali</h3>
+        <p>Yerli ve yabancı sanatçıların sahne aldığı, klasik ve caz müzik ağırlıklı festival her yıl Antalya’yı müzikle buluşturur.</p>
+        <p><strong>Yer:</strong> Antalya genelinde çeşitli sahneler</p>
+        <p><strong>Dönem:</strong> Her yıl Eylül – Ekim arası</p>
+        <p><strong>Giriş:</strong> Etkinliğe göre değişir</p>
+      </div>
+    </div>
+
+    <!-- 4. Yıldız Kenter Sahnesi -->
+    <div class="history-card">
+      <img src="img/yildizkenter.jpg" alt="Yıldız Kenter Sahnesi">
+      <div class="history-card-content">
+        <h3>Yıldız Kenter Sahnesi</h3>
+        <p>Antalya Şehir Tiyatrosu’nun sahnelediği oyunlarla dolup taşan bu salon, yerel tiyatroya can verir.</p>
+        <p><strong>Adres:</strong> Kepez Belediyesi Turgut Özal Spor Kompleksi, Kepez/Antalya</p>
+        <p><strong>Program:</strong> Haftalık oyun takvimi</p>
+        <p><strong>Giriş:</strong> Ücretli (Biletli giriş)</p>
+      </div>
+    </div>
+
+    <!-- 5. Atatürk Kültür Parkı ve Açıkhava Sahnesi -->
+    <div class="history-card">
+      <img src="img/acikhava.jpg" alt="Atatürk Kültür Parkı">
+      <div class="history-card-content">
+        <h3>Atatürk Kültür Parkı & Açıkhava Sahnesi</h3>
+        <p>Doğayla iç içe festival, konser ve gösterilerin yapıldığı park alanı. Yaz akşamlarında açık hava konserleri çok popülerdir.</p>
+        <p><strong>Adres:</strong> Konyaaltı Cad., Muratpaşa/Antalya</p>
+        <p><strong>Etkinlikler:</strong> Bahar ve yaz aylarında konserler</p>
+        <p><strong>Giriş:</strong> Etkinliğe göre değişir</p>
+      </div>
+    </div>
+
+  </section>
+</body>
+</html>

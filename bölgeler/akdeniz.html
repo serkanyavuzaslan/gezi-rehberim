@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gezi Rehberim - Akdeniz Bölgesi</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <h2>gezi rehberim.</h2>
+    </div>
+    <div class="links">
+      <ul>
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="icons">
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <i class="fa-solid fa-bars"></i>
+  </header>
+
+  <!-- Şehirler Başlık -->
+  <h1 style="text-align: center; margin: 40px 0; color: #0c0c0c; font-size: 32px;">Akdeniz Bölgesi'ndeki Şehirler</h1>
+
+  <!-- Şehirler Kart Alanı -->
+  <div class="sehirler-container">
+
+    <!-- 1. Satır -->
+    <a href="antalya.html">
+        <div class="satir">
+      <div class="sehir-karti">
+        <img src="img/antalya.jpg" alt="Antalya">
+        <div class="sehir-icerik">
+          <h2>Antalya</h2>
+          <p>Turkuaz sahilleri, tarihi Kaleiçi ve antik kentleriyle Akdeniz'in incisi.</p>
+        </div>
+      </div>
+    </a>
+    
+
+      <div class="sehir-karti">
+        <img src="img/adana.jpg" alt="Adana">
+        <div class="sehir-icerik">
+          <h2>Adana</h2>
+          <p>Kebap, şalgam ve Sabancı Merkez Camii ile gastronomi ve kültür şehri.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/mersin.jpg" alt="Mersin">
+        <div class="sehir-icerik">
+          <h2>Mersin</h2>
+          <p>Kızkalesi ve tantunisiyle bilinen, deniz kenarında modern bir şehir.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Satır -->
+    <div class="satir">
+      <div class="sehir-karti">
+        <img src="img/hatay.jpg" alt="Hatay">
+        <div class="sehir-icerik">
+          <h2>Hatay</h2>
+          <p>Tarihi zenginlikleri, mozaik müzeleri ve çok kültürlü yapısıyla öne çıkar.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/osmaniye.jpg" alt="Osmaniye">
+        <div class="sehir-icerik">
+          <h2>Osmaniye</h2>
+          <p>Doğa yürüyüşleri, kaplıcalar ve Karatepe-Aslantaş ile tanınır.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/kahramanmaras.jpg" alt="Kahramanmaraş">
+        <div class="sehir-icerik">
+          <h2>Kahramanmaraş</h2>
+          <p>Dondurması ve edebi kimliğiyle tanınan köklü bir Akdeniz şehridir.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Satır -->
+    <div class="satir">
+      <div class="sehir-karti">
+        <img src="img/isparta.jpg" alt="Isparta">
+        <div class="sehir-icerik">
+          <h2>Isparta</h2>
+          <p>Gül bahçeleri, lavanta tarlaları ve Eğirdir Gölü ile doğa tutkunlarının durağı.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/burdur.jpg" alt="Burdur">
+        <div class="sehir-icerik">
+          <h2>Burdur</h2>
+          <p>Salda Gölü’nün eşsiz manzarası ve tarihi Sagalassos Antik Kenti ile bilinir.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Şehirler Kartlarının Stili -->
+  <style>
+    .sehirler-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .satir {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .sehir-karti {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      width: 280px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .sehir-karti:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    }
+    .sehir-karti img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .sehir-icerik {
+      padding: 20px;
+    }
+    .sehir-icerik h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #000000;
+      text-align: center;
+    }
+    .sehir-icerik p {
+      color: #444;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .satir {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+
+</body>
+
+</html>
