@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabzon'daki Müzeler</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h2> gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <!-- Sayfa İçeriği -->
+    <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">Trabzon’daki Müzeler</h2>
+
+        <style>
+            .history-card {
+                display: flex;
+                flex-wrap: wrap;
+                background: #ffffff;
+                border-radius: 14px;
+                margin-bottom: 40px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+                overflow: hidden;
+                max-width: 1200px;
+                margin-inline: auto;
+                transition: transform 0.3s ease;
+            }
+            .history-card img {
+                width: 100%;
+                max-width: 500px;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+                cursor: pointer;
+            }
+            .history-card img:hover {
+                transform: scale(1.03);
+            }
+            .history-card-content {
+                padding: 30px;
+                flex: 1;
+            }
+            .history-card-content h3 {
+                font-size: 30px;
+                margin-bottom: 15px;
+                color: #222;
+            }
+            .history-card-content p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #444;
+                margin-bottom: 8px;
+            }
+        </style>
+
+        <!-- 1. Trabzon Müzesi (Kostaki Konağı) -->
+        <div class="history-card">
+            <img src="img/trabzon_muzesi.jpg" alt="Trabzon Müzesi">
+            <div class="history-card-content">
+                <h3>Trabzon Müzesi (Kostaki Konağı)</h3>
+                <p>1900'lü yılların başında inşa edilen bu konak, hem mimarisiyle hem de arkeolojik ve etnografik koleksiyonlarıyla dikkat çeker.</p>
+                <p><strong>Adres:</strong> Zeytinlik Mah., Ortahisar/Trabzon</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 08:30 – 17:30</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+        <!-- 2. Atatürk Köşkü Müzesi -->
+        <div class="history-card">
+            <img src="img/ataturk_kosku.jpg" alt="Atatürk Köşkü">
+            <div class="history-card-content">
+                <h3>Atatürk Köşkü Müzesi</h3>
+                <p>Çam ağaçları arasında yer alan köşk, Atatürk'ün Trabzon ziyaretlerinde konakladığı ve bazı kararlarını aldığı yerdir.</p>
+                <p><strong>Adres:</strong> Soğuksu Mah., Ortahisar/Trabzon</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 09:00 – 17:00</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+        <!-- 3. Şehir Müzesi -->
+        <div class="history-card">
+            <img src="img/sehir_muzesi.jpg" alt="Şehir Müzesi">
+            <div class="history-card-content">
+                <h3>Trabzon Şehir Müzesi</h3>
+                <p>Trabzon’un tarihini, kültürünü ve sosyal yaşamını interaktif sergilerle anlatan modern bir müzedir.</p>
+                <p><strong>Adres:</strong> Kahramanmaraş Cad. No:4, Ortahisar/Trabzon</p>
+                <p><strong>Ziyaret Saatleri:</strong> Pazartesi hariç her gün 09:00 – 17:00</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+        <!-- 4. Tarih Müzesi -->
+        <div class="history-card">
+            <img src="img/tarih_muzesi.jpg" alt="Tarih Müzesi">
+            <div class="history-card-content">
+                <h3>Trabzon Tarih Müzesi</h3>
+                <p>Trabzon'un geçmişine ait fotoğraflar, belgeler ve objelerle zenginleştirilmiş tematik bir müzedir.</p>
+                <p><strong>Adres:</strong> Ortahisar Mah., Ortahisar/Trabzon</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 08:00 – 18:00</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>

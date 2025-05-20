@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gezi Rehberim - Karadeniz Bölgesi</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <h2>gezi rehberim.</h2>
+    </div>
+    <div class="links">
+      <ul>
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="icons">
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <i class="fa-solid fa-bars"></i>
+  </header>
+
+  <!-- Şehirler Başlık -->
+  <h1 style="text-align: center; margin: 40px 0; color: #0c0c0c; font-size: 32px;">Karadeniz Bölgesi'ndeki Şehirler</h1>
+
+  <!-- Şehirler Kart Alanı -->
+   <a href="trabzon.html">
+    <div class="sehirler-container">
+    <div class="satir">
+      <div class="sehir-karti">
+        <img src="img/trabzon.jpg" alt="Trabzon">
+        <div class="sehir-icerik">
+          <h2>Trabzon</h2>
+          <p>Sümela Manastırı, yaylaları ve Karadeniz kültürü ile tanınır.</p>
+        </div>
+      </div>
+
+   </a>
+  
+
+      <div class="sehir-karti">
+        <img src="img/rize.jpg" alt="Rize">
+        <div class="sehir-icerik">
+          <h2>Rize</h2>
+          <p>Çay bahçeleri, Fırtına Vadisi ve yaylalarıyla doğanın kalbinde.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/samsun.jpg" alt="Samsun">
+        <div class="sehir-icerik">
+          <h2>Samsun</h2>
+          <p>Atatürk'ün Samsun'a çıkışıyla tarih sahnesinde yer alan modern bir sahil şehri.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="satir">
+      <div class="sehir-karti">
+        <img src="img/ordu.jpg" alt="Ordu">
+        <div class="sehir-icerik">
+          <h2>Ordu</h2>
+          <p>Boztepe manzarası, fındığı ve teleferiğiyle Karadeniz’in gözdesi.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/giresun.jpg" alt="Giresun">
+        <div class="sehir-icerik">
+          <h2>Giresun</h2>
+          <p>Giresun Adası ve kalesi ile doğa ve tarihi birleştiren bir şehir.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/amasya.jpg" alt="Amasya">
+        <div class="sehir-icerik">
+          <h2>Amasya</h2>
+          <p>Osmanlı şehzadelerinin şehri, tarihi evleri ve nehir kıyısı manzarasıyla büyüler.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="satir">
+      <div class="sehir-karti">
+        <img src="img/bartin.jpg" alt="Bartın">
+        <div class="sehir-icerik">
+          <h2>Bartın</h2>
+          <p>Amasra beldesiyle ünlü, doğal plajları ve tarih kokan sokakları ile ziyaretçilerini büyüler.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/karabuk.jpg" alt="Karabük">
+        <div class="sehir-icerik">
+          <h2>Karabük</h2>
+          <p>Safranbolu evleri ve UNESCO mirası sokaklarıyla kültürel zenginlik sunar.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/zonguldak.jpg" alt="Zonguldak">
+        <div class="sehir-icerik">
+          <h2>Zonguldak</h2>
+          <p>Kömür madenciliğiyle bilinen şehir, sahil şeridi ve mağaralarıyla dikkat çeker.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .sehirler-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .satir {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .sehir-karti {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      width: 280px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .sehir-karti:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    }
+    .sehir-karti img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .sehir-icerik {
+      padding: 20px;
+    }
+    .sehir-icerik h2 {
+      margin: 0 0 10px;
+
+      font-size: 20px;
+      color: #000000;
+      text-align: center;
+    }
+    .sehir-icerik p {
+      color: #444;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .satir {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+
+</body>
+</html>

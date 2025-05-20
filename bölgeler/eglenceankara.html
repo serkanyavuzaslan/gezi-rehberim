@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankara'daki Eğlence Merkezleri</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h2>gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">Ankara’daki Eğlence Merkezleri</h2>
+
+        <style>
+            .history-card {
+                display: flex;
+                flex-wrap: wrap;
+                background: #ffffff;
+                border-radius: 14px;
+                margin-bottom: 40px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+                overflow: hidden;
+                max-width: 1200px;
+                margin-inline: auto;
+                transition: transform 0.3s ease;
+            }
+            .history-card img {
+                width: 100%;
+                max-width: 500px;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+                cursor: pointer;
+            }
+            .history-card img:hover {
+                transform: scale(1.03);
+            }
+            .history-card-content {
+                padding: 30px;
+                flex: 1;
+            }
+            .history-card-content h3 {
+                font-size: 30px;
+                margin-bottom: 15px;
+                color: #222;
+            }
+            .history-card-content p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #444;
+                margin-bottom: 8px;
+            }
+        </style>
+
+        <!-- 1. AnkaPark (Wonderland Eurasia) -->
+        <div class="history-card">
+            <img src="img/ankapark.jpg" alt="AnkaPark">
+            <div class="history-card-content">
+                <h3>AnkaPark (Wonderland Eurasia)</h3>
+                <p>Avrupa’nın en büyük tema parklarından biri olan AnkaPark, devasa alanında roller coaster’lar, su parkları ve eğlence üniteleriyle dikkat çeker.</p>
+                <p><strong>Adres:</strong> Gazi Mahallesi, Yenimahalle/Ankara</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 10:00 – 20:00</p>
+                <p><strong>Giriş:</strong> Ücretli</p>
+            </div>
+        </div>
+
+        <!-- 2. JoyPort Eğlence Merkezi -->
+        <div class="history-card">
+            <img src="img/joyport.jpg" alt="JoyPort">
+            <div class="history-card-content">
+                <h3>JoyPort Eğlence Merkezi</h3>
+                <p>Podium AVM içinde yer alan bu merkez; bowling, çarpışan arabalar ve çocuklar için oyun alanları sunar.</p>
+                <p><strong>Adres:</strong> Podium AVM, Yenimahalle/Ankara</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 10:00 – 22:00</p>
+                <p><strong>Giriş:</strong> Oyun alanlarına göre değişken</p>
+            </div>
+        </div>
+
+        <!-- 3. Magic World Oyun ve Eğlence Merkezi -->
+        <div class="history-card">
+            <img src="img/magicworld.jpg" alt="Magic World">
+            <div class="history-card-content">
+                <h3>Magic World</h3>
+                <p>Panora AVM içerisinde yer alan bu merkez, hem çocuklar hem de gençler için interaktif oyunlar ve simülasyonlar sunar.</p>
+                <p><strong>Adres:</strong> Panora AVM, Oran Mah., Çankaya/Ankara</p>
+                <p><strong>Ziyaret Saatleri:</strong> Her gün 10:00 – 22:00</p>
+                <p><strong>Giriş:</strong> Ücretli</p>
+            </div>
+        </div>
+
+        <!-- 4. Gençlik Parkı Lunaparkı -->
+        <div class="history-card">
+            <img src="img/genclikparki.jpg" alt="Gençlik Parkı Lunaparkı">
+            <div class="history-card-content">
+                <h3>Gençlik Parkı Lunaparkı</h3>
+                <p>Ankara'nın merkezinde yer alan tarihi Gençlik Parkı’ndaki lunapark, nostaljik atmosferiyle ailece eğlenmek isteyenler için ideal bir yerdir.</p>
+                <p><strong>Adres:</strong> Doğanbey Mah., Altındağ/Ankara</p>
+                <p><strong>Ziyaret Saatleri:</strong> Mevsime göre değişir (Genelde 11:00 – 22:00)</p>
+                <p><strong>Giriş:</strong> Ücretsiz (oyunlar ücretlidir)</p>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>
