@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaziantep'teki Tarihi Yerler</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <h2>gezi rehberim.</h2>
+    </div>
+    <div class="links">
+      <ul>
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="icons">
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <i class="fa-solid fa-bars"></i>
+  </header>
+
+  <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+    <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">Gaziantep’teki Tarihi Yerler</h2>
+
+    <style>
+      .history-card {
+        display: flex;
+        flex-wrap: wrap;
+        background: #ffffff;
+        border-radius: 14px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        overflow: hidden;
+        max-width: 1200px;
+        margin-inline: auto;
+        transition: transform 0.3s ease;
+      }
+      .history-card img {
+        width: 100%;
+        max-width: 500px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        cursor: pointer;
+      }
+      .history-card img:hover {
+        transform: scale(1.03);
+      }
+      .history-card-content {
+        padding: 30px;
+        flex: 1;
+      }
+      .history-card-content h3 {
+        font-size: 30px;
+        margin-bottom: 15px;
+        color: #222;
+      }
+      .history-card-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #444;
+        margin-bottom: 8px;
+      }
+    </style>
+
+    <!-- Gaziantep Kalesi -->
+    <div class="history-card">
+      <img src="img/gaziantepkalesi.jpg" alt="Gaziantep Kalesi">
+      <div class="history-card-content">
+        <h3>Gaziantep Kalesi</h3>
+        <p>Roma döneminde gözlem kulesi olarak inşa edilen Gaziantep Kalesi, şehrin merkezinde tüm görkemiyle yükselir. İçinde Kurtuluş Savaşı Kahramanlık Panoraması yer alır.</p>
+        <p><strong>Adres:</strong> Seferpaşa Mah., Şahinbey/Gaziantep</p>
+        <p><strong>Ziyaret:</strong> Geçici olarak restorasyonda olabilir</p>
+        <p><strong>Giriş:</strong> Ücretsiz</p>
+      </div>
+    </div>
+
+    <!-- Boyacı Camii -->
+    <div class="history-card">
+      <img src="img/boyacicamii.jpg" alt="Boyacı Camii">
+      <div class="history-card-content">
+        <h3>Boyacı Camii</h3>
+        <p>1211 yılında inşa edilen Boyacı Camii, Anadolu’daki en eski camilerden biridir. Taş işçiliği ve sade mimarisiyle huzur verir.</p>
+        <p><strong>Adres:</strong> Şehitler Cd., Şahinbey/Gaziantep</p>
+        <p><strong>Ziyaret Saatleri:</strong> Gün boyu (namaz saatleri dışında)</p>
+        <p><strong>Giriş:</strong> Ücretsiz</p>
+      </div>
+    </div>
+
+    <!-- Zincirli Bedesten -->
+    <div class="history-card">
+      <img src="img/zincirlibedesten.jpg" alt="Zincirli Bedesten">
+      <div class="history-card-content">
+        <h3>Zincirli Bedesten</h3>
+        <p>17. yüzyılda inşa edilen bu kapalı çarşı, el işi ürünler ve baharat kokularıyla doludur. Geleneksel alışveriş deneyimi sunar.</p>
+        <p><strong>Adres:</strong> Karagöz Mahallesi, Şahinbey/Gaziantep</p>
+        <p><strong>Ziyaret Saatleri:</strong> Her gün 09:00 – 19:00</p>
+        <p><strong>Giriş:</strong> Ücretsiz</p>
+      </div>
+    </div>
+
+    <!-- Bey Mahallesi -->
+    <div class="history-card">
+      <img src="img/beymahallesi.jpg" alt="Bey Mahallesi">
+      <div class="history-card-content">
+        <h3>Bey Mahallesi</h3>
+        <p>Restorasyonla hayat bulan tarihi evleri ve taş sokaklarıyla nostaljik bir yürüyüş deneyimi sunar. Gaziantep’in kültürel ruhu burada yaşar.</p>
+        <p><strong>Adres:</strong> Bey Mah., Şahinbey/Gaziantep</p>
+        <p><strong>Ziyaret:</strong> Gün boyu gezilebilir</p>
+        <p><strong>Giriş:</strong> Ücretsiz</p>
+      </div>
+    </div>
+
+    <!-- Tahir Ağa Konağı -->
+    <div class="history-card">
+      <img src="img/tahiraga.jpg" alt="Tahir Ağa Konağı">
+      <div class="history-card-content">
+        <h3>Tahir Ağa Konağı</h3>
+        <p>Gaziantep’in geleneksel mimarisini yansıtan bu konak, sergi ve kültürel etkinliklere ev sahipliği yapar.</p>
+        <p><strong>Adres:</strong> Eyüpoğlu Mahallesi, Şahinbey/Gaziantep</p>
+        <p><strong>Ziyaret:</strong> Müze kapsamında gezilebilir</p>
+        <p><strong>Giriş:</strong> Ücretsiz</p>
+      </div>
+    </div>
+
+    <!-- Naib Hamamı -->
+    <div class="history-card">
+      <img src="img/naibhamami.jpg" alt="Naib Hamamı">
+      <div class="history-card-content">
+        <h3>Tarihi Naib Hamamı</h3>
+        <p>Türk hamam kültürünü yaşatan bu yapı, 17. yüzyıldan günümüze ulaşmış nadir hamamlardandır. Ziyaret veya hizmet amaçlı kullanılabilir.</p>
+        <p><strong>Adres:</strong> Eski Saray Cd., Şahinbey/Gaziantep</p>
+        <p><strong>Giriş:</strong> Ücretli (hamam kullanımına göre değişir)</p>
+      </div>
+    </div>
+
+  </section>
+</body>
+</html>

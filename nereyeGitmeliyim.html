@@ -1,9 +1,8 @@
-<!-- Güncellenmiş Mood Testi - Daha Estetik ve Açıklamalı -->
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mood Testi - Türkiye Şehir Önerisi</title>
   <style>
     * {
@@ -12,19 +11,16 @@
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-
     body {
       background-color: #fff3e0;
       color: #333;
       line-height: 1.6;
     }
-
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
     }
-
     header {
       text-align: center;
       margin-bottom: 30px;
@@ -34,11 +30,9 @@
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
     .question-container {
       display: none;
     }
-
     .question-container.active {
       display: block;
       background: #fff;
@@ -48,25 +42,21 @@
       margin-bottom: 30px;
       animation: fadeIn 0.3s ease;
     }
-
     .question::before {
       content: "🧭 ";
     }
-
     .question {
       font-size: 1.5rem;
       margin-bottom: 25px;
       color: #e65100;
       text-align: center;
     }
-
     .options {
       display: flex;
       flex-direction: column;
       gap: 16px;
       align-items: stretch;
     }
-
     .option {
       padding: 14px 18px;
       background-color: #ffe0b2;
@@ -77,19 +67,16 @@
       text-align: center;
       font-size: 1.1rem;
     }
-
     .option:hover,
     .option.selected {
       background-color: #ffb74d;
       border-color: #fb8c00;
     }
-
     .navigation {
       display: flex;
       justify-content: space-between;
       margin-top: 30px;
     }
-
     button {
       padding: 10px 24px;
       background-color: #fb8c00;
@@ -100,12 +87,10 @@
       cursor: pointer;
       transition: background-color 0.2s ease;
     }
-
     button:disabled {
       background-color: #ffcc80;
       cursor: not-allowed;
     }
-
     .result-container {
       display: none;
       text-align: center;
@@ -115,19 +100,16 @@
       box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
       animation: fadeIn 0.4s ease;
     }
-
     .result-container h2 {
       color: #e65100;
       margin-bottom: 20px;
       font-size: 1.8rem;
     }
-
     .result-container p {
       font-size: 1.2rem;
       margin-bottom: 15px;
       color: #444;
     }
-
     .result-container img {
       width: 100%;
       max-height: 320px;
@@ -135,7 +117,6 @@
       border-radius: 12px;
       margin-top: 20px;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -156,84 +137,45 @@
       <p id="city-description"></p>
       <img id="city-img" src="" alt="">
     </div>
-    <button id="restart-btn" style="margin-top: 20px; display:none; padding: 10px 24px; background-color: #e65100; color: #fff; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer;">Testi Yeniden Başlat</button>
+    <button id="restart-btn" style="margin-top: 20px; display:none;">Testi Yeniden Başlat</button>
   </div>
+
   <script>
     const cities = [
-      {
-        name: "Antalya",
-        desc: "Antalya; sıcak kumları, berrak denizi ve hareketli gece hayatıyla yaz tatilinin kalbidir. Aynı zamanda antik şehirler ve doğa harikalarıyla doludur.",
-        img: "https://cdn.pixabay.com/photo/2017/06/20/21/41/beach-2428343_1280.jpg"
-      },
-      {
-        name: "İstanbul",
-        desc: "İki kıtayı birleştiren bu şehir, tarih, kültür ve modern yaşamın eşsiz karışımını sunar. Ayasofya'dan Boğaz turlarına kadar keşfedecek çok şey var.",
-        img: "https://cdn.pixabay.com/photo/2018/03/25/16/24/istanbul-3254253_1280.jpg"
-      },
-      {
-        name: "Trabzon",
-        desc: "Yeşil doğası, serin yaylaları ve Karadeniz mutfağıyla huzurlu bir kaçış noktasıdır. Uzungöl ve Sümela Manastırı mutlaka görülmeli.",
-        img: "https://cdn.pixabay.com/photo/2020/06/13/17/37/lake-5293673_1280.jpg"
-      },
-      {
-        name: "Kapadokya",
-        desc: "Peri bacalarıyla ünlü bu bölge, sıcak hava balonları, yer altı şehirleri ve doğal taş otelleriyle unutulmaz bir deneyim sunar.",
-        img: "https://cdn.pixabay.com/photo/2019/06/03/06/27/cappadocia-4249913_1280.jpg"
-      },
-      {
-        name: "Bursa",
-        desc: "Osmanlı'nın ilk başkenti olan Bursa, tarihi çarşıları, Uludağ kayak merkezi ve şifalı kaplıcalarıyla dört mevsim ziyaretçilerini ağırlar.",
-        img: "https://cdn.pixabay.com/photo/2022/02/22/17/01/bursa-7028860_1280.jpg"
-      },
-      {
-        name: "Mardin",
-        desc: "Taş evleri, dar sokakları ve Mezopotamya’ya bakan manzarasıyla tarih kokan bu şehir, mistik bir atmosfer sunar.",
-        img: "https://cdn.pixabay.com/photo/2020/01/14/09/39/mardin-4762157_1280.jpg"
-      },
-      {
-        name: "Fethiye",
-        desc: "Mavi yolculuğun en güzel duraklarından biri. Ölüdeniz, Kelebekler Vadisi ve doğa sporları ile macera tutkunlarına hitap eder.",
-        img: "https://cdn.pixabay.com/photo/2016/08/10/15/00/lagoon-1586533_1280.jpg"
-      },
-      {
-        name: "Eskişehir",
-        desc: "Sanat, öğrenci hayatı ve modern şehircilik ile bilinen Eskişehir; gondol turları, müzeler ve parklarıyla dolu dinamik bir şehir.",
-        img: "https://cdn.pixabay.com/photo/2018/12/15/19/52/turkey-3876699_1280.jpg"
-      },
-      {
-        name: "Rize",
-        desc: "Yaylaları, çay bahçeleri ve bol yağmurlu havasıyla Karadeniz’in doğa harikası bir parçası. Doğa fotoğrafçıları için biçilmiş kaftan.",
-        img: "https://cdn.pixabay.com/photo/2021/10/31/12/47/rize-6758310_1280.jpg"
-      },
-      {
-        name: "Amasra",
-        desc: "Tarihi dokusu ve balıkçı tekneleriyle huzur dolu bir Karadeniz kasabası. Deniz ürünleri ve gün batımı burada başka güzel.",
-        img: "https://cdn.pixabay.com/photo/2022/06/01/15/00/amasra-7235984_1280.jpg"
-      }
+      { name: "İstanbul", desc: "Modern yaşamın ve tarihin birleştiği büyülü şehir.", img: "https://cdn.pixabay.com/photo/2018/03/25/16/24/istanbul-3254253_1280.jpg" },
+      { name: "İzmir", desc: "Ege’nin incisi; deniz, sanat ve özgür ruh.", img: "https://cdn.pixabay.com/photo/2016/08/15/13/19/izmir-1591753_1280.jpg" },
+      { name: "Antalya", desc: "Sıcak plajlar, tarihi kalıntılar ve güneşin kalbi.", img: "https://cdn.pixabay.com/photo/2017/06/20/21/41/beach-2428343_1280.jpg" },
+      { name: "Bursa", desc: "Tarihi, doğası ve kış turizmiyle dört dörtlük bir şehir.Uludağ Kayak Merkezinde keyifli bir şekilde kayak yapabilirsiniz.", img: "https://cdn.pixabay.com/photo/2022/02/22/17/01/bursa-7028860_1280.jpg" },
+      { name: "Erzurum", desc: "Palandöken’in zirvesinde kayak keyfi ve yöresel tatlar.", img: "https://cdn.pixabay.com/photo/2019/10/29/19/21/erzurum-4588463_1280.jpg" },
+      { name: "Trabzon", desc: "Serin yaylalar ve yeşilin bin bir tonu.", img: "https://cdn.pixabay.com/photo/2020/06/13/17/37/lake-5293673_1280.jpg" },
+      { name: "Eskişehir", desc: "Genç, enerjik, modern ve bol kahveli bir şehir!", img: "https://cdn.pixabay.com/photo/2018/12/15/19/52/turkey-3876699_1280.jpg" }
     ];
 
     const questions = [
-  { question: "Tatilde nasıl hissetmek istersin?", options: ["Dinlenmiş", "Maceralı", "İlham almış", "Huzurlu"] },
-  { question: "En sevdiğin hava durumu nedir?", options: ["Sıcak ve güneşli", "Serin ve rüzgarlı", "Kapalı ve yağmurlu", "Mevsimlik değişken"] },
-  { question: "Tatil süresince en çok ne yapmak istersin?", options: ["Denize girmek", "Doğa yürüyüşü", "Müze gezmek", "Gastronomi keşfi"] },
-  { question: "Tatili kiminle yapmayı tercih edersin?", options: ["Ailemle", "Arkadaşlarımla", "Yalnız", "Sevgilimle"] },
-  { question: "Tatil ulaşım tercihin?", options: ["Uçak", "Araba", "Otobüs", "Tren"] },
-  { question: "Bir tatil fotoğrafında ne görünsün isterdin?", options: ["Plaj", "Yayla", "Tarihi bina", "Festival alanı"] },
-  { question: "Tatil sırasında alışveriş yapar mısın?", options: ["Evet, bolca", "Biraz", "Nadiren", "Hiç yapmam"] },
-  { question: "Tatilde yemek tercihin nedir?", options: ["Deniz ürünleri", "Et yemekleri", "Yöresel lezzetler", "Vejetaryen/vegan seçenekler"] },
-  { question: "Tatilde gündüz mü vakit geçirirsin gece mi?", options: ["Gündüz", "Gece", "Fark etmiyor", "Ortama bağlı"] },
-  { question: "Doğayı mı tarihi mi tercih edersin?", options: ["Doğa", "İkisi de", "Tarih", "Modern yaşam"] },
-  { question: "Sence huzur nerede bulunur?", options: ["Deniz kenarında", "Dağ başında", "Tarihi bir sokakta", "Bir köy kahvesinde"] },
-  { question: "Tatilde müzik dinler misin?", options: ["Sürekli", "Ara sıra", "Hayır", "Canlı performans tercih ederim"] },
-  { question: "Tatil bütçen nasıldır?", options: ["Lüks", "Orta", "Ekonomik", "En ucuz olsun"] },
-  { question: "Kaldığın yer nasıl olsun?", options: ["Resort otel", "Doğa içinde bungalov", "Tarihi butik otel", "Kamp alanı"] },
-  { question: "Sana göre tatil hangi mevsimde güzeldir?", options: ["Yaz", "İlkbahar", "Sonbahar", "Kış"] },
-  { question: "Bir şehri ne çeker?", options: ["Plajları", "Manzarası", "Tarihi", "İnsanları"] },
-  { question: "Tatilde yeni insanlarla tanışır mısın?", options: ["Evet", "Belki", "Hayır", "Sadece gerekirse"] },
-  { question: "Bir tatil sana ne kazandırmalı?", options: ["Dinlenmiş olmayı", "Yeni yerler görmeyi", "Eğlenmeyi", "Huzur"] },
-  { question: "Tatilde telefon kullanımı?", options: ["Sürekli elimde", "Günde birkaç kez", "Sadece acil durumda", "Tamamen kapalı"] },
-  { question: "Tatilden sonra hissetmek istediğin şey?", options: ["Yeniden doğmuş gibi", "Heyecan dolu", "Enerjik", "Motivasyonlu"] }
-];
+      { question: "Tatil denince aklınıza ilk olarak hangi mevsim geliyor?", options: ["Yaz gelsin, sıcağı da severim!", "Karlar içinde tatil hayalim!", "Baharda mis gibi çiçek kokuları", "Yaprakların dans ettiği bir sonbahar"] },
+      { question: "Gözlerinizi kapatın ve tatilde olduğunuzu hayal edin... Karşınızda nasıl bir manzara canlanıyor?", options: ["Upuzun bir plaj, güneş ve deniz", "Karla kaplı dağlar, kayak pisti", "Canlı sokaklar, bol bol fotoğraflık yer", "Yeşillikler, sis ve serinlik"] },
+      { question: "Şöyle bir düşünün... Hangi şehirde yaşasanız, 'Yemek konusunda asla sıkıntı çekmem' dersiniz?", options: ["Yöresel lezzetler tam benlik!", "Dışarıdan yemeyi severim, her şey elimin altında olsun"] },
+      { question: "Bir tatilde sizi en çok heyecanlandıran şey ne olurdu?", options: ["Turist gibi gezip eğlenmek", "Güneşlenmek, biraz da yanmak", "Kar topu savaşı ya da kayak", "Yağmuru izlemek, sessiz doğa"] },
+      { question: "Tatil sabahlarınız genelde nasıl başlar, güne nasıl başlamayı seversiniz?", options: ["Kahveyle uyanırım, acele etmem", "Sabahın erken saatinde dışarı fırlarım", "Önce atkımı bulurum, sonra kahvaltı", "Yağmur varsa dışarı çıkmam"] },
+      { question: "Tatil akşamları geldiğinde, en çok ne yapmaktan keyif alırsınız?", options: ["Şehirde gezinmek", "Sahilde içecek keyfi", "Soba başında sohbet", "Yağmur sesiyle battaniyeye sarılmak"] },
+      { question: "Bir tatil fotoğrafına baktığınızda, sizi en çok hangi manzara mutlu ederdi?", options: ["Güneş ve deniz", "Kar ve dağ manzarası", "Renkli sokaklar", "Yeşillik ve sis"] },
+      { question: "Tatile çıkmak için genelde hangi zamanı tercih edersiniz?", options: ["Hafta içi daha sakin oluyor, o zamanları severim.", "Hafta sonu kaçamakları tam benlik!"] },
+      { question: "Sizce bir tatilin ruhu nasıl olmalı, size en çok hangisi iyi gelir?", options: ["Enerji ve eğlence", "Doğa ve serinlik", "Kış sporu", "Deniz ve bronzluk"] },
+      { question: "‘Bir sonraki tatilim kesinlikle burada olmalı’ dediğiniz ortam nasıl bir yer olurdu sizce?", options: ["Ege sahilleri", "Kayak merkezi", "Şehir, tarih ve eğlence", "Serin yaylalar"] }
+    ];
+
+    const answerMap = [
+      [["İzmir", "Antalya"], ["Bursa", "Erzurum"], ["İstanbul", "Eskişehir"], ["Trabzon"]],
+      [["İzmir", "Antalya"], ["Bursa", "Erzurum"], ["İstanbul"], ["Trabzon"]],
+      [["Erzurum", "Trabzon"], ["İstanbul", "İzmir", "Antalya", "Eskişehir"]],
+      [["İstanbul"], ["İzmir", "Antalya"], ["Bursa", "Erzurum"], ["Trabzon"]],
+      [["İstanbul", "Eskişehir"], ["İzmir", "Antalya"], ["Bursa", "Erzurum"], ["Trabzon"]],
+      [["İstanbul"], ["İzmir", "Antalya"], ["Bursa", "Erzurum"], ["Trabzon"]],
+      [["İzmir", "Antalya"], ["Bursa", "Erzurum"], ["İstanbul"], ["Trabzon"]],
+      [["Trabzon", "Erzurum"], ["İstanbul", "İzmir", "Antalya", "Eskişehir"]],
+      [["İstanbul", "İzmir"], ["Trabzon", "Erzurum"], ["Bursa", "Erzurum"], ["İzmir", "Antalya"]],
+      [["İzmir", "Antalya"], ["Bursa", "Erzurum"], ["İstanbul"], ["Trabzon"]]
+    ];
 
     let current = 0;
     const answers = [];
@@ -272,15 +214,6 @@
         if (current > 0) {
           current--;
           showQuestion();
-
-    document.getElementById("restart-btn").addEventListener("click", () => {
-      current = 0;
-      answers.length = 0;
-      document.getElementById("result").style.display = "none";
-      document.getElementById("restart-btn").style.display = "none";
-      quiz.style.display = "block";
-      showQuestion();
-    });
         }
       });
 
@@ -296,20 +229,38 @@
 
     function showResult() {
       quiz.style.display = "none";
-      const result = answers.reduce((acc, val) => acc + val, 0);
-      const city = cities[result % cities.length];
+      const cityScores = {
+        "İstanbul": 0, "İzmir": 0, "Antalya": 0, "Bursa": 0, "Erzurum": 0,
+        "Trabzon": 0, "Eskişehir": 0
+      };
+
+      answers.forEach((answerIndex, qIndex) => {
+        const selectedCities = answerMap[qIndex][answerIndex];
+        selectedCities.forEach(city => {
+          if (cityScores[city] !== undefined) {
+            cityScores[city]++;
+          }
+        });
+      });
+
+      const topCity = Object.entries(cityScores).sort((a, b) => b[1] - a[1])[0][0];
+      const city = cities.find(c => c.name === topCity);
+
       document.getElementById("city-name").textContent = city.name;
       document.getElementById("city-description").textContent = city.desc;
       document.getElementById("city-img").src = city.img;
       document.getElementById("result").style.display = "block";
       document.getElementById("restart-btn").style.display = "inline-block";
-
-      const questionIndex = answers.reduce((acc, val, idx) => val === Math.max(...answers) && acc === -1 ? idx : acc, -1);
-      const trigger = questions[questionIndex];
-      const triggerAnswer = trigger.options[answers[questionIndex]];
-
-      
     }
+
+    document.getElementById("restart-btn").addEventListener("click", () => {
+      current = 0;
+      answers.length = 0;
+      document.getElementById("result").style.display = "none";
+      document.getElementById("restart-btn").style.display = "none";
+      quiz.style.display = "block";
+      showQuestion();
+    });
 
     showQuestion();
   </script>

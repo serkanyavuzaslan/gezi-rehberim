@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gezi Rehberim - Güneydoğu Anadolu Bölgesi</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <h2>gezi rehberim.</h2>
+    </div>
+    <div class="links">
+      <ul>
+        <li><a href="#">Anasayfa</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="icons">
+      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <i class="fa-solid fa-bars"></i>
+  </header>
+
+  <!-- Şehirler Başlık -->
+  <h1 style="text-align: center; margin: 40px 0; color: #0c0c0c; font-size: 32px;">Güneydoğu Anadolu Bölgesi'ndeki Şehirler</h1>
+
+  <!-- Şehirler Kart Alanı -->
+  <div class="sehirler-container">
+
+    <!-- 1. Satır -->
+     <a href="gaziantep.html">
+      <div class="satir">
+      <div class="sehir-karti">
+        <img src="img/gaziantep.jpg" alt="Gaziantep">
+        <div class="sehir-icerik">
+          <h2>Gaziantep</h2>
+          <p>Dünyaca ünlü mutfağı, Zeugma Müzesi ve tarihi çarşılarıyla kültür başkentidir.</p>
+        </div>
+      </div>
+     </a>
+    
+
+      <div class="sehir-karti">
+        <img src="img/sanliurfa.jpg" alt="Şanlıurfa">
+        <div class="sehir-icerik">
+          <h2>Şanlıurfa</h2>
+          <p>Balıklıgöl, Göbeklitepe ve peygamberler diyarı olarak bilinen kadim şehirdir.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/diyarbakir.jpg" alt="Diyarbakır">
+        <div class="sehir-icerik">
+          <h2>Diyarbakır</h2>
+          <p>Tarihi surları ve Hevsel Bahçeleriyle kültür ve tarih harmanı bir şehir.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Satır -->
+    <div class="satir">
+      <div class="sehir-karti">
+        <img src="img/mardin.jpg" alt="Mardin">
+        <div class="sehir-icerik">
+          <h2>Mardin</h2>
+          <p>Taş evleri, dar sokakları ve farklı dinlerin bir arada yaşadığı tarihi şehir.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/batman.jpg" alt="Batman">
+        <div class="sehir-icerik">
+          <h2>Batman</h2>
+          <p>Hasankeyf antik kentini barındıran ve Dicle Nehri ile hayat bulan şehir.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/adiyaman.jpg" alt="Adıyaman">
+        <div class="sehir-icerik">
+          <h2>Adıyaman</h2>
+          <p>Nemrut Dağı ve dev heykelleriyle UNESCO mirasında yer alan eşsiz şehir.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Satır -->
+    <div class="satir">
+      <div class="sehir-karti">
+        <img src="img/kilis.jpg" alt="Kilis">
+        <div class="sehir-icerik">
+          <h2>Kilis</h2>
+          <p>Lezzetli mutfağı ve Suriye sınırına yakınlığıyla dikkat çeken küçük şehir.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/siirt.jpg" alt="Siirt">
+        <div class="sehir-icerik">
+          <h2>Siirt</h2>
+          <p>Fıstığı, cas evleri ve manevi havasıyla tanınan sıcak iklimli bir şehir.</p>
+        </div>
+      </div>
+
+      <div class="sehir-karti">
+        <img src="img/sirnak.jpg" alt="Şırnak">
+        <div class="sehir-icerik">
+          <h2>Şırnak</h2>
+          <p>Cudi Dağı, Zaho sınırı ve doğal yaşam alanlarıyla öne çıkan sınır şehri.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Şehirler Kartlarının Stili -->
+  <style>
+    .sehirler-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .satir {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .sehir-karti {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      width: 280px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .sehir-karti:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    }
+    .sehir-karti img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .sehir-icerik {
+      padding: 20px;
+    }
+    .sehir-icerik h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #000000;
+      text-align: center;
+    }
+    .sehir-icerik p {
+      color: #444;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .satir {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kars'ta Eğlence ve Aile Aktiviteleri</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h2> gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <!-- Sayfa İçeriği -->
+    <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">Kars’ta Eğlence ve Aile Aktiviteleri</h2>
+
+        <style>
+            .history-card {
+                display: flex;
+                flex-wrap: wrap;
+                background: #ffffff;
+                border-radius: 14px;
+                margin-bottom: 40px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+                overflow: hidden;
+                max-width: 1200px;
+                margin-inline: auto;
+                transition: transform 0.3s ease;
+            }
+            .history-card img {
+                width: 100%;
+                max-width: 500px;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+                cursor: pointer;
+            }
+            .history-card img:hover {
+                transform: scale(1.03);
+            }
+            .history-card-content {
+                padding: 30px;
+                flex: 1;
+            }
+            .history-card-content h3 {
+                font-size: 30px;
+                margin-bottom: 15px;
+                color: #222;
+            }
+            .history-card-content p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #444;
+                margin-bottom: 8px;
+            }
+        </style>
+
+        <!-- 1. Sarıkamış Kayak Merkezi -->
+        <div class="history-card">
+            <img src="img/sarikamis_kayak.jpg" alt="Sarıkamış Kayak Merkezi">
+            <div class="history-card-content">
+                <h3>Sarıkamış Kayak Merkezi</h3>
+                <p>Kristal karıyla ünlü Sarıkamış Kayak Merkezi, kış sporları ve ailece eğlence için ideal bir destinasyondur.</p>
+                <p><strong>Konum:</strong> Sarıkamış/Kars</p>
+                <p><strong>Aktiviteler:</strong> Kayak, snowboard, kızak, teleferik</p>
+                <p><strong>Giriş:</strong> Ücretli (skipass gereklidir)</p>
+            </div>
+        </div>
+
+        <!-- 2. Kars Millet Bahçesi -->
+        <div class="history-card">
+            <img src="img/millet_bahcesi_kars.jpg" alt="Kars Millet Bahçesi">
+            <div class="history-card-content">
+                <h3>Millet Bahçesi</h3>
+                <p>Yürüyüş yolları, dinlenme alanları ve çocuk parklarıyla her yaştan birey için sakin ve keyifli bir ortam sunar.</p>
+                <p><strong>Konum:</strong> Yenişehir Mah., Merkez/Kars</p>
+                <p><strong>Aktiviteler:</strong> Yürüyüş, piknik, çocuk oyun alanı</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+        <!-- 3. Kars Şehir Parkı (Lunapark) -->
+        <div class="history-card">
+            <img src="img/sehir_parki_kars.jpg" alt="Kars Şehir Parkı">
+            <div class="history-card-content">
+                <h3>Kars Şehir Parkı</h3>
+                <p>Mini lunapark alanı, salıncaklar ve eğlenceli figürlerle çocuklar ve aileler için güzel bir sosyal ortam sunar.</p>
+                <p><strong>Konum:</strong> Fevzi Çakmak Mah., Merkez/Kars</p>
+                <p><strong>Aktiviteler:</strong> Lunapark, aile yürüyüşü, dinlenme</p>
+                <p><strong>Giriş:</strong> Park girişi ücretsiz, lunapark ücretli</p>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>

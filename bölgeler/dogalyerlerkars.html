@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kars'taki Doğal Yerler</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h2> gezi rehberim.</h2>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#">Anasayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <!-- Sayfa İçeriği -->
+    <section style="padding: 60px 20px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: 40px; color: #222;">Kars’taki Doğal Yerler</h2>
+
+        <style>
+            .history-card {
+                display: flex;
+                flex-wrap: wrap;
+                background: #ffffff;
+                border-radius: 14px;
+                margin-bottom: 40px;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+                overflow: hidden;
+                max-width: 1200px;
+                margin-inline: auto;
+                transition: transform 0.3s ease;
+            }
+            .history-card img {
+                width: 100%;
+                max-width: 500px;
+                object-fit: cover;
+                transition: transform 0.4s ease;
+                cursor: pointer;
+            }
+            .history-card img:hover {
+                transform: scale(1.03);
+            }
+            .history-card-content {
+                padding: 30px;
+                flex: 1;
+            }
+            .history-card-content h3 {
+                font-size: 30px;
+                margin-bottom: 15px;
+                color: #222;
+            }
+            .history-card-content p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #444;
+                margin-bottom: 8px;
+            }
+        </style>
+
+        <!-- 1. Çıldır Gölü -->
+        <div class="history-card">
+            <img src="img/cildir.jpg" alt="Çıldır Gölü">
+            <div class="history-card-content">
+                <h3>Çıldır Gölü</h3>
+                <p>Kışın tamamen donan bu göl, üzerinde kızakla gezinti ve buz balıkçılığı yapılan eşsiz bir doğa harikasıdır.</p>
+                <p><strong>Konum:</strong> Çıldır/Ardahan – Kars sınırı</p>
+                <p><strong>Aktiviteler:</strong> Buz üstü kızak, balıkçılık, fotoğrafçılık</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+        <!-- 2. Sarıkamış Ormanları -->
+        <div class="history-card">
+            <img src="img/sarikamis.jpg" alt="Sarıkamış Ormanları">
+            <div class="history-card-content">
+                <h3>Sarıkamış Ormanları</h3>
+                <p>Sarıkamış Kayak Merkezi’nin çevresindeki çam ormanları, temiz havası ve muhteşem doğasıyla nefes keser.</p>
+                <p><strong>Konum:</strong> Sarıkamış/Kars</p>
+                <p><strong>Aktiviteler:</strong> Kayak, doğa yürüyüşü, kar tatili</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+        <!-- 3. Susuz Şelalesi -->
+        <div class="history-card">
+            <img src="img/susuz.jpg" alt="Susuz Şelalesi">
+            <div class="history-card-content">
+                <h3>Susuz Şelalesi</h3>
+                <p>Yaz aylarında yeşillikler arasında serinlemek isteyenler için Susuz Şelalesi harika bir kaçış noktasıdır.</p>
+                <p><strong>Konum:</strong> Susuz ilçesi, Kars</p>
+                <p><strong>Aktiviteler:</strong> Piknik, yürüyüş, doğa fotoğrafçılığı</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+        <!-- 4. Aygır Gölü -->
+        <div class="history-card">
+            <img src="img/aygir.jpg" alt="Aygır Gölü">
+            <div class="history-card-content">
+                <h3>Aygır Gölü</h3>
+                <p>Volkanik bir göl olan Aygır Gölü, doğayla iç içe zaman geçirmek isteyenlerin huzur dolu adreslerinden biridir.</p>
+                <p><strong>Konum:</strong> Susuz ilçesi yakınları, Kars</p>
+                <p><strong>Aktiviteler:</strong> Göl manzarası, kamp, yürüyüş</p>
+                <p><strong>Giriş:</strong> Ücretsiz</p>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>
